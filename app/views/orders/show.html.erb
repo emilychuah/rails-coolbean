@@ -1,19 +1,20 @@
 <div class="p-5" id="newform">
   <div class="m-2  d-flex flex-column">
-    <h3 class="d-flex justify-content-center">You've successfully placed a booking </h3>
+    <h3 class="d-flex justify-content-center">You've successfully placed an order! </h3>
     <h4 class="d-flex justify-content-center">Here are the details:</h4>
   </div>
   <div class="m-2">
-    <div class="d-flex justify-content-center"><strong><p>Your stay:</strong> <%= @booking.listing.title %></p></div>
-    <div class="d-flex justify-content-center"><strong><p>Number of people:</strong> <%= @booking.number_of_people %></p></div>
-    <div class="d-flex justify-content-center"><strong><p>Total price: AUD </strong><%= @booking.total_price %></p></div>
-    <div class="d-flex justify-content-center"><strong><p>Check-in date: </strong><%= @booking.check_in_date_utc %></p></div>
-    <div class="d-flex justify-content-center"><strong><p>Check-out date:</strong> <%= @booking.check_out_date_utc %></p></div>
-    <div class="d-flex justify-content-center"><strong><p>Booked by: </strong><%= @booking.user.name %></p></div>
+    <div class="d-flex justify-content-center"><strong><p>Your meal:</strong> <%= @order.meal_title %></p></div>
+    <div class="d-flex justify-content-center"><strong><p>Number of Serving:</strong> <%= @order.number_of_serving %></p></div>
+    <div class="d-flex justify-content-center"><strong><p>Total price: AUD </strong><%= @order.total_price %></p></div>
+    <div class="d-flex justify-content-center"><strong><p>Collection Point </strong><%= @order.address %></p></div>
+    <%# <div class="d-flex justify-content-center"><strong><p>Check-in date: </strong><%= @order.check_in_date_utc %></p></div> %>
+    <%# <div class="d-flex justify-content-center"><strong><p>Check-out date:</strong> <%= @order.check_out_date_utc %></p></div> %>
+    <div class="d-flex justify-content-center"><strong><p>Booked by: </strong><%= @order.user.name %></p></div>
   </div>
 
   <div class="d-flex justify-content-center">
-    <%= link_to "Home Page", listings_path(@booking), class: "btn btn-outline-secondary mx-2" %>
-    <%= link_to "Bookings Page", bookings_path(@booking), class: "btn btn-outline-secondary mx-2 btn" %>
+    <%= link_to "Home Page", listings_path(@order), class: "btn btn-outline-secondary mx-2" %>
+    <%= link_to "orders Page", orders_path(@order), class: "btn btn-outline-secondary mx-2 btn" %>
   </div>
 </div>
