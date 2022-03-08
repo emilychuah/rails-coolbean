@@ -5,17 +5,19 @@
 
   <div class="section d-flex justify-content-center">
   <%= simple_form_for(@meal) do |f| %>
-    <%= f.input :title %>
-
-    <%= f.input :address,
-                input_html: { data: { geocoder_target: "address" }, class: "d-none" },
-                wrapper_html: { data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'] } } %>
+    <%= f.input :name %>
 
     <%= f.input :description %>
 
-    <%= f.input :serving_availability %>
+    <%= f.input :cuisine %>
 
-    <%= f.input :price_per_serving %>
+    <%= f.input :price %>
+
+    <%= f.input :available_quantity %>
+
+    <%= f.input :collection_from %>
+
+    <%= f.input :collection_to %>
 
     <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     <div class="d-flex justify-content-center">
