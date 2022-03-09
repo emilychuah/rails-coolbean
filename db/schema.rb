@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_08_053754) do
+ActiveRecord::Schema.define(version: 2022_03_09_015238) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,7 +81,5 @@ ActiveRecord::Schema.define(version: 2022_03_08_053754) do
   add_foreign_key "meal_orders", "meals"
   add_foreign_key "meal_orders", "orders"
   add_foreign_key "meals", "users"
-  add_foreign_key "orders", "users", column: "payee_id"
-  add_foreign_key "orders", "users", column: "payer_id"
   add_foreign_key "reviews", "meal_orders"
 end

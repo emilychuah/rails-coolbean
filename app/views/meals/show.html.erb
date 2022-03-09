@@ -6,18 +6,24 @@
 
 <div class="description d-flex flex-row justify-content-between">
   <div class="p-5 d-flex flex-column justify-content-center">
-    <h1 class="pb-4"><%= @meal.title %></h1>
-    <p><strong>Address:</strong> <%= @meal.address %></p>
+    <h1 class="pb-4"><%= @meal.name %></h1>
+    <p><strong>Address:</strong> <%= @meal.user.address %></p>
     <p><strong>Description:</strong> <%= @meal.description %></p>
-    <p><strong>Serving Availability:</strong> <%= @meal.serving_availability %></p>
-    <p><strong>Price per Serving:</strong> AUD <%= @meal.price_per_serving %></p>
+    <p><strong>Serving Availability:</strong> <%= @meal.available_quantity %></p>
+    <p><strong>Price per Serving:</strong> AUD <%= @meal.price %></p>
     <p><strong>Home Chef:</strong> <%= @meal.user.name %></p>
 
     <div class="p-2">
-      <%= link_to 'Order Now', new_meal_booking_path(@meal.id), class: 'btn btn-primary' %>
-      <%= link_to 'All User meals', user_path(@meal.user_id), class: 'btn btn-primary' %>
-      <%= link_to "Go Back", meals_path(@meal), class: 'btn btn-link text-decoration-none' %>
+      <%= simple_form_for [@meal, @order] do |f|%>
+      <%= f.submit %>
+    <% end %>
+
+(@meal), class: 'btn btn-link text-decoration-none' %>
     </div>
+
+      <%# <%= simple_form 'Order Now', new_meal_booking_path(@meal.id), class: 'btn btn-primary' %> %>
+      <%= link_to 'All User meals', user_path(@meal.user_id), class: 'btn btn-primary' %>
+      <%= link_to "Go Back", meals_path
 
   </div>
   <%# <div>
