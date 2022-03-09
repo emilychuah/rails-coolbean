@@ -2,8 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'meals#home'
   resources :meals do
-    resources :orders, only: [:show, :create] do
-      resources :meal_orders, only: [:show , :destroy, :index, :create, :update ]
-    end
+    resources :orders, only: [:show, :create]
   end
+
+  resources :meal_orders, only: [:show , :destroy, :create, :update ]
+  get 'cart', to: 'meal_orders#index', as: :cart
 end
