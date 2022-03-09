@@ -7,6 +7,7 @@ class MealsController < ApplicationController
 
   def show
     @meal = Meal.find(params[:id])
+    @order = Order.find(params[:id])
   end
 
   def new
@@ -29,5 +30,9 @@ class MealsController < ApplicationController
 
   def meal_params
     params.require(:meal).permit(:name, :description, :cuisine, :price, :available_quantity, :available_quantity, :collection_from, :collection_to, photos: [])
+  end
+
+  def order_params
+    params.require(:order).permit(:user_id, :is_paid, :is_picked_up)
   end
 end
