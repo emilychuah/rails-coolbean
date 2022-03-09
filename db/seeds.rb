@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
 puts "Creating users..."
 
 marc = User.create!(
@@ -86,3 +87,4 @@ MealOrder.create!(
   order_id: 1,
   quantity_ordered:
 )
+
