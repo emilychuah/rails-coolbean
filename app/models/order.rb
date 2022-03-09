@@ -1,7 +1,6 @@
 class Order < ApplicationRecord
-  belongs_to :payee, class_name: "User"
-  belongs_to :payer, class_name: "User"
+  belongs_to :user
 
-  has_many :meals
-  has_many :meal_orders
+  has_many :meal_orders, dependent: :destroy
+  has_many :meals, through: :meal_orders
 end
