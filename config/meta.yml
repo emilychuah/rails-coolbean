@@ -1,5 +1,5 @@
 meta_product_name: "CoolBean"
 meta_title: "CoolBean - Share your love with homemade food"
 meta_description: "A cool app that connects home cooks and foodies who love homemade food."
-meta_image: "banner.png" # should exist in `app/assets/images/`
+meta_image: "meta-image.jpg" # should exist in `app/assets/images/`
 twitter_account: "@coolbean"   # required for Twitter Cards
