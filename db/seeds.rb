@@ -6,8 +6,21 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+if Rails.env == "development"
+  User.destroy_all
+  Meal.destroy_all
+  MealOrder.destroy_all
+  Order.destroy_all
+  Review.destroy_all
+end
 
 puts "Creating users..."
+
+emily = User.create!(
+  name: "Emily",
+  email: "emily@live.com",
+  password: "password"
+)
 
 marc = User.create!(
   name: "Marc",
@@ -18,12 +31,6 @@ marc = User.create!(
 chris = User.create!(
   name: "Chris",
   email: "chris@live.com",
-  password: "password"
-)
-
-emily = User.create!(
-  name: "Emily",
-  email: "emily@live.com",
   password: "password"
 )
 
@@ -43,7 +50,7 @@ theresa = User.create!(
 puts "Creating meals..."
 
 pasta = Meal.create!(
-  user_id: 1,
+  user: User.first,
   name: "pasta",
   price: 10,
   description: "delicious pasta",
@@ -54,7 +61,7 @@ pasta = Meal.create!(
 )
 
 fried_rice = Meal.create!(
-  user_id: 2,
+  user: User.second,
   name: "fried rice",
   price: 8,
   description: "delicious rice",
@@ -65,7 +72,7 @@ fried_rice = Meal.create!(
 )
 
 tortilla = Meal.create!(
-  user_id: 3,
+  user: User.third,
   name: "tortilla",
   price: 9,
   description: "delicious tortilla",
@@ -83,8 +90,9 @@ Order.create!(
 puts "Creating ordered meals..."
 
 MealOrder.create!(
-  meal_id: 1,
-  order_id: 1,
-  quantity_ordered:
+  meal: tortilla,
+  order: Order.first,
+  quantity_ordered: 2,
+  total_price: 30,
+  pick_up: DateTime.now.beginning_of_hour + 1.day
 )
-
