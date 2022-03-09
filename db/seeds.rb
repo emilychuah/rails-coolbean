@@ -5,4 +5,36 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Order.create(is_paid: false, is_completed: false, created_at: 'Sun, 01 Jan 2012 00:00:00 +0300', payee_id: 1, payer_id: 2  )
+
+puts "Creating users..."
+
+marc = User.create!(
+  name: "Marc",
+  email: "marc@live.com",
+  password: "password"
+)
+
+chris = User.create!(
+  name: "Chris",
+  email: "chris@live.com",
+  password: "password"
+)
+
+emily = User.create!(
+  name: "Emily",
+  email: "emily@live.com",
+  password: "password"
+)
+
+sam = User.create!(
+  name: "Sam",
+  email: "sam@live.com",
+  password: "password"
+)
+
+
+theresa = User.create!(
+  name: "Theresa",
+  email: "theresa@live.com",
+  password: "password"
+)
