@@ -65,3 +65,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Rename gem
 gem 'rename'
+
+gem 'validates_timeliness', '~> 6.0.0.beta2'

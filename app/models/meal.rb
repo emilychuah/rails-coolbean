@@ -4,7 +4,7 @@ class Meal < ApplicationRecord
   has_many :meal_orders
 
   validates :name, :price, :description, :collection_from, :collection_to, :available_quantity, :cuisine, presence: true
-  validates :price, :available_quantity, numericality: { only_integer: true }
+  validates :available_quantity, numericality: { only_integer: true }
 
   # validates_date :collection_from, on_or_after: lambda { Date.current }
   # validates_date :collection_to, on_or_after: lambda { :collection_from }

@@ -81,7 +81,5 @@ ActiveRecord::Schema.define(version: 2022_03_09_001517) do
   add_foreign_key "meal_orders", "meals"
   add_foreign_key "meal_orders", "orders"
   add_foreign_key "meals", "users"
-  add_foreign_key "orders", "users", column: "payee_id"
-  add_foreign_key "orders", "users", column: "payer_id"
   add_foreign_key "reviews", "meal_orders"
 end
