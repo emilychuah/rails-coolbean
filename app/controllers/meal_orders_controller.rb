@@ -1,7 +1,7 @@
 class MealOrdersController < ApplicationController
 
   def index
-    @Meals
+    byebug
   end
 
   def create
