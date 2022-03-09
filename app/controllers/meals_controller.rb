@@ -1,10 +1,17 @@
 class MealsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:home, :index, :show]
 
+  # Home page
+  def home
+    @meals = Meal.all
+  end
+
+  # Search results with map page
   def index
 
   end
 
+  # Specific meal page
   def show
     @meal = Meal.find(params[:id])
     @order = Order.find(params[:id])
