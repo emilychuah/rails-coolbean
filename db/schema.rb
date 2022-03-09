@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_09_015238) do
+ActiveRecord::Schema.define(version: 2022_03_09_001517) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2022_03_09_015238) do
     t.boolean "is_paid", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "is_completed", default: false
+    t.boolean "is_picked_up", default: false
     t.bigint "payee_id"
     t.bigint "payer_id"
     t.index ["payee_id"], name: "index_orders_on_payee_id"
