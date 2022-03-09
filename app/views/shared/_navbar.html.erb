@@ -1,8 +1,21 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
+    <div class="left-icons">
+      <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#">Why Cool</a>
+        <a href="#"></a>
+        <a href="#">Clients</a>
+        <a href="#">Contact</a>
+      </div>
+
+    <div id="main">
+      <button class="openbtn" onclick="openNav()">&#9776</button>
     <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "logo.png" %>
+      <%= image_tag "logo.png", height: 30  %>
     <% end %>
+    </div>
+    </div>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -11,17 +24,16 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <li class="nav-item active">
+          <%# <li class="nav-item active">
             <%= link_to "Sign Up", "#", class: "nav-link" %>
-          </li>
+          <%# </li>
           <li class="nav-item">
             <%= link_to "Cart", cart_path, class: "nav-link" %>
-          </li>
+          <%# </li> %>
           <li class="nav-item dropdown">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
+              <%= link_to "My orders", "#", class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>
