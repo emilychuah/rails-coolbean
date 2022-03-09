@@ -5,7 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+puts 'cleaning database'
 
+MealOrder.destroy_all
+Order.destroy_all
+Meal.destroy_all
+User.destroy_all
 
 puts "Creating users..."
 
@@ -42,8 +47,7 @@ theresa = User.create!(
 
 puts "Creating meals..."
 
-pasta = Meal.create!(
-  user_id: 1,
+pasta = Meal.new(
   name: "pasta",
   price: 10,
   description: "delicious pasta",
@@ -52,9 +56,10 @@ pasta = Meal.create!(
   available_quantity: 10,
   cuisine: "Italian"
 )
+pasta.user = marc
+pasta.save!
 
-fried_rice = Meal.create!(
-  user_id: 2,
+fried_rice = Meal.new(
   name: "fried rice",
   price: 8,
   description: "delicious rice",
@@ -63,9 +68,10 @@ fried_rice = Meal.create!(
   available_quantity: 15,
   cuisine: "Chinese"
 )
+fried_rice.user = theresa
+fried_rice.save!
 
-tortilla = Meal.create!(
-  user_id: 3,
+tortilla = Meal.new(
   name: "tortilla",
   price: 9,
   description: "delicious tortilla",
@@ -74,17 +80,20 @@ tortilla = Meal.create!(
   available_quantity: 20,
   cuisine: "Mexican"
 )
+tortilla.user = chris
+tortilla.save!
 
 puts "Creating orders..."
 Order.create!(
-  user: User.first
+  user: sam
 )
 
 puts "Creating ordered meals..."
 
-MealOrder.create!(
+MealOrder.new(
   meal_id: 1,
   order_id: 1,
-  quantity_ordered:
+  quantity_ordered:5,
+  total_price: 56,
+  pick_up: false
 )
-
