@@ -40,7 +40,6 @@ sam = User.create!(
   password: "password"
 )
 
-
 theresa = User.create!(
   name: "Theresa",
   email: "theresa@live.com",
@@ -54,8 +53,8 @@ pasta = Meal.create!(
   name: "pasta",
   price: 10,
   description: "delicious pasta",
-  collection_from: "2022-3-20 13:00:00",
-  collection_to: "2022-3-22 13:00:00",
+  collection_from: DateTime.now.beginning_of_hour,
+  collection_to: DateTime.now.beginning_of_hour + 2.day,
   available_quantity: 10,
   cuisine: "Italian"
 )
@@ -65,8 +64,8 @@ fried_rice = Meal.create!(
   name: "fried rice",
   price: 8,
   description: "delicious rice",
-  collection_from: "2022-3-30 15:00:00",
-  collection_to: "2022-3-31 15:00:00",
+  collection_from: DateTime.now.beginning_of_hour + 1.day,
+  collection_to: DateTime.now.beginning_of_hour + 2.day,
   available_quantity: 15,
   cuisine: "Chinese"
 )
@@ -76,8 +75,8 @@ tortilla = Meal.create!(
   name: "tortilla",
   price: 9,
   description: "delicious tortilla",
-  collection_from: "2022-3-20 9:00:00",
-  collection_to: "2022-3-22 10:00:00",
+  collection_from: DateTime.now.beginning_of_hour + 1.day,
+  collection_to: DateTime.now.beginning_of_hour + 1.day,
   available_quantity: 20,
   cuisine: "Mexican"
 )
