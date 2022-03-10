@@ -9,7 +9,11 @@ class MealsController < ApplicationController
   # Search results with map page
   def index
     if params[:query].present?
-      @meals = User.where("address ILIKE ?", "%#{params[:query]}%")
+      @users = User.search_by_address(params[:query])
+      @meals = []
+      @users.each do |user|
+        @meals += user.meals
+      end
     else
       @meals = Meal.all
     end

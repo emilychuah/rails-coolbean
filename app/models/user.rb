@@ -9,6 +9,13 @@ class User < ApplicationRecord
 
   has_many_attached :photos
 
+  include PgSearch::Model
+  pg_search_scope :search_by_address,
+    against: [ :address ],
+    using: {
+      tsearch: { prefix: true }
+    }
+
   # validates :address, :phone_number, :name, :food_safety_certified, presence: true
   # validates :phone_number, :numericality => true,
   #                          :length => { :maximum => 8 }
