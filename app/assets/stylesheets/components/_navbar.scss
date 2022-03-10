@@ -18,13 +18,14 @@
 
 /* The sidepanel menu */
 .sidepanel {
-  height: 250px; /* Specify a height */
+  height: 100vh; /* Specify a height */
   width: 0; /* 0 width - change this with JavaScript */
   position: fixed; /* Stay in place */
   z-index: 1; /* Stay on top */
   top: 0;
   left: 0;
-  background-color: #111; /* Black*/
+  background-color: white;
+  border: grey;
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 60px; /* Place content 60px from the top */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidepanel */
@@ -34,7 +35,7 @@
 .sidepanel a {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 16px;
   color: #818181;
   display: block;
   transition: 0.3s;
@@ -56,14 +57,22 @@
 
 /* Style the button that is used to open the sidepanel */
 .openbtn {
-  font-size: 20px;
+  font-size: 40px;
   cursor: pointer;
-  background-color: #111;
-  color: white;
+  color: black;
+  background-color: inherit;
   padding: 10px 15px;
   border: none;
+  transition: 0.3s;
 }
 
 .openbtn:hover {
-  background-color: #444;
+  color: grey;
+}
+
+.center-cropped {
+  width: 50px;
+  height: 50px;
+  background-position: center center;
+  background-repeat: no-repeat;
 }

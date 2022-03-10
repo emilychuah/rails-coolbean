@@ -1,5 +1,5 @@
 .bottomsection {
-  height: 200px;
+  height: 260px;
   align-items: center;
   background-color: #C4C4C4;
   padding-left: 60px;
@@ -35,4 +35,16 @@
   position: relative;
   top: -15px;
   left: -5px;
+}
+
+a {
+  color:black;
+  text-decoration: none;
+  transition: 0.3s;
+  font-family: archivo;
+}
+
+a:hover {
+  text-decoration: none;
+  color: grey;
 }

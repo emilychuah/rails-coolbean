@@ -8,7 +8,11 @@ class MealsController < ApplicationController
 
   # Search results with map page
   def index
-
+    if params[:query].present?
+      @meals = User.where("address ILIKE ?", "%#{params[:query]}%")
+    else
+      @meals = Meal.all
+    end
   end
 
   # Specific meal page
@@ -26,7 +30,6 @@ class MealsController < ApplicationController
     @meal = Meal.new(meal_params)
     @meal.user = current_user
 
-
     if @meal.save!
       redirect_to meals_path
     else
@@ -37,10 +40,6 @@ class MealsController < ApplicationController
   private
 
   def meal_params
-    params.require(:meal).permit(:name, :description, :cuisine, :price, :available_quantity, :available_quantity, :collection_from, :collection_to, photos: [])
-  end
-
-  def order_params
-    params.require(:order).permit(:user_id, :is_paid, :is_picked_up)
+    params.require(:meal).permit(:name, :description, :cuisine, :price, :available_quantity, :available_quantity, :collect_from, :collect_to, photos: [])
   end
 end

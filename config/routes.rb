@@ -2,9 +2,12 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'meals#home'
   resources :meals do
-    resources :orders, only: [:show, :create]
+    resources :meal_orders, only: :create
   end
-
-  resources :meal_orders, only: [:create, :update, :destroy ]
+  resources :orders, only: [:show, :create]
+  resources :meal_orders, only: [:update, :destroy]
   get 'cart', to: 'meal_orders#index', as: :cart
+
+  get 'dashboard', to: 'dashboard#dashboard', as: :dashboard
+  patch 'toggle_home_cook', to: 'users#toggle_home_cook', as: :toggle_home_cook
 end
