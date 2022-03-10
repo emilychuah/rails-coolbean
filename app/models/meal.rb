@@ -11,7 +11,7 @@ class Meal < ApplicationRecord
   # validates_date :collect_to, on_or_after: lambda { :collect_from }
   # validate :collect_from_cannot_be_in_the_past
 
-  private
+  # private
 
   # def collect_from_cannot_be_in_the_past
   #   if collect_from.present? && collect_from < Date.today

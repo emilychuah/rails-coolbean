@@ -148,11 +148,11 @@
             <%= link_to meal_path(listing), class:"text-decoration-none" do %>
               <div class="card-body d-flex justify-content-between">
                 <div style="width: 70%">
-                  <h6 class="card-title"><%= listing.name %></h6>
+                  <h6 class="card-title"><strong><%= listing.name %></strong></h6>
                   <p class="card-text"><small class="text-muted"><%= listing.description %></small></p>
                 </div>
                 <div class="card-text text-right" style="font-size: 14px">
-                  <p><strong>$ <%= listing.price %> per meal</strong></p>
+                  <p>$ <%= listing.price %> per meal</p>
                 </div>
               </div>
             <% end %>
