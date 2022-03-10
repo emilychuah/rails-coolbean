@@ -3,8 +3,8 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+#   meals = Meal.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+#   Character.create(name: 'Luke', meal: meals.first)
 puts 'cleaning database'
 
 MealOrder.destroy_all
@@ -46,11 +46,10 @@ theresa = User.create!(
 )
 
 puts "Creating meals..."
-
 pasta = Meal.new(
-  name: "pasta",
+  name: "Pasta",
   price: 10,
-  description: "delicious pasta",
+  description: "Delicious Pasta",
   collection_from: "2022-3-20 13:00:00",
   collection_to: "2022-3-22 13:00:00",
   available_quantity: 10,
@@ -60,7 +59,7 @@ pasta.user = marc
 pasta.save!
 
 fried_rice = Meal.new(
-  name: "fried rice",
+  name: "Fried Rice",
   price: 8,
   description: "delicious rice",
   collection_from: "2022-3-30 15:00:00",
@@ -72,7 +71,7 @@ fried_rice.user = theresa
 fried_rice.save!
 
 tortilla = Meal.new(
-  name: "tortilla",
+  name: "Tortilla",
   price: 9,
   description: "delicious tortilla",
   collection_from: "2022-3-20 9:00:00",

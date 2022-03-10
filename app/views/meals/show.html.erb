@@ -6,9 +6,9 @@
 
 <div class="description d-flex flex-row justify-content-between">
   <div class="p-5 d-flex flex-column justify-content-center">
-    <h1 class="pb-4"><%= @meal.name %></h1>
+    <h1 class="pb-4"><%= @meal.name.capitalize %></h1>
     <p><strong>Address:</strong> <%= @meal.user.address %></p>
-    <p><strong>Description:</strong> <%= @meal.description %></p>
+    <p><strong>Description:</strong> <%= @meal.description.capitalize %></p>
     <p><strong>Serving Availability:</strong> <%= @meal.available_quantity %></p>
     <p><strong>Price per Serving:</strong> AUD <%= @meal.price %></p>
     <p><strong>Home Chef:</strong> <%= @meal.user.name %></p>
