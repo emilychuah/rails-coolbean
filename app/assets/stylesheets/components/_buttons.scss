@@ -77,3 +77,19 @@
 .exploremeals:hover {
   background: #ddbc02;
 }
+
+
+.see-listing {
+  width: 90%;
+  height: 35px;
+  background: #FFD803;
+  border-radius: 4px;
+  font-family: archivo;
+  font-size: 15px;
+  position: absolute;
+  bottom: 8px;
+}
+.see-listing:hover {
+  background: #DDBC02;
+  font-weight: bold;
+}
