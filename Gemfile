@@ -71,3 +71,6 @@ gem 'validates_timeliness', '~> 6.0.0.beta2'
 
 # Fake data
 gem 'faker'
+
+# Cloudinary
+gem 'cloudinary', '~> 1.16.0'

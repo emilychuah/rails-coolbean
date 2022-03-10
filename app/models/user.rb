@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :meals, dependent: :destroy
   has_many :orders, dependent: :destroy
 
+  has_many_attached :photos
+
   # validates :address, :phone_number, :name, :food_safety_certified, presence: true
   # validates :phone_number, :numericality => true,
   #                          :length => { :maximum => 8 }
