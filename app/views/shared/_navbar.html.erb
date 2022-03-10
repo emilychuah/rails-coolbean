@@ -36,6 +36,11 @@
           <li class="nav-item">
             <%= link_to "Cart", cart_path, class: "nav-link" %>
           <%# </li> %>
+          <div class="d-flex align-content-center mr-2">
+          <%= link_to cart_path, class: "navbar-brand" do %>
+              <%= image_tag "basket.png", width: 25, height: 25 %>
+          <% end %>
+          </div>
           <li class="nav-item dropdown">
             <%= image_tag "https://avatars.githubusercontent.com/u/90439290?v=4", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
