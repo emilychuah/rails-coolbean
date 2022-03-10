@@ -1,10 +1,9 @@
-
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 <div class="container pt-4">
-  <div class="row justify-content-center">
+  <div class="row">
     <div class="col-6">
       <h3>Search for homemade meals near you: </h3>
       <%= form_tag(meals_path, method: "get", class: "form-inline d-flex align-items-between") do %>
@@ -15,7 +14,7 @@
           <i class="icon-ok icon-white"></i> Search
         <% end %>
       <% end %>
-      <div class="py-4">
+      <div class="row py-4">
         <% @meals.each do |meal| %>
           <div class="col-12 col-sm-6 mb-3">
             <div class="card-deck h-100">
@@ -64,10 +63,11 @@
         <% end %>
       </div>
     </div>
+    <div class="col-6">
+      <div id="map" style="width: 100%; height: 100vh; position: sticky; top: 0;"
+        data-controller="mapbox"
+        data-mapbox-markers-value="<%= @markers.to_json %>"
+        data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+    </div>
   </div>
 </div>
-
-<div style="width: 100%; height: 600px;"
-  data-controller="mapbox"
-  data-mapbox-markers-value="<%= @markers.to_json %>"
-  data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
