@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_10_035307) do
+ActiveRecord::Schema.define(version: 2022_03_10_040457) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,8 +60,8 @@ ActiveRecord::Schema.define(version: 2022_03_10_035307) do
     t.string "name"
     t.float "price"
     t.text "description"
-    t.datetime "pick_up_from"
-    t.datetime "pick_up_to"
+    t.datetime "collect_from"
+    t.datetime "collect_to"
     t.integer "available_quantity"
     t.string "cuisine"
     t.datetime "created_at", precision: 6, null: false
