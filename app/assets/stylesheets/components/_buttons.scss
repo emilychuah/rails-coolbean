@@ -86,8 +86,10 @@
   border-radius: 4px;
   font-family: archivo;
   font-size: 15px;
+  position: absolute;
+  bottom: 8px;
 }
-
 .see-listing:hover {
-  background: #ddbc02;
+  background: #DDBC02;
+  font-weight: bold;
 }
