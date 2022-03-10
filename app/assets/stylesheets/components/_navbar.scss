@@ -3,6 +3,14 @@
   border-bottom: grey;
 }
 
+
+#homenav {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: auto;
+}
+
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
@@ -60,6 +68,16 @@
   font-size: 40px;
   cursor: pointer;
   color: black;
+  background-color: inherit;
+  padding: 10px 15px;
+  border: none;
+  transition: 0.3s;
+}
+
+.openbtnhome {
+  font-size: 40px;
+  cursor: pointer;
+  color: white;
   background-color: inherit;
   padding: 10px 15px;
   border: none;

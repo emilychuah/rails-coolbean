@@ -11,13 +11,13 @@
       <% end %>
       <div class="py-4">
         <% @meals.each do |meal| %>
-          <%= link_to meal_path (meal) do %>
-            <h4><%= meal.name %></h4>
-            <p>Available from: <%= meal.collect_from.strftime('%d/%m/%Y') %> - <%= meal.collect_to.strftime('%d/%m/%Y') %></p>
-            <p>Pickup times: <%= meal.collect_from.strftime('%I %p') %> - <%= meal.collect_to.strftime('%I %p') %></p>
-            <p>$ <%= meal.price.truncate() %> per serving</p>
-            <p><%= meal.user.address %></p>
-          <% end %>
+
+          <h4><%= meal.name %></h4>
+          <p>Available from: <%= meal.collect_from.strftime('%d/%m/%Y') %> - <%= meal.collect_to.strftime('%d/%m/%Y') %></p>
+          <p>Pickup times: <%= meal.collect_from.strftime('%-I %p') %></p>
+          <p>$ <%= meal.price.truncate() %> per serving</p>
+          <p><%= meal.user.address %></p>
+
         <% end %>
       </div>
     </div>

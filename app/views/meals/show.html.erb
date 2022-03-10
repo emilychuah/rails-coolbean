@@ -4,7 +4,26 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-<div class="d-flex flex-column">
+
+<div class="description d-flex flex-row justify-content-between">
+  <div class="p-5 d-flex flex-column justify-content-center">
+    <h1 class="pb-4"><%= @meal.name %></h1>
+    <p><strong>Address:</strong> <%= @meal.user.address %></p>
+    <p><strong>Description:</strong> <%= @meal.description %></p>
+    <p><strong>Serving Availability:</strong> <%= @meal.available_quantity %></p>
+    <p><strong>Price per Serving:</strong> AUD <%= @meal.price %></p>
+    <p><strong>Home Chef:</strong> <%= @meal.user.name %></p>
+
+    <%= simple_form_for([@meal, @meal_order]) do |f| %>
+    <%= f.input :quantity_ordered %>
+    <%= f.input :pick_up %>
+    <%= f.submit "add to cart" %>
+    <% end %>
+
+      <%# <%= simple_form 'Order Now', meal_order_path(@meal.id), class: 'btn btn-primary' %> %>
+      <%# <%= link_to 'All User meals', user_path(@meal.user_id), class: 'btn btn-primary' %> %>
+      <%= link_to "Go Back", meals_path
+
 
   <div id="carouselExampleIndicators" class="carousel slide p-2 m-auto" data-ride="carousel">
               <ol class="carousel-indicators ">
