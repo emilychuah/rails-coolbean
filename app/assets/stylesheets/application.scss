@@ -11,3 +11,11 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+h1, h2, h3, p{
+  font-family: Archivo;
+}
+
+body {
+  background-color: white;
+}

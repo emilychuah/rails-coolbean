@@ -7,12 +7,21 @@
 #   Character.create(name: 'Luke', meal: meals.first)
 puts 'cleaning database'
 
-MealOrder.destroy_all
-Order.destroy_all
-Meal.destroy_all
-User.destroy_all
+if Rails.env == "development"
+  User.destroy_all
+  Meal.destroy_all
+  MealOrder.destroy_all
+  Order.destroy_all
+  Review.destroy_all
+end
 
 puts "Creating users..."
+
+emily = User.create!(
+  name: "Emily",
+  email: "emily@live.com",
+  password: "password"
+)
 
 marc = User.create!(
   name: "Marc",
@@ -23,12 +32,6 @@ marc = User.create!(
 chris = User.create!(
   name: "Chris",
   email: "chris@live.com",
-  password: "password"
-)
-
-emily = User.create!(
-  name: "Emily",
-  email: "emily@live.com",
   password: "password"
 )
 
@@ -46,8 +49,10 @@ theresa = User.create!(
 )
 
 puts "Creating meals..."
-pasta = Meal.new(
-  name: "Pasta",
+
+pasta = Meal.create!(
+  user: User.first,
+  name: "pasta",
   price: 10,
   description: "Delicious Pasta",
   collection_from: "2022-3-20 13:00:00",
@@ -55,11 +60,11 @@ pasta = Meal.new(
   available_quantity: 10,
   cuisine: "Italian"
 )
-pasta.user = marc
-pasta.save!
 
-fried_rice = Meal.new(
-  name: "Fried Rice",
+
+fried_rice = Meal.create!(
+  user: User.second,
+  name: "fried rice",
   price: 8,
   description: "delicious rice",
   collection_from: "2022-3-30 15:00:00",
@@ -67,11 +72,11 @@ fried_rice = Meal.new(
   available_quantity: 15,
   cuisine: "Chinese"
 )
-fried_rice.user = theresa
-fried_rice.save!
 
-tortilla = Meal.new(
-  name: "Tortilla",
+
+tortilla = Meal.create!(
+  user: User.third,
+  name: "tortilla",
   price: 9,
   description: "delicious tortilla",
   collection_from: "2022-3-20 9:00:00",
@@ -79,8 +84,7 @@ tortilla = Meal.new(
   available_quantity: 20,
   cuisine: "Mexican"
 )
-tortilla.user = chris
-tortilla.save!
+
 
 puts "Creating orders..."
 Order.create!(
@@ -89,10 +93,10 @@ Order.create!(
 
 puts "Creating ordered meals..."
 
-MealOrder.new(
-  meal_id: 1,
-  order_id: 1,
-  quantity_ordered:5,
-  total_price: 56,
-  pick_up: false
+MealOrder.create!(
+  meal: tortilla,
+  order: Order.first,
+  quantity_ordered: 2,
+  total_price: 30,
+  pick_up: DateTime.now.beginning_of_hour + 1.day
 )

@@ -5,9 +5,9 @@ class OrdersController < ApplicationController
     @order
   end
 
-  def index
-    @orders = Order.all
-  end
+  # def index
+  #   @orders = Order.all
+  # end
   # private
 
   # def find_order

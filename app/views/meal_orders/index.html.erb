@@ -1,2 +1,6 @@
 <h1>Cart Page</h1>
-<%=  %>
+<% @cart_items.each do |meal_order| %>
+  <%= render 'cart_item', meal_order: meal_order %>
+<% end %>
+
+<%= link_to  %>

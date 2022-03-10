@@ -1,7 +1,7 @@
 class Meal < ApplicationRecord
   belongs_to :user
-  has_many :orders
-  has_many :meal_orders
+  has_many :meal_orders, dependent: :destroy
+  has_many :orders, through: :meal_orders, dependent: :destroy
 
   validates :name, :price, :description, :collection_from, :collection_to, :available_quantity, :cuisine, presence: true
   validates :available_quantity, numericality: { only_integer: true }
