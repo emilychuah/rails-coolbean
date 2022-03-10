@@ -19,66 +19,95 @@ puts "Creating users..."
 emily = User.create!(
   name: "Emily",
   email: "emily@live.com",
-  password: "password"
-)
-
-marc = User.create!(
-  name: "Marc",
-  email: "marc@live.com",
-  password: "password"
+  password: "password",
+  address: "31 Curzon street, North Melbourne",
+  phone_number: "0411222232",
+  overall_rating: 5.0,
+  food_safety_certified: true
 )
 
 chris = User.create!(
   name: "Chris",
   email: "chris@live.com",
-  password: "password"
+  password: "password",
+  address: "2 Burt St, Northcote",
+  phone_number: "0411922199",
+  overall_rating: 5.0,
+  food_safety_certified: true
 )
 
 sam = User.create!(
   name: "Sam",
   email: "sam@live.com",
-  password: "password"
+  password: "password",
+  address: "49 Sackville St Kew",
+  phone_number: "0411622231",
+  overall_rating: 5.0,
+  food_safety_certified: true
 )
 
 theresa = User.create!(
   name: "Theresa",
   email: "theresa@live.com",
-  password: "password"
+  password: "password",
+  address: "1 State Route 42 Balwyn North",
+  phone_number: "0411839021",
+  overall_rating: 5.0,
+  food_safety_certified: true
+)
+
+marc = User.create!(
+  name: "Marc",
+  email: "marc@live.com",
+  password: "password",
+  address: "155 Market St, South Melbourne",
+  phone_number: "0456120437"
 )
 
 puts "Creating meals..."
 
-pasta = Meal.create!(
+lasagne = Meal.create!(
   user: User.first,
-  name: "pasta",
-  price: 10,
-  description: "delicious pasta",
-  collection_from: DateTime.now.beginning_of_hour,
-  collection_to: DateTime.now.beginning_of_hour + 2.day,
+  name: "Lasagne",
+  price: 7,
+  description: "100% homemade and healthy ingredients",
+  collection_from: DateTime.now.strftime('%Y-%m-%d %I %p'),
+  collection_to: (DateTime.now + 2.day).strftime('%Y-%m-%d %I %p'),
+  available_quantity: 8,
+  cuisine: "Italian"
+)
+
+hamburger = Meal.create!(
+  user: User.second,
+  name: "Hamburger",
+  price: 6,
+  description: "Beef patty, wholemeal bread, cheese, lettuce, homemade aioli and tomatoes",
+  collection_from: DateTime.now.strftime('%Y-%m-%d %I %p'),
+  collection_to: (DateTime.now + 3.day).strftime('%Y-%m-%d %I %p'),
+  available_quantity: 20,
+  cuisine: "Western"
+)
+
+tiramisu = Meal.create!(
+  user: User.third,
+  name: "Tiramisu",
+  price: 5,
+  description: "Homemade tiramisu with a sweet, creamy, coffee flavour",
+  collection_from: DateTime.now.strftime('%Y-%m-%d %I %p'),
+  collection_to: (DateTime.now + 1.day).strftime('%Y-%m-%d %I %p'),
   available_quantity: 10,
   cuisine: "Italian"
 )
 
-fried_rice = Meal.create!(
-  user: User.second,
-  name: "fried rice",
-  price: 8,
-  description: "delicious rice",
-  collection_from: DateTime.now.beginning_of_hour + 1.day,
-  collection_to: DateTime.now.beginning_of_hour + 2.day,
-  available_quantity: 15,
-  cuisine: "Chinese"
-)
-
-tortilla = Meal.create!(
+laksa = Meal.create!(
   user: User.third,
-  name: "tortilla",
+  name: "Laksa",
   price: 9,
-  description: "delicious tortilla",
-  collection_from: DateTime.now.beginning_of_hour + 1.day,
-  collection_to: DateTime.now.beginning_of_hour + 1.day,
-  available_quantity: 20,
-  cuisine: "Mexican"
+  description: "Gluten free and vegan! Guaranteed healthy and tasty!",
+  collection_from: DateTime.now.strftime('%Y-%m-%d %I %p'),
+  collection_to: (DateTime.now + 2.day).strftime('%Y-%m-%d %I %p'),
+  available_quantity: 12,
+  cuisine: "Asian"
 )
 
 puts "Creating orders..."
@@ -86,12 +115,18 @@ Order.create!(
   user: User.first
 )
 
+Order.create!(
+  user: User.second
+)
+
 puts "Creating ordered meals..."
 
 MealOrder.create!(
-  meal: tortilla,
+  meal: tiramisu,
   order: Order.first,
   quantity_ordered: 2,
-  total_price: 30,
-  pick_up: DateTime.now.beginning_of_hour + 1.day
+  total_price: 10,
+  pick_up: (DateTime.now + 1.day).strftime('%Y-%m-%d %I %p')
 )
+
+puts "Finished!"
