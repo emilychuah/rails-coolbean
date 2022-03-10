@@ -14,9 +14,7 @@
     <p><strong>Home Chef:</strong> <%= @meal.user.name %></p>
 
     <div class="p-2">
-      <%= simple_form_for [@meal, @order] do |f|%>
-      <%= f.submit %>
-    <% end %>
+      <%= button_to 'Add to Cart', meal_meal_orders_path(@meal) %>
 
     </div>
 
