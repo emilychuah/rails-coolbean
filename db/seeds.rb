@@ -3,8 +3,9 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+#   meals = Meal.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+#   Character.create(name: 'Luke', meal: meals.first)
+puts 'cleaning database'
 
 if Rails.env == "development"
   User.destroy_all
@@ -68,6 +69,7 @@ puts "Creating meals..."
 
 lasagne = Meal.create!(
   user: User.first,
+  address: '31 Curzon Street North Melbourne',
   name: "Lasagne",
   price: 7,
   description: "100% homemade and healthy ingredients",
@@ -80,6 +82,7 @@ lasagne = Meal.create!(
 
 hamburger = Meal.create!(
   user: User.second,
+  address: '2 Toorak rd',
   name: "Hamburger",
   price: 6,
   description: "Beef patty, wholemeal bread, cheese, lettuce, homemade aioli and tomatoes",
@@ -92,6 +95,7 @@ hamburger = Meal.create!(
 
 tiramisu = Meal.create!(
   user: User.third,
+  address: '34 Morah Street Parkville',
   name: "Tiramisu",
   price: 5,
   description: "Homemade tiramisu with a sweet, creamy, coffee flavour",
@@ -103,7 +107,9 @@ tiramisu = Meal.create!(
 )
 
 laksa = Meal.create!(
+
   user: User.fourth,
+
   name: "Laksa",
   price: 9,
   description: "Gluten free and vegan! Guaranteed healthy and tasty!",
@@ -114,9 +120,10 @@ laksa = Meal.create!(
   picture_url: "https://media.istockphoto.com/photos/singaporean-laksa-soup-picture-id907689936?b=1&k=20&m=907689936&s=170667a&w=0&h=cybLfOnIm_YZnLUeL7IoP9GV6D-Z0t1_he68vy-n9yM="
 )
 
+
 puts "Creating orders..."
 Order.create!(
-  user: User.first
+  user: sam
 )
 
 Order.create!(
