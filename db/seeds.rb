@@ -52,6 +52,7 @@ puts "Creating meals..."
 
 pasta = Meal.create!(
   user: User.first,
+  address: '155 Market St South Melbourne',
   name: "pasta",
   price: 10,
   description: "Delicious Pasta",
@@ -64,6 +65,7 @@ pasta = Meal.create!(
 
 fried_rice = Meal.create!(
   user: User.second,
+  address: '31 Curzon Street North Melbourne',
   name: "fried rice",
   price: 8,
   description: "delicious rice",
@@ -76,6 +78,7 @@ fried_rice = Meal.create!(
 
 tortilla = Meal.create!(
   user: User.third,
+  address: '2 Burt St Northcote',
   name: "tortilla",
   price: 9,
   description: "delicious tortilla",
