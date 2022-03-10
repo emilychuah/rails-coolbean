@@ -71,10 +71,11 @@ lasagne = Meal.create!(
   name: "Lasagne",
   price: 7,
   description: "100% homemade and healthy ingredients",
-  collect_from: DateTime.now.strftime('%Y-%m-%d %I %p'),
-  collect_to: (DateTime.now + 2.day).strftime('%Y-%m-%d %I %p'),
+  collect_from: (DateTime.now - 8.hour).strftime('%Y-%m-%d %I %p'),
+  collect_to: (DateTime.now + 2.day - 8.hour).strftime('%Y-%m-%d %I %p'),
   available_quantity: 8,
-  cuisine: "Italian"
+  cuisine: "Italian",
+  picture_url: "https://images.unsplash.com/photo-1619895092538-128341789043?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
 )
 
 hamburger = Meal.create!(
@@ -82,10 +83,11 @@ hamburger = Meal.create!(
   name: "Hamburger",
   price: 6,
   description: "Beef patty, wholemeal bread, cheese, lettuce, homemade aioli and tomatoes",
-  collect_from: DateTime.now.strftime('%Y-%m-%d %I %p'),
-  collect_to: (DateTime.now + 3.day).strftime('%Y-%m-%d %I %p'),
+  collect_from: (DateTime.now - 1.hour).strftime('%Y-%m-%d %I %p'),
+  collect_to: (DateTime.now + 3.day - 1.hour).strftime('%Y-%m-%d %I %p'),
   available_quantity: 20,
-  cuisine: "Western"
+  cuisine: "Western",
+  picture_url: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=999&q=80"
 )
 
 tiramisu = Meal.create!(
@@ -96,7 +98,8 @@ tiramisu = Meal.create!(
   collect_from: DateTime.now.strftime('%Y-%m-%d %I %p'),
   collect_to: (DateTime.now + 1.day).strftime('%Y-%m-%d %I %p'),
   available_quantity: 10,
-  cuisine: "Italian"
+  cuisine: "Italian",
+  picture_url: "https://media.istockphoto.com/photos/portion-of-tiramisu-dessert-picture-id1061450296?b=1&k=20&m=1061450296&s=170667a&w=0&h=9OmAEu8aPV3Q1U_HwlFq1nHjrt1TQcII-wxS4HSCl_c="
 )
 
 laksa = Meal.create!(
@@ -104,10 +107,11 @@ laksa = Meal.create!(
   name: "Laksa",
   price: 9,
   description: "Gluten free and vegan! Guaranteed healthy and tasty!",
-  collect_from: DateTime.now.strftime('%Y-%m-%d %I %p'),
-  collect_to: (DateTime.now + 2.day).strftime('%Y-%m-%d %I %p'),
+  collect_from: (DateTime.now - 3.hour).strftime('%Y-%m-%d %I %p'),
+  collect_to: (DateTime.now + 2.day - 3.hour).strftime('%Y-%m-%d %I %p'),
   available_quantity: 12,
-  cuisine: "Asian"
+  cuisine: "Asian",
+  picture_url: "https://media.istockphoto.com/photos/singaporean-laksa-soup-picture-id907689936?b=1&k=20&m=907689936&s=170667a&w=0&h=cybLfOnIm_YZnLUeL7IoP9GV6D-Z0t1_he68vy-n9yM="
 )
 
 puts "Creating orders..."
