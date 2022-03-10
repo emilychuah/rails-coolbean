@@ -20,7 +20,7 @@ emily = User.create!(
   name: "Emily",
   email: "emily@live.com",
   password: "password",
-  address: "31 Curzon street, North Melbourne",
+  address: "31 Curzon St, West Melbourne VIC 3003",
   phone_number: "0411222232",
   overall_rating: 5.0,
   food_safety_certified: true
@@ -30,7 +30,7 @@ chris = User.create!(
   name: "Chris",
   email: "chris@live.com",
   password: "password",
-  address: "2 Burt St, Northcote",
+  address: "2 Burt St, Northcote VIC 3070",
   phone_number: "0411922199",
   overall_rating: 5.0,
   food_safety_certified: true
@@ -40,7 +40,7 @@ sam = User.create!(
   name: "Sam",
   email: "sam@live.com",
   password: "password",
-  address: "49 Sackville St Kew",
+  address: "49 Sackville St, Kew VIC 3101",
   phone_number: "0411622231",
   overall_rating: 5.0,
   food_safety_certified: true
@@ -50,7 +50,7 @@ theresa = User.create!(
   name: "Theresa",
   email: "theresa@live.com",
   password: "password",
-  address: "1 State Route 42 Balwyn North",
+  address: "1 State Route 42, Templestowe Lower VIC 3107",
   phone_number: "0411839021",
   overall_rating: 5.0,
   food_safety_certified: true
@@ -60,7 +60,7 @@ marc = User.create!(
   name: "Marc",
   email: "marc@live.com",
   password: "password",
-  address: "155 Market St, South Melbourne",
+  address: "155 Market St, South Melbourne VIC 3205",
   phone_number: "0456120437"
 )
 
