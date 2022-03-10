@@ -66,17 +66,20 @@ ActiveRecord::Schema.define(version: 2022_03_10_092815) do
     t.string "cuisine"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "address"
     t.string "picture_url"
     t.index ["user_id"], name: "index_meals_on_user_id"
   end
 
   create_table "orders", force: :cascade do |t|
-    t.bigint "user_id", null: false
     t.boolean "is_paid", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "is_picked_up", default: false
-    t.index ["user_id"], name: "index_orders_on_user_id"
+    t.bigint "payee_id"
+    t.bigint "payer_id"
+    t.index ["payee_id"], name: "index_orders_on_payee_id"
+    t.index ["payer_id"], name: "index_orders_on_payer_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -112,6 +115,7 @@ ActiveRecord::Schema.define(version: 2022_03_10_092815) do
   add_foreign_key "meal_orders", "meals"
   add_foreign_key "meal_orders", "orders"
   add_foreign_key "meals", "users"
-  add_foreign_key "orders", "users"
+  add_foreign_key "orders", "users", column: "payee_id"
+  add_foreign_key "orders", "users", column: "payer_id"
   add_foreign_key "reviews", "meal_orders"
 end
