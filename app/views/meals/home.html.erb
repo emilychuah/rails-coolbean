@@ -1,4 +1,68 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.1)), url(https://images.unsplash.com/photo-1507927956068-fc5f6474f4f5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80)" >
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.1)), url(<%= image_path "banner.png" %>)" >
+  <%# NAVBAR %>
+  <div id="homenav">
+    <div class="navbar navbar-expand-sm navbar-light navbar-lewagon" data-controller="navbar">
+    <div class="container-fluid">
+      <div class="left-icons">
+        <div id="mySidebar" class="sidepanel" data-navbar-target="sidebar">
+          <a class="closebtn" data-action="click->navbar#closeNav">&times;</a>
+          <% if user_signed_in? %>
+          <a href="#">Current orders</a>
+          <a href="#">Past orders</a>
+          <a href="#">My Meal listings</a>
+          <a href="#">Add a new meal</a>
+          <% else %>
+          <a href="#">Signup</a>
+          <a href="#">Login</a>
+          <% end %>
+        </div>
+
+      <div class=" d-flex align-items-center" id="main">
+        <button class="openbtnhome center-cropped d-flex align-items-center" data-action="click->navbar#openNav">&#9776</button>
+        <%= link_to root_path, class: "navbar-brand" do %>
+          <%= image_tag "logo.png", width: 29, height: 35%>
+        <% end %>
+        </div>
+      </div>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto">
+          <% if user_signed_in? %>
+            <%# <li class="nav-item active">
+              <%= link_to "Sign Up", "#", class: "nav-link" %>
+            <%# </li>
+            <li class="nav-item">
+              <%= link_to "Cart", cart_path, class: "nav-link" %>
+            <%# </li> %>
+            <li class="nav-item dropdown">
+              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <%= link_to "My orders", "#", class: "dropdown-item" %>
+                <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+              </div>
+            </li>
+          <% else %>
+            <li class="nav-item ">
+              <div>
+                <%= link_to "Signup", new_user_session_path, class: "btn signup" %>
+              </div>
+            </li>
+            <li class="nav-item">
+              <div>
+                <%= link_to "Login", new_user_session_path, class: "btn loginhome" %>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
   <div class="container d-flex justify-content-center">
     <h1 style="text-align: center">Welcome to CoolBean</h1>
   </div>

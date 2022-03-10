@@ -28,7 +28,9 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
   <body>
-    <%= render 'shared/navbar' %>
+    <% if !(params[:controller] == "meals" && params[:action] == "home")%>
+      <%= render 'shared/navbar' %>
+    <% end %>
     <%= render 'shared/flashes' %>
     <%= yield %>
     <%= render 'shared/footer' %>
