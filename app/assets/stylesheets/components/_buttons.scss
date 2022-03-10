@@ -18,6 +18,10 @@
   right: 110px;
 }
 
+.signup:hover {
+  background: #ddbc02;
+}
+
 .login {
   width: 86px;
   height: 35px;
@@ -28,9 +32,21 @@
   border-width: 1px;
   font-family: archivo;
   align-items: center;
-  margin-left: 5px;
+
 }
 
+.loginhome {
+  width: 86px;
+  height: 35px;
+  background: inherit;
+  border-radius: 4px;
+  border: grey;
+  border-style: solid;
+  border-width: 1px;
+  font-family: archivo;
+  align-items: center;
+  right: 0;
+}
 
 .search {
   width: 130px;

@@ -100,7 +100,7 @@ tiramisu = Meal.create!(
 )
 
 laksa = Meal.create!(
-  user: User.third,
+  user: User.fourth,
   name: "Laksa",
   price: 9,
   description: "Gluten free and vegan! Guaranteed healthy and tasty!",
