@@ -14,10 +14,14 @@
 @import "components/index";
 @import "pages/index";
 
-h1, h2, h3, h4, h5, h6, p {
-  font-family: Archivo;
-}
+// Font
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@300&display=swap');
+
+// h1, h2, h3, p {
+//   font-family: Archivo;
+// }
 
 body {
   background-color: white;
+  font-family: 'Archivo', sans-serif;
 }
