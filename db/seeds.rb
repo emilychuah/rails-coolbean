@@ -71,8 +71,8 @@ lasagne = Meal.create!(
   name: "Lasagne",
   price: 7,
   description: "100% homemade and healthy ingredients",
-  collection_from: DateTime.now.strftime('%Y-%m-%d %I %p'),
-  collection_to: (DateTime.now + 2.day).strftime('%Y-%m-%d %I %p'),
+  collect_from: DateTime.now.strftime('%Y-%m-%d %I %p'),
+  collect_to: (DateTime.now + 2.day).strftime('%Y-%m-%d %I %p'),
   available_quantity: 8,
   cuisine: "Italian"
 )
@@ -82,8 +82,8 @@ hamburger = Meal.create!(
   name: "Hamburger",
   price: 6,
   description: "Beef patty, wholemeal bread, cheese, lettuce, homemade aioli and tomatoes",
-  collection_from: DateTime.now.strftime('%Y-%m-%d %I %p'),
-  collection_to: (DateTime.now + 3.day).strftime('%Y-%m-%d %I %p'),
+  collect_from: DateTime.now.strftime('%Y-%m-%d %I %p'),
+  collect_to: (DateTime.now + 3.day).strftime('%Y-%m-%d %I %p'),
   available_quantity: 20,
   cuisine: "Western"
 )
@@ -93,8 +93,8 @@ tiramisu = Meal.create!(
   name: "Tiramisu",
   price: 5,
   description: "Homemade tiramisu with a sweet, creamy, coffee flavour",
-  collection_from: DateTime.now.strftime('%Y-%m-%d %I %p'),
-  collection_to: (DateTime.now + 1.day).strftime('%Y-%m-%d %I %p'),
+  collect_from: DateTime.now.strftime('%Y-%m-%d %I %p'),
+  collect_to: (DateTime.now + 1.day).strftime('%Y-%m-%d %I %p'),
   available_quantity: 10,
   cuisine: "Italian"
 )
@@ -104,8 +104,8 @@ laksa = Meal.create!(
   name: "Laksa",
   price: 9,
   description: "Gluten free and vegan! Guaranteed healthy and tasty!",
-  collection_from: DateTime.now.strftime('%Y-%m-%d %I %p'),
-  collection_to: (DateTime.now + 2.day).strftime('%Y-%m-%d %I %p'),
+  collect_from: DateTime.now.strftime('%Y-%m-%d %I %p'),
+  collect_to: (DateTime.now + 2.day).strftime('%Y-%m-%d %I %p'),
   available_quantity: 12,
   cuisine: "Asian"
 )
