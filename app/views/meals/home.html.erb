@@ -114,7 +114,7 @@
     <h3 class="pt-5 d-flex justify-content-center"><strong>Discover homecooked meals in Melbourne</strong></h3>
   </div>
 <div class="row">
-    <% @meals.each do |listing| %>
+    <% @meals.first(3).each do |listing| %>
       <div class="col-12 col-sm-6 col-md-4 mb-3">
         <div class="card-deck h-100">
           <div class="card">
