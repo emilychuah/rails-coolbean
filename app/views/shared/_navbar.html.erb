@@ -1,18 +1,24 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon" data-controller="navbar">
   <div class="container-fluid">
     <div class="left-icons">
-      <div id="mySidebar" class="sidebar">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="#">Why Cool</a>
-        <a href="#"></a>
-        <a href="#">Clients</a>
-        <a href="#">Contact</a>
+      <div id="mySidebar" class="sidepanel" data-navbar-target="sidebar">
+        <a class="closebtn" data-action="click->navbar#closeNav">&times;</a>
+        <% if user_signed_in? %>
+        <a href="#">Current orders</a>
+        <a href="#">Past orders</a>
+        <a href="#">My Meal listings</a>
+        <a href="#">Add a new meal</a>
+        <% else %>
+        <a href="#">Signup</a>
+        <a href="#">Login</a>
+        <% end %>
+
       </div>
 
     <div id="main">
-      <button class="openbtn" onclick="openNav()">&#9776</button>
+      <button class="openbtn center-cropped" data-action="click->navbar#openNav">&#9776</button>
     <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "logo.png", height: 30  %>
+      <%= image_tag "logo.png", width: 25%>
     <% end %>
     </div>
     </div>
@@ -38,8 +44,15 @@
             </div>
           </li>
         <% else %>
+          <li class="nav-item ">
+            <div>
+              <%= link_to "Signup", new_user_session_path, class: "btn signup" %>
+            </div>
+          </li>
           <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+            <div>
+              <%= link_to "Login", new_user_session_path, class: "btn login" %>
+            </div>
           </li>
         <% end %>
       </ul>
