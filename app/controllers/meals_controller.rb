@@ -18,9 +18,9 @@ class MealsController < ApplicationController
       @meals = Meal.all
     end
 
-    @users = User.geocoded
+    @users = User.all
 
-    @markers = @users.map do |user|
+    @markers = @users.geocoded.map do |user|
       {
         lat: user.latitude,
         lng: user.longitude,
@@ -34,7 +34,6 @@ class MealsController < ApplicationController
   def show
     @meal = Meal.find(params[:id])
     @meal_order = MealOrder.new
-
   end
 
   def new

@@ -74,10 +74,14 @@
     <p>Share your love for homemade food</p>
   </div>
   <div class="container d-flex justify-content-center">
-    <input type="text" placeholder="Enter your address">
-    <div class="d-flex justify-content-center">
-    <%= link_to "Search", meals_path, class: "btn search" %>
-    </div>
+     <%= form_tag(meals_path, method: "get", class: "form-inline d-flex align-items-between") do %>
+        <div class="input-group">
+          <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Enter your address", style: "padding-left: 12px" %>
+        </div>
+        <%= button_tag(type: 'submit', class: "btn search") do %>
+          <i class="icon-ok icon-white"></i> Search
+        <% end %>
+      <% end %>
   </div>
 </div>
 <%# How it works section %>
