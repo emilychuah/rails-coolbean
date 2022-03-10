@@ -7,6 +7,31 @@
   font-family: archivo;
 }
 
+.signup {
+  width: 86px;
+  height: 35px;
+  background: #FFD803;
+  border-radius: 4px;
+  font-family: archivo;
+  align-items: center;
+  position: absolute;
+  right: 110px;
+}
+
+.login {
+  width: 86px;
+  height: 35px;
+  background: inherit;
+  border-radius: 4px;
+  border: grey;
+  border-style: solid;
+  border-width: 1px;
+  font-family: archivo;
+  align-items: center;
+  margin-left: 5px;
+}
+
+
 .search {
   width: 130px;
   height: 35px;
