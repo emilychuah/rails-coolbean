@@ -17,6 +17,17 @@ class MealsController < ApplicationController
     else
       @meals = Meal.all
     end
+
+    @users = User.geocoded
+
+    @markers = @users.map do |user|
+      {
+        lat: user.latitude,
+        lng: user.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { user: user }),
+        image_url: helpers.asset_url("logo.png")
+      }
+    end
   end
 
   # Specific meal page

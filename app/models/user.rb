@@ -11,10 +11,13 @@ class User < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :search_by_address,
-    against: [ :address ],
+    against: [:address],
     using: {
-      tsearch: { prefix: true }
+      tsearch: { prefix: true },
     }
+
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 
   # validates :address, :phone_number, :name, :food_safety_certified, presence: true
   # validates :phone_number, :numericality => true,
