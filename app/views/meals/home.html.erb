@@ -74,13 +74,11 @@
     <p>Share your love for homemade food</p>
   </div>
   <div class="container d-flex justify-content-center">
-     <%= form_tag(meals_path, method: "get", class: "form-inline d-flex align-items-between") do %>
+    <%= form_tag(meals_path, method: "get", class: "form-inline d-flex align-items-between") do %>
         <div class="input-group">
-          <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Enter your address", style: "padding-left: 12px" %>
+          <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Enter your address", style: "padding-left: 12px;width: 324px;" %>
+          <%= submit_tag "Search", class: "btn search" %>
         </div>
-        <%= button_tag(type: 'submit', class: "btn search") do %>
-          <i class="icon-ok icon-white"></i> Search
-        <% end %>
       <% end %>
   </div>
 </div>

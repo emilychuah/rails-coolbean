@@ -7,6 +7,16 @@ class Meal < ApplicationRecord
   validates :name, :price, :description, :collect_from, :collect_to, :available_quantity, :cuisine, presence: true
   validates :available_quantity, numericality: { only_integer: true }
 
+  include PgSearch::Model
+  pg_search_scope :search_by_address,
+    against: [:address],
+    using: {
+      tsearch: { prefix: true },
+    }
+
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
+
   # validates_date :collect_from, on_or_after: lambda { Date.current }
   # validates_date :collect_to, on_or_after: lambda { :collect_from }
   # validate :collect_from_cannot_be_in_the_past

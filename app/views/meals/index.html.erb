@@ -8,12 +8,10 @@
       <%= form_tag(meals_path, method: "get", class: "form-inline d-flex align-items-between") do %>
         <div class="input-group">
           <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Enter your address", style: "padding-left: 12px" %>
+          <%= submit_tag "Search", class: "btn search" %>
         </div>
-        <%= button_tag(type: 'button', class: "btn search") do %>
-          <i class="icon-ok icon-white"></i> Search
-        <% end %>
       <% end %>
-      <div class="row py-4">
+      <div class="row py-5">
         <% @meals.each do |meal| %>
           <div class="col-12 col-sm-6 mb-3">
             <div class="card-deck h-100">

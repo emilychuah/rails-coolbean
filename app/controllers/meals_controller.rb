@@ -9,22 +9,16 @@ class MealsController < ApplicationController
   # Search results with map page
   def index
     if params[:query].present?
-      @users = User.search_by_address(params[:query])
-      @meals = []
-      @users.each do |user|
-        @meals += user.meals
-      end
+      @meals = Meal.search_by_address(params[:query])
     else
       @meals = Meal.all
     end
 
-    @users = User.all
-
-    @markers = @users.geocoded.map do |user|
+    @markers = @meals.geocoded.map do |meal|
       {
-        lat: user.latitude,
-        lng: user.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { user: user }),
+        lat: meal.latitude,
+        lng: meal.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { meal: meal }),
         image_url: helpers.asset_url("logo.png")
       }
     end
