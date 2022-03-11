@@ -7,7 +7,7 @@
       <h3>Search for homemade meals near you: </h3>
       <%= form_tag(meals_path, method: "get", class: "form-inline d-flex align-items-between") do %>
         <div class="input-group">
-          <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Enter your address", style: "padding-left: 12px" %>
+          <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Enter your address", style: "padding-left: 12px;border: 1px solid lightgrey;" %>
           <%= submit_tag "Search", class: "btn search" %>
         </div>
       <% end %>
