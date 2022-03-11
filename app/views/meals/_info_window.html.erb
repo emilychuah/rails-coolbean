@@ -29,7 +29,7 @@
   <p>Made with ❤️ by <%= meal.user.name %></p>
   <p class="mb-0">$ <%= meal.price.truncate() %>/serving</p>
   <p class="mb-0">Available from: <%= meal.collect_from.strftime('%d/%m') %> - <%= meal.collect_to.strftime('%d/%m') %></p>
-  <%# <p class="mb-0 font-weight-bold">Pickup details:</p> %>
-  <%# <p class="mb-0">Time: <%= meal.collect_from.strftime('%-I %p') %></p>
+  <p class="mb-0 font-weight-bold">Pickup details:</p>
+  <p class="mb-0">Time: <%= meal.collect_from.strftime('%-I %p') %></p>
   <p class="mb-0">Address: <%= meal.address %></p>
 <% end %>
