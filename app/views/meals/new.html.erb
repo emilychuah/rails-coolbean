@@ -5,16 +5,16 @@
 
   <div class="section d-flex justify-content-center pt-3">
   <%= simple_form_for(@meal) do |f| %>
-    <%= f.input :name %>
+    <div id="addborder"><%= f.input :name %></div>
     <%= f.input :description %>
-    <%= f.input :cuisine %>
+    <div id="addborder"><%= f.input :cuisine %></div>
     <%= f.input :available_quantity %>
     <%= f.input :price %>
     <%= f.input :collect_from %>
     <%= f.input :collect_to %>
     <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     <div class="d-flex justify-content-center pt-3">
-      <%= f.button :submit, class: "btn btn-primary btn-lg" %>
+      <%= f.button :submit, class: "btn createmeal" %>
     </div>
     <div class="d-flex justify-content-center">
     <%= link_to "Return to home", meals_path(@meal), class: 'btn btn-link text-decoration-none' %>
