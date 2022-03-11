@@ -9,9 +9,18 @@ class MealsController < ApplicationController
   # Search results with map page
   def index
     if params[:query].present?
-      @meals = User.where("address ILIKE ?", "%#{params[:query]}%")
+      @meals = Meal.search_by_address(params[:query])
     else
       @meals = Meal.all
+    end
+
+    @markers = @meals.geocoded.map do |meal|
+      {
+        lat: meal.latitude,
+        lng: meal.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { meal: meal }),
+        image_url: helpers.asset_url("logo.png")
+      }
     end
   end
 

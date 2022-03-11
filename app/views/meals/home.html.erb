@@ -1,4 +1,8 @@
 
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.1)), url(<%= image_path "banner.png" %>)" >
   <%# NAVBAR %>
   <div id="homenav">
@@ -11,14 +15,14 @@
           <a href="#">Current orders</a>
           <a href="#">Past orders</a>
           <a href="#">My Meal listings</a>
-          <a href="#">Add a new meal</a>
+          <%= link_to "Add a new meal", new_meal_path %>
           <% else %>
-          <a href="#">Signup</a>
-          <a href="#">Login</a>
+          <%= link_to "Signup", new_user_registration_path %>
+          <%= link_to "Login", new_user_session_path %>
           <% end %>
         </div>
 
-      <div class=" d-flex align-items-center" id="main">
+      <div class="d-flex align-items-center" id="main">
         <button class="openbtnhome center-cropped d-flex align-items-center" data-action="click->navbar#openNav">&#9776</button>
         <%= link_to root_path, class: "navbar-brand" do %>
           <%= image_tag "logo.png", width: 29, height: 35%>
@@ -40,7 +44,7 @@
               <%= link_to "Cart", cart_path, class: "nav-link" %>
             <%# </li> %>
             <li class="nav-item dropdown">
-              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <%= image_tag "https://avatars.githubusercontent.com/u/90439290?v=4", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <%= link_to "My orders", "#", class: "dropdown-item" %>
                 <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
@@ -70,10 +74,12 @@
     <p>Share your love for homemade food</p>
   </div>
   <div class="container d-flex justify-content-center">
-    <input type="text" placeholder="Enter your address">
-    <div class="d-flex justify-content-center">
-    <%= link_to "Search", meals_path, class: "btn search" %>
-    </div>
+    <%= form_tag(meals_path, method: "get", class: "form-inline d-flex align-items-between") do %>
+        <div class="input-group">
+          <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Enter your address", style: "padding-left: 12px;width: 324px;" %>
+          <%= submit_tag "Search", class: "btn search" %>
+        </div>
+      <% end %>
   </div>
 </div>
 <%# How it works section %>
@@ -110,18 +116,29 @@
   <div>
     <h3 class="pt-5 d-flex justify-content-center"><strong>Discover homecooked meals in Melbourne</strong></h3>
   </div>
-<div class="row">
-    <% @meals.each do |listing| %>
-    <%break if listing == 3 %>
+<div class="row my-5">
+    <% @meals.first(3).each do |listing| %>
       <div class="col-12 col-sm-6 col-md-4 mb-3">
         <div class="card-deck h-100">
-          <div class="card">
+          <div class="card h-100">
             <div id="<%= listing.id %>carouselExampleIndicators1" class="carousel slide" data-ride="carousel" data-interval="false">
               <ol class="carousel-indicators">
-
+                <% listing.photos.each_with_index do |photo, index| %>
+                  <li data-target="#<%= listing.id %>carouselExampleIndicators1" data-slide-to="<%= index %>" class="<%= index == 0 ? 'active' : '' %>"></li>
+                <% end %>
               </ol>
               <div class="carousel-inner">
-
+                <% if listing.photos.attached? %>
+                  <% listing.photos.each_with_index do |photo, index| %>
+                    <div class="carousel-item <%= index == 0 ? 'active' : '' %>">
+                      <%= cl_image_tag photo.key, class:"carousel-img w-100", height: 200 %>
+                    </div>
+                  <% end %>
+                <% else %>
+                  <% if listing.picture_url.present? %>
+                    <%= image_tag listing.picture_url, class:"carousel-img w-100", height: 200 %>
+                  <% end %>
+                <% end %>
               </div>
               <a class="carousel-control-prev" href="#<%= listing.id %>carouselExampleIndicators1" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -132,17 +149,16 @@
                 <span class="sr-only">Next</span>
               </a>
             </div>
-            <%= link_to "#", class:"text-decoration-none" do %>
-              <div class="card-body d-flex justify-content-between">
+            <div class="card-body d-flex justify-content-between">
                 <div style="width: 70%">
-                  <h6 class="card-title"><%= listing.name %></h6>
-                  <p class="card-text"><small class="text-muted"><%= listing.description %></small></p>
+                  <h6 class="card-title"><strong><%= listing.name %></strong></h6>
+                  <p class="card-text pb-3"><small class="text-muted"><%= listing.description %></small></p>
+                  <div ><%= link_to "See Listing", meal_path(listing), class: "btn see-listing" %></div>
                 </div>
-                <div class="card-text text-right" style="font-size: 14px">
-                  <p><strong>A$ <%= listing.price %></strong></p>
+                <div class="card-text price-right" style="font-size: 14px">
+                  <p>$ <%= listing.price %> per meal</p>
                 </div>
               </div>
-            <% end %>
           </div>
         </div>
       </div>
@@ -202,7 +218,7 @@
     </div>
   </div>
 </div>
-<div class="bannerbottom" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.1)), url(https://images.unsplash.com/photo-1507927956068-fc5f6474f4f5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80)" >
+<div class="bannerbottom" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.1)), url(<%= image_path "familyhome.png" %>)" >
   <div class="container d-flex justify-content-center">
     <h1>Start sharing your cooked meals today</h1>
   </div>

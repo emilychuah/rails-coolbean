@@ -2,24 +2,24 @@
   <div class="container-fluid">
     <div class="left-icons">
       <div id="mySidebar" class="sidepanel" data-navbar-target="sidebar">
-        <a class="closebtn" data-action="click->navbar#closeNav">&times;</a>
-        <% if user_signed_in? %>
-        <a href="#">Current orders</a>
-        <a href="#">Past orders</a>
-        <a href="#">My Meal listings</a>
-        <a href="#">Add a new meal</a>
-        <% else %>
-        <a href="#">Signup</a>
-        <a href="#">Login</a>
-        <% end %>
+          <a class="closebtn" data-action="click->navbar#closeNav">&times;</a>
+          <% if user_signed_in? %>
+          <a href="#">Current orders</a>
+          <a href="#">Past orders</a>
+          <a href="#">My Meal listings</a>
+          <%= link_to "Add a new meal", new_meal_path %>
+          <% else %>
+          <%= link_to "Signup", new_user_registration_path %>
+          <%= link_to "Login", new_user_session_path %>
+          <% end %>
+        </div>
 
+    <div class="d-flex align-items-center" id="main">
+      <div><button class="openbtn center-cropped d-flex align-items-center" data-action="click->navbar#openNav">&#9776</button></div>
+      <div><%= link_to root_path, class: "navbar-brand" do %>
+        <%= image_tag "logo.png", width: 29, height: 35%>
+      <% end %>
       </div>
-
-    <div id="main">
-      <button class="openbtn center-cropped" data-action="click->navbar#openNav">&#9776</button>
-    <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "logo.png", width: 25%>
-    <% end %>
     </div>
     </div>
 
@@ -36,8 +36,13 @@
           <li class="nav-item">
             <%= link_to "Cart", cart_path, class: "nav-link" %>
           <%# </li> %>
+          <div class="d-flex align-content-center mr-2">
+          <%= link_to cart_path, class: "navbar-brand" do %>
+              <%= image_tag "basket.png", width: 25, height: 25 %>
+          <% end %>
+          </div>
           <li class="nav-item dropdown">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= image_tag "https://avatars.githubusercontent.com/u/90439290?v=4", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "My orders", "#", class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>

@@ -7,17 +7,25 @@
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "mapbox-gl/dist/mapbox-gl";
+@import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder";
 
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
 
-h1, h2, h3,h6, p{
-  font-family: Archivo;
-}
+
+// Font
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@300&display=swap');
+
+// h1, h2, h3, p {
+//   font-family: Archivo;
+// }
+
 
 body {
   background-color: white;
+  font-family: Archivo;
 }
 
 .card-product {
