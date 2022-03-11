@@ -16,7 +16,6 @@ class MealOrdersController < ApplicationController
     @meal = Meal.find(params[:meal_id])
     @meal_order.order = @cart
     @meal_order.meal = @meal
-    byebug
     if @meal_order.save
     redirect_to cart_path, notice: "added to cart"
     else
