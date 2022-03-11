@@ -1,6 +1,13 @@
-<h1>Cart Page</h1>
-<% @cart_items.each do |meal_order| %>
-  <%= render 'cart_item', meal_order: meal_order %>
-<% end %>
-
-<%= link_to  %>
+<div>
+  <h1 class= "d-flex justify-content-center">Your Order</h1>
+    <div class=" d-flex justify-content-center container  p-3"  style="widt">
+      <div class="">
+        <% @cart_items.each do |meal_order| %>
+          <%= render 'cart_item', meal_order: meal_order %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center p-3">
+    <%= link_to "Complete Order",   order_path(@cart), class: 'btn search' %>
+  </div>
