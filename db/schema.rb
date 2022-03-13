@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_10_235437) do
+ActiveRecord::Schema.define(version: 2022_03_13_222723) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -103,6 +103,7 @@ ActiveRecord::Schema.define(version: 2022_03_10_235437) do
     t.string "name"
     t.float "overall_rating", default: 0.0
     t.boolean "food_safety_certified", default: false
+    t.string "avatar_url"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
