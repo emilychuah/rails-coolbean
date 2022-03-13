@@ -88,6 +88,12 @@
   font-size: 15px;
   position: absolute;
   bottom: 8px;
+  transition: 0.2s;
+}
+
+.see-listing:hover {
+  background: #ddbc02;
+
 }
 
 .createmeal {
