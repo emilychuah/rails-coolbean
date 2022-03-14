@@ -7,11 +7,14 @@
   <div class="mx-5">
     <div>
       <h1 class="pb-4"><%= @meal.name.capitalize %></h1>
-      <p><strong>Address:</strong> <%= @meal.user.address %></p>
+
       <p><strong>Description:</strong> <%= @meal.description.capitalize %></p>
       <p><strong>Serving Availability:</strong> <%= @meal.available_quantity %></p>
       <p><strong>Price per Serving:</strong> AUD $<%= @meal.price %></p>
       <p><strong>Home Chef:</strong> <%= @meal.user.name %></p>
+      <p><strong>Tags:</strong> <% @meal.tags.each do |tag| %>
+        <%= tag.name %>
+        <% end %></p>
     </div>
     <div class="p-2">
         <%# button_to 'Add to Cart', meal_meal_orders_path(@meal) %>
@@ -28,34 +31,3 @@
   <%# <div>
     <img src="https://a0.muscache.com/im/pictures/8da31ffa-daa8-4e7d-aa9b-1d81ef99369d.jpg?im_w=720" class="img" alt="barn">
   </div> %>
-  <div>
-    <div >
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <% @meal.photos.each_with_index do |photo, index| %>
-            <li data-target="#carouselExampleIndicators1" data-slide-to="<%= index %>" class="<%= index == 0 ? 'active' : '' %>"></li>
-          <% end %>
-        </ol>
-        <div class="carousel-inner">
-          <% if @meal.photos.attached? %>
-            <% @meal.photos.each_with_index do |photo, index| %>
-              <div class="carousel-item <%= index == 0 ? 'active' : '' %>">
-                <%= cl_image_tag photo.key, class:"big-carousel-img"%>
-              </div>
-            <% end %>
-          <% else %>
-            <%= image_tag @meal.picture_url, class:"big-carousel-img"%>
-          <% end %>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-    </div>
-  </div>
-</div>

@@ -3,6 +3,7 @@ class Meal < ApplicationRecord
   has_many :meal_orders, dependent: :destroy
   has_many :orders, through: :meal_orders, dependent: :destroy
   has_many_attached :photos
+  acts_as_taggable_on :tags
 
   validates :name, :price, :description, :collect_from, :collect_to, :available_quantity, :cuisine, presence: true
   validates :available_quantity, numericality: { only_integer: true }

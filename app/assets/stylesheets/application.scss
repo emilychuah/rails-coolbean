@@ -59,4 +59,165 @@ body {
 
 .card-product .card-product-infos {
   padding: 16px;
-}
+  }
+
+  #meal_tag_list_gluten {
+    position: absolute;
+    transform: scale(0);
+  }
+
+  #meal_tag_list_gluten + label {
+    cursor: pointer;
+    display: inline-block;
+    font-size: 0.9rem;
+    border-radius: 50rem;
+    padding: 0.5rem 1rem;
+    background-color: #ffd90300;
+    color: #272343;
+    border: 1px solid #272343;
+    margin-right: 0.6rem;
+    margin-bottom: 0.4rem;
+  }
+
+  #meal_tag_list_gluten:checked + label {
+    background-color: #FFD803;
+    color: #272343;
+  }
+
+  #meal_tag_list_asian {
+    position: absolute;
+    transform: scale(0);
+  }
+
+  #meal_tag_list_asian + label {
+    cursor: pointer;
+    display: inline-block;
+    font-size: 0.9rem;
+    border-radius: 50rem;
+    padding: 0.5rem 0.9rem;
+    background-color: #ffd90300;
+    color: #272343;
+    border: 1px solid #272343;
+    margin-right: 0.6rem;
+    margin-bottom: 0.4rem;
+  }
+
+  #meal_tag_list_asian:checked + label {
+    background-color: #FFD803;
+    color: #272343;
+  }
+
+  #meal_tag_list_mexican {
+    position: absolute;
+    transform: scale(0);
+  }
+
+  #meal_tag_list_mexican + label {
+    cursor: pointer;
+    display: inline-block;
+    font-size: 0.9rem;
+    border-radius: 50rem;
+    padding: 0.5rem 0.9rem;
+    background-color: #ffd90300;
+    color: #272343;
+    border: 1px solid #272343;
+    margin-right: 0.6rem;
+    margin-bottom: 0.4rem;
+  }
+
+  #meal_tag_list_mexican:checked + label {
+    background-color: #FFD803;
+    color: #272343;
+  }
+
+  #meal_tag_list_italian {
+    position: absolute;
+    transform: scale(0);
+  }
+
+  #meal_tag_list_italian + label {
+    cursor: pointer;
+    display: inline-block;
+    font-size: 0.9rem;
+    border-radius: 50rem;
+    padding: 0.5rem 0.9rem;
+    background-color: #ffd90300;
+    color: #272343;
+    border: 1px solid #272343;
+    margin-right: 0.6rem;
+    margin-bottom: 0.4rem;
+  }
+
+  #meal_tag_list_italian:checked + label {
+    background-color: #FFD803;
+    color: #272343;
+  }
+
+  #meal_tag_list_dessert {
+    position: absolute;
+    transform: scale(0);
+  }
+
+  #meal_tag_list_dessert + label {
+    cursor: pointer;
+    display: inline-block;
+    font-size: 0.9rem;
+    border-radius: 50rem;
+    padding: 0.5rem 0.9rem;
+    background-color: #ffd90300;
+    color: #272343;
+    border: 1px solid #272343;
+    margin-right: 0.6rem;
+    margin-bottom: 0.4rem;
+  }
+
+  #meal_tag_list_dessert:checked + label {
+    background-color: #FFD803;
+    color: #272343;
+  }
+
+  #meal_tag_list_indian {
+    position: absolute;
+    transform: scale(0);
+  }
+
+  #meal_tag_list_indian + label {
+    cursor: pointer;
+    display: inline-block;
+    font-size: 0.9rem;
+    border-radius: 50rem;
+    padding: 0.5rem 0.9rem;
+    background-color: #ffd90300;
+    color: #272343;
+    border: 1px solid #272343;
+    margin-right: 0.6rem;
+    margin-bottom: 0.4rem;
+  }
+
+  #meal_tag_list_indian:checked + label {
+    background-color: #FFD803;
+    color: #272343;
+  }
+
+  #meal_tag_list_turkish {
+    position: absolute;
+    transform: scale(0);
+  }
+
+  #meal_tag_list_turkish + label {
+    cursor: pointer;
+    display: inline-block;
+    font-size: 0.9rem;
+    border-radius: 50rem;
+    padding: 0.5rem 0.9rem;
+    background-color: #ffd90300;
+    color: #272343;
+    border: 1px solid #272343;
+    margin-right: 0.6rem;
+    margin-bottom: 0.4rem;
+  }
+
+  #meal_tag_list_turkish:checked + label {
+    background-color: #FFD803;
+    color: #272343;
+  }

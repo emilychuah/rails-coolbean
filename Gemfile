@@ -80,3 +80,5 @@ gem 'pg_search', '~> 2.3.0'
 
 # Geocoder
 gem "geocoder"
+#taggable gem
+gem 'acts-as-taggable-on', '~> 9.0'

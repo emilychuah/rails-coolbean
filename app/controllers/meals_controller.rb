@@ -35,9 +35,9 @@ class MealsController < ApplicationController
   end
 
   def create
+    params[:meal][:tag_list] = params[:meal][:tag_list].join(',') if params[:meal] && params[:meal][:tag_list]
     @meal = Meal.new(meal_params)
     @meal.user = current_user
-
     if @meal.save!
       redirect_to meals_path
     else
@@ -45,9 +45,11 @@ class MealsController < ApplicationController
     end
   end
 
+
+
   private
 
   def meal_params
-    params.require(:meal).permit(:name, :description, :cuisine, :price, :available_quantity, :available_quantity, :collect_from, :collect_to, photos: [])
+    params.require(:meal).permit(:tag_list, :name, :description, :cuisine, :price, :available_quantity, :available_quantity, :collect_from, :collect_to, photos: [])
   end
 end
