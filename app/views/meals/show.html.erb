@@ -52,7 +52,9 @@
               <p><%= f.submit "Add To Cart", class: 'px-5 btn btn-warning font-weight-bold' %></p>
               <p><strong><%= f.submit "Checkout", class: ' px-5 btn btn-warning font-weight-bold' %></strong></p>
               <p><%= link_to "Return to Listings", meals_path, class: ' btn btn-link text-dark>.text-dark' %></p>
-              <img src= "images/theresa.png" alt="" class="avatar">
+
+              <img src="<%= url_for(@meal.user.photos[0])%>" class="avatar_specificmeal" />
+
       </div>
           <% end %>
 
