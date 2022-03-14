@@ -17,7 +17,7 @@
     <div class="d-flex align-items-center" id="main">
       <div><button class="openbtn center-cropped d-flex align-items-center" data-action="click->navbar#openNav">&#9776</button></div>
       <div><%= link_to root_path, class: "navbar-brand" do %>
-        <%= image_tag "logo.png", width: 29, height: 35%>
+        <%= image_tag "logo.png", class:"logo"%>
       <% end %>
       </div>
     </div>
@@ -49,6 +49,7 @@
             </div>
           </li>
         <% else %>
+
           <li class="nav-item ">
             <div>
               <%= link_to "Signup", new_user_session_path, class: "btn signup" %>
