@@ -52,6 +52,7 @@
                       <p class="card-text"><small class="text-muted">Pickup time: <%= meal.collect_from.strftime('%-I %p') %></small></p>
                     </div>
                     <div class="card-text text-right" style="font-size: 14px">
+                    <img src="<%= url_for(meal.user.photos[0]) %>" class="avatar-meallisting" />
                       <p><strong><%= humanized_money_with_symbol(meal.price) %></strong>/serving</p>
                     </div>
                   </div>
