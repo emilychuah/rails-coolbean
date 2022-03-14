@@ -8,32 +8,54 @@
 }
 
 .signup {
-  width: 86px;
-  height: 35px;
+  width: 86px !important;
+  height: 35px !important;
   background: #FFD803;
   border-radius: 4px;
   font-family: archivo;
   align-items: center;
   position: absolute;
-  right: 110px;
+  right: 135px !important;
 }
 
 .signup:hover {
   background: #ddbc02;
+  color: black !important;
+}
+
+.signuphome {
+  width: 86px !important;
+  height: 35px !important;
+  background: #FFD803;
+  border-radius: 4px;
+  font-family: archivo;
+  align-items: center;
+  position: absolute;
+  right: 120px !important;
+}
+
+.signuphome:hover {
+  background: #ddbc02;
+  color: black !important;
 }
 
 .login {
-  width: 86px;
-  height: 35px;
-  background: inherit;
-  border-radius: 4px;
-  border: grey;
-  border-style: solid;
-  border-width: 1px;
-  font-family: archivo;
-  align-items: center;
-
+  width: 86px !important;
+  height: 35px !important;
+  background: inherit !important;
+  border-radius: 4px !important;
+  border: grey !important;
+  border-style: solid !important;
+  border-width: 1px !important;
+  font-family: archivo !important;
+  align-items: center !important;
 }
+
+.login:hover {
+  background: grey !important;
+  color: white !important;
+}
+
 
 .loginhome {
   width: 86px;
@@ -46,18 +68,19 @@
   font-family: archivo;
   align-items: center;
   right: 0;
+  color: white !important;
 }
 
 .loginhome:hover {
   background: grey;
-  color: white;
+  color: white !important;
 }
 
 .search {
   width: 130px;
   height: 35px;
   background: #FFD803;
-  border-radius: 4px;
+  border-radius: 4px !important;
   font-family: archivo;
   font-size: 15px;
 }

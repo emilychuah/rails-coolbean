@@ -1,7 +1,3 @@
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.1)), url(<%= image_path "banner.png" %>)" >
   <%# NAVBAR %>
   <div id="homenav">
@@ -52,7 +48,7 @@
           <% else %>
             <li class="nav-item ">
               <div>
-                <%= link_to "Signup", new_user_registration_path, class: "btn signup" %>
+                <%= link_to "Signup", new_user_registration_path, class: "btn signuphome" %>
               </div>
             </li>
             <li class="nav-item">
@@ -79,6 +75,7 @@
           <%= submit_tag "Search", class: "btn search" %>
         </div>
       <% end %>
+    </div>
   </div>
 </div>
 <%# How it works section %>
@@ -87,25 +84,33 @@
     <h3 class="pt-5 d-flex justify-content-center"><strong>How it works</strong></h3>
   </div>
   <div class="row d-flex justify-content-center p-5">
-    <div class="col d-flex justify-content-center">
-      <div class="mx-5">
-        <div class="d-flex justify-content-center pb-3"><%= image_tag "search.png", height: 50 %></div>
-        <p class="d-flex justify-content-center"><strong>Search meals</strong></p>
-        <p class="text-center">You can search by cuisine and dietary requirements in your area</p>
+    <div class="col-12 col-lg-4">
+      <div class="d-flex justify-content-center">
+        <div class="mx-5">
+          <div class="d-flex justify-content-center pb-3"><%= image_tag "search.png", height: 50 %></div>
+          <p class="d-flex justify-content-center"><strong>Search meals</strong></p>
+          <p class="text-center">Enter your address in the searchbar above and click the search button </p>
+        </div>
       </div>
     </div>
-    <div class="col d-flex justify-content-center">
-      <div class="mx-5">
-        <div class="d-flex justify-content-center pb-3"><%= image_tag "checkout.png", height: 55 %></div>
-        <p class="d-flex justify-content-center"><strong>Choose your meal</strong></p>
-        <p class="text-center">Go to checkout where you can place your order</p>
+
+    <div class="col-12 col-lg-4">
+      <div class="d-flex justify-content-center">
+        <div class="mx-5">
+          <div class="d-flex justify-content-center pb-3"><%= image_tag "checkout.png", height: 55 %></div>
+          <p class="d-flex justify-content-center"><strong>Choose your meal</strong></p>
+          <p class="text-center">Add your meal to cart and go to checkout where you can place your order</p>
+        </div>
       </div>
-    </div>
-    <div class="col d-flex justify-content-center">
-      <div class="mx-5">
-        <div class="d-flex justify-content-center pb-3"><%= image_tag "time.png", height: 52 %></div>
-        <p class="d-flex justify-content-center"><strong>Search meals</strong></p>
-        <p class="text-center">When it’s time, meet the homecook chef and pickup your meal</p>
+     </div>
+
+    <div class="col-12 col-lg-4">
+      <div class="d-flex justify-content-center">
+        <div class="mx-5">
+          <div class="d-flex justify-content-center pb-3"><%= image_tag "time.png", height: 52 %></div>
+          <p class="d-flex justify-content-center"><strong>Search meals</strong></p>
+          <p class="text-center">When it’s time, meet the homecook chef and pickup your meal</p>
+        </div>
       </div>
     </div>
   </div>
@@ -152,10 +157,10 @@
                 <div style="width: 70%">
                   <h6 class="card-title"><strong><%= meal.name %></strong></h6>
                   <p class="card-text pb-3"><small class="text-muted"><%= meal.description %></small></p>
-                  <div ><%= link_to "See Meal", meal_path(meal), class: "btn see-listing" %></div>
+                  <div ><%= link_to "See meal", meal_path(meal), class: "btn see-listing" %></div>
                 </div>
                 <div class="card-text price-right" style="font-size: 14px">
-                  <img src="<%= url_for(meal.user.photos[0]) %>" class="card-trip-user avatar-bordered" />
+                  <img src="<%= url_for(meal.user.photos[0]) %>" class="card-trip-user avatar-homelisting" />
                   <p><%= humanized_money_with_symbol(meal.price) %>/serving</p>
                 </div>
               </div>
@@ -168,7 +173,7 @@
 
 <div class="container p-4">
   <div class="row justify-content-around">
-    <div class="col-4">
+    <div class="col-6">
       <h3 id="meetthecook"><strong>Meet one of our home cooks</strong></h3>
       <p id="cookdescription"><strong>Amanda B.</strong></p>
       <br>
@@ -178,7 +183,7 @@
         <%= link_to "View meals", "#", class: "btn search mt-3" %>
         </div>
     </div>
-    <div class="col-4">
+    <div class="col-6">
      <%= image_tag "homecook.png", height: 400 %>
     </div>
   </div>
@@ -186,21 +191,21 @@
 
 <div class="container" id="choosecoolbean">
   <div class="row justify-content-around">
-    <div class="col-3">
+    <div class="col-lg-3 col-sm-12">
       <h3 id="whyyoushouldusecoolbean"><strong>Why you should use CoolBean</strong></h3>
       <div id="explorebtn">
         <%= link_to "Explore meals", "#", class: "btn exploremeals" %>
        </div>
     </div>
-    <div class="col-3" id="whychoose">
+    <div class="col-lg-3 col-sm-12" id="whychoose">
       <p id="cookdescription"><strong>Support local cooks</strong></p>
       <p id="cookdescription">Unlike restaurants, you know exactly who is preparing your food</p>
     </div>
-    <div class="col-3" id="whychoose">
+    <div class="col-lg-3 col-sm-12" id="whychoose">
       <p id="cookdescription"><strong>Explore new cultures</strong></p>
       <p id="cookdescription">Reconnect with your heritage or discover new cultures through traditional homemade dishes</p>
     </div>
-     <div class="col-3" id="whychoose">
+     <div class="col-lg-3 col-sm-12" id="whychoose">
       <p id="cookdescription"><strong>Reasonable price</strong></p>
       <p id="cookdescription">Enjoy real homemade food at a reasonable price, without sacrificing time</p>
     </div>
@@ -209,10 +214,10 @@
 
 <div class="container p-4">
   <div class="row justify-content-around">
-    <div class="col-6">
+    <div class="col-6 col-md-6 col-sm-12">
       <%= image_tag "flatlayfood.png", height: 500 %>
     </div>
-    <div class="foodsafety col-6">
+    <div class="foodsafety col-6 col-md-6 col-sm-12">
       <h3><strong>Food safety</strong></h3>
       <p>At Coolbean, we are committed to helping ensure that your food will always be safe to eat. All homecooks are required to upload their food safety certification before they are able to sell their meals. In regions that have not yet implemented home cooking laws, shefs are required to cook out of commercial kitchens or other legally permissible facilities.</p>
     </div>
@@ -228,3 +233,82 @@
     </div>
   </div>
 </div>
+
+<footer class="footer">
+<div class="bottomsection row">
+  <div class="col-lg-4 col-sm-12">
+    <div >
+      <h1>Coolbean</h1>
+    </div>
+    <div>
+      <h2>Share your love for food</h2>
+    </div>
+  </div>
+
+  <div class="col-lg-4 col-sm-12">
+    <div class="row">
+      <div class="col">
+        <div>
+          <p><strong>Learn</strong></p>
+        </div>
+        <div><a href="#">Gift cards</a></div>
+        <div><a href="#">Help centers</a></div>
+        <div><a href="#">Covid-19 safety</a></div>
+      </div>
+
+      <div class="col">
+        <div>
+          <p><strong>Follow</strong></p>
+        </div>
+        <div><a href="#">Facebook</a></div>
+        <div><a href="#">Instagram</a></div>
+        <div><a href="#">Twitter</a></div>
+      </div>
+
+      <div class="col">
+        <div>
+          <p><strong>Join</strong></p>
+        </div>
+        <div><a href="#">Become a homecook</a></div>
+        <div><a href="#">Careers</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-4 col-sm-12 d-flex justify-content-center">
+    <div>
+      <div>
+        <p><strong>Secure payments</strong></p>
+      </div>
+      <div class="paymentoptionicons">
+        <div class="col">
+          <div class="px-2 pt-2">
+            <%= image_tag "discover.png", height: 34, width: 40 %>
+            <%= image_tag "mastercard.png", height: 34, width: 40   %>
+            <%= image_tag "americanexpress.png", height: 34, width: 40   %>
+          </div>
+          <div class="p-2">
+            <%= image_tag "visa.png", height: 34, width: 40  %>
+            <%= image_tag "stripe.png", height: 34, width: 40   %>
+            <%= image_tag "jcb.png", height: 34, width: 40   %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="whitesection d-flex justify-content-between">
+  <div class="row d-flex align-content-center" id="whitebottom">
+    <div class="col-sm-12 col-lg-3 px-5 pt-2"><p>© 2022 Coolbean, Inc</p></div>
+    <div class="col-sm-12 col-lg-3 px-5 pt-2"><a href="#">Terms of service</a></div>
+    <div class="col-sm-12 col-lg-3 px-5 pt-2"><a href="#">Privacy</a></div>
+    <div class="col-sm-12 col-lg-3 px-5 pt-2"><a href="#">Delivery Locations</a></div>
+  </div>
+  <div class="row socialicons">
+    <div class="col"><a href="#"><%= image_tag "facebook.png", height: 20  %></a></div>
+    <div class="col"><a href="#"><%= image_tag "twitter.png", height: 20  %></a></div>
+    <div class="col"><a href="#"><%= image_tag "instagram.png", height: 20  %></a></div>
+  </div>
+</div>
+</footer>
