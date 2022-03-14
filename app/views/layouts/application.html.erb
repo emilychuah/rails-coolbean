@@ -34,6 +34,8 @@
     <% end %>
     <%= render 'shared/flashes' %>
     <%= yield %>
-    <%= render 'shared/footer' %>
+    <% if !(params[:controller] == "meals" && params[:action] == "home")%>
+      <%= render 'shared/footer' %>
+    <% end %>
   </body>
 </html>
