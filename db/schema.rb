@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_14_004839) do
+ActiveRecord::Schema.define(version: 2022_03_14_081330) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 2022_03_14_004839) do
     t.datetime "pick_up"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "total_price"
+    t.integer "total_price_cents", default: 0, null: false
     t.index ["meal_id"], name: "index_meal_orders_on_meal_id"
     t.index ["order_id"], name: "index_meal_orders_on_order_id"
   end
@@ -79,6 +79,9 @@ ActiveRecord::Schema.define(version: 2022_03_14_004839) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "is_picked_up", default: false
+    t.string "state"
+    t.integer "amount_cents", default: 0, null: false
+    t.string "checkout_session_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
