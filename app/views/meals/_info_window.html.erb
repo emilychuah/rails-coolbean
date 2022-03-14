@@ -27,7 +27,7 @@
 <%= link_to meal_path(meal), class:"text-decoration-none" do %>
   <h6><%= meal.name %></h6>
   <p>Made with ❤️ by <%= meal.user.name %></p>
-  <p class="mb-0">$ <%= meal.price.truncate() %>/serving</p>
+  <p class="mb-0"><%= humanized_money_with_symbol(meal.price) %>/serving</p>
   <p class="mb-0">Available from: <%= meal.collect_from.strftime('%d/%m') %> - <%= meal.collect_to.strftime('%d/%m') %></p>
   <p class="mb-0 font-weight-bold">Pickup details:</p>
   <p class="mb-0">Time: <%= meal.collect_from.strftime('%-I %p') %></p>

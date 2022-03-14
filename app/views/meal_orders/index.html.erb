@@ -1,13 +1,14 @@
-<div>
-  <h1 class= "d-flex justify-content-center">Your Order</h1>
-    <div class=" d-flex justify-content-center container  p-3"  style="widt">
-      <div class="">
-        <% @cart_items.each do |meal_order| %>
-          <%= render 'cart_item', meal_order: meal_order %>
-        <% end %>
+<div class="container d-flex justify-content-center align-items-center">
+  <div class="row">
+    <div class="col-6 col-md-12">
+      <h2 class="mb-4" style="text-align:center">My Cart</h2>
+      <% @cart_items.each do |meal_order| %>
+        <%= render 'cart_item', meal_order: meal_order %>
+      <% end %>
+      <h5 class="mt-5 mb-4" style="text-align:center">Total price: <%= humanized_money_with_symbol(@cart.total) %></h5>
+      <div style="text-align:center">
+        <%= link_to "Checkout", new_order_payment_path(@cart), class: 'btn search' %>
       </div>
     </div>
   </div>
-  <div class="d-flex justify-content-center p-3">
-    <%= link_to "Complete Order",   order_path(@cart), class: 'btn search' %>
-  </div>
+</div>

@@ -1,21 +1,12 @@
-<%# <div>
-  <h4></h4>
-  <div class="d-flex justify-content-between" style="width: 170px">
-
-  </div>
-</div> %>
-<div class="card-product" style="width: 450px; height: 100px">
+<div class="card-product mb-4" style="width: 450px; height: 100px">
   <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-    <div class="card-product-infos">
-    <div class="d-flex justify-content-between py-2" style="width: 275px;">
-      <h2><%= meal_order.meal.name %></h2>
-      <h2>$<%= meal_order.meal.price %></h2>
+  <div class="card-product-infos d-flex justify-content-between w-100">
+    <div>
+      <h2 class="mb-2"><%= meal_order.meal.name %></h2>
+      <h6>Quantity: <%= meal_order.quantity_ordered %></h6>
     </div>
-    <div class="d-flex justify-content-between" >
-    <h6><%= meal_order.pick_up.strftime('%-I %p') %></h6>
-    <h6>per serving</h6>
+    <div style="margin-right: 15px">
+      <h2 class="mr-3"><%= humanized_money_with_symbol(meal_order.total_price) %></h2>
     </div>
-    <h6>Qty: <%= meal_order.quantity_ordered %></h6>
-
   </div>
 </div>

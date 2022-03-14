@@ -7,7 +7,7 @@
       <h3>Search for homemade meals near you: </h3>
       <%= form_tag(meals_path, method: "get", class: "form-inline d-flex align-items-between") do %>
         <div class="input-group">
-          <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Enter your address", style: "padding-left: 12px;border: 1px solid lightgrey;" %>
+          <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Enter your address", style: "padding-left: 12px" %>
           <%= submit_tag "Search", class: "btn search" %>
         </div>
       <% end %>
@@ -52,7 +52,8 @@
                       <p class="card-text"><small class="text-muted">Pickup time: <%= meal.collect_from.strftime('%-I %p') %></small></p>
                     </div>
                     <div class="card-text text-right" style="font-size: 14px">
-                      <p><strong>$ <%= meal.price.truncate() %></strong>/serving</p>
+                    <img src="<%= url_for(meal.user.photos[0]) %>" class="avatar-meallisting" />
+                      <p><strong><%= humanized_money_with_symbol(meal.price) %></strong>/serving</p>
                     </div>
                   </div>
                 <% end %>

@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :orders, dependent: :destroy
 
   has_many_attached :photos
+  has_one_attached :avatar
 
   # validates :address, :phone_number, :name, :food_safety_certified, presence: true
   # validates :phone_number, :numericality => true,

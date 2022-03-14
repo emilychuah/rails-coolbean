@@ -24,6 +24,7 @@ emily = User.create!(
   overall_rating: 5.0,
   food_safety_certified: true
 )
+emily.photos.attach(io: File.open('app/assets/images/emily.png'), filename: 'emily.png', content_type: 'image/png')
 
 chris = User.create!(
   name: "Chris",
@@ -33,6 +34,7 @@ chris = User.create!(
   overall_rating: 5.0,
   food_safety_certified: true
 )
+chris.photos.attach(io: File.open('app/assets/images/chris.png'), filename: 'chris.png', content_type: 'image/png')
 
 sam = User.create!(
   name: "Sam",
@@ -42,6 +44,7 @@ sam = User.create!(
   overall_rating: 5.0,
   food_safety_certified: true
 )
+sam.photos.attach(io: File.open('app/assets/images/sam.png'), filename: 'sam.png', content_type: 'image/png')
 
 theresa = User.create!(
   name: "Theresa",
@@ -51,13 +54,7 @@ theresa = User.create!(
   overall_rating: 5.0,
   food_safety_certified: true
 )
-
-marc = User.create!(
-  name: "Marc",
-  email: "marc@live.com",
-  password: "password",
-  phone_number: "0456120437"
-)
+theresa.photos.attach(io: File.open('app/assets/images/theresa.png'), filename: 'theresa.png', content_type: 'image/png')
 
 puts "Creating meals..."
 
@@ -103,7 +100,7 @@ tiramisu = Meal.create!(
 laksa = Meal.create!(
   user: theresa,
   name: "Laksa",
-  price: 9,
+  price_cents: 950,
   description: "Gluten free and vegan! Guaranteed healthy and tasty!",
   collect_from: (DateTime.now - 3.hour).strftime("%Y-%m-%d %I %p"),
   collect_to: (DateTime.now + 2.day - 3.hour).strftime("%Y-%m-%d %I %p"),
@@ -113,20 +110,20 @@ laksa = Meal.create!(
   picture_url: "https://media.istockphoto.com/photos/singaporean-laksa-soup-picture-id907689936?b=1&k=20&m=907689936&s=170667a&w=0&h=cybLfOnIm_YZnLUeL7IoP9GV6D-Z0t1_he68vy-n9yM="
 )
 
-puts "Creating orders..."
+# puts "Creating orders..."
 
-Order.create!(
-  user: User.first
-)
+# Order.create!(
+#   user: User.first
+# )
 
-puts "Creating ordered meals..."
+# puts "Creating ordered meals..."
 
-MealOrder.create!(
-  meal: tiramisu,
-  order: Order.first,
-  quantity_ordered: 2,
-  total_price: 10,
-  pick_up: (DateTime.now + 1.day).strftime("%Y-%m-%d %I %p")
-)
+# MealOrder.create!(
+#   meal: tiramisu,
+#   order: Order.first,
+#   quantity_ordered: 2,
+#   total_price: 10,
+#   pick_up: (DateTime.now + 1.day).strftime("%Y-%m-%d %I %p")
+# )
 
 puts "Finished!"

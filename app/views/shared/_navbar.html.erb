@@ -17,7 +17,7 @@
     <div class="d-flex align-items-center" id="main">
       <div><button class="openbtn center-cropped d-flex align-items-center" data-action="click->navbar#openNav">&#9776</button></div>
       <div><%= link_to root_path, class: "navbar-brand" do %>
-        <%= image_tag "logo.png", width: 29, height: 35%>
+        <%= image_tag "logo.png", class:"logo"%>
       <% end %>
       </div>
     </div>
@@ -42,13 +42,14 @@
           <% end %>
           </div>
           <li class="nav-item dropdown">
-            <%= image_tag "https://avatars.githubusercontent.com/u/90439290?v=4", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="<%= url_for(current_user.photos[0]) %> "  />
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "My orders", "#", class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>
         <% else %>
+
           <li class="nav-item ">
             <div>
               <%= link_to "Signup", new_user_session_path, class: "btn signup" %>
