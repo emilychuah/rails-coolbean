@@ -1,0 +1,112 @@
+@media only screen and (max-width: 390px) {
+  /* For mobile phones: */
+  .navbar {
+    padding: 0px;
+    margin: 0px;
+  }
+
+  .left-icons {
+    margin-left: 0px;
+  }
+
+  .banner h1 {
+    font-size: 30px;
+  }
+
+  .banner p {
+    font-size: 17px;
+  }
+
+  .input-group {
+    justify-content: center;
+  }
+
+  .input-group .btn {
+    margin-top: 9px;
+  }
+
+  .p-3 {
+    margin-top: -40px;
+  }
+
+  .navbar-light .navbar-toggler {
+    display: none;
+  }
+
+  .banner {
+    padding-top: 67px;
+    padding-bottom: 67px;
+  }
+
+  .pt-5 {
+    padding-top: 11px;
+  }
+
+  #meetthecook {
+    width: 100%;
+    padding-top: 0px;
+  }
+
+  .col-6 {
+    width: 100%;
+    padding-bottom: 10px
+  }
+
+  .col-6 img {
+    width: 100%;
+    height: auto;
+  }
+
+  #choosecoolbean {
+    padding-top: 40px;
+  }
+
+  #whyyoushouldusecoolbean {
+    text-align: center;
+  }
+
+  #explorebtn {
+    margin-left: 0px;
+    text-align: center;
+  }
+
+  #whychoose {
+    padding-top: 20px;
+  }
+
+  #choosecoolbean {
+    height: 442px;
+    padding-top: 0px;
+  }
+
+  .foodsafety {
+    padding-top: 5px;
+    height: 250px;
+  }
+
+  .bannerbottom {
+    padding: 30px;
+  }
+
+  .bannerbottom h1 {
+    text-align: center;
+    font-size: 30px;
+  }
+
+  .bottomsection {
+    padding: 0px;
+    text-align: center;
+    height: 400px;
+    padding: 10px;
+  }
+
+  #whitebottom {
+    padding: 10px;
+    width: auto;
+  }
+
+  .socialicons {
+    padding-top: 65px;
+  }
+
+}
