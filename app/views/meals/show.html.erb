@@ -3,7 +3,7 @@
 
   <div>
     <div>
-      <div id="carouselExampleIndicators" class="carousel slide text-center" data-ride="carousel">
+      <div id="carouselExampleIndicators" class="carousel slide text-center" data-ride="carousel" data-interval="false">
         <ol class="carousel-indicators">
           <% @meal.photos.each_with_index do |photo, index| %>
             <li data-target="#carouselExampleIndicators1" data-slide-to="<%= index %>" class="<%= index == 0 ? 'active' : '' %>"></li>
