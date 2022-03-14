@@ -1,8 +1,8 @@
 .bottomsection {
-  height: 260px !important;
+  height: 260px ;
   align-items: center !important;
   background-color: #588157 !important;
-  padding-left: 60px !important;
+  padding-left: 60px;
   font-family: Archivo !important;
 }
 
@@ -28,7 +28,7 @@
 
 .socialicons {
   padding-right: 40px !important;
-  padding-top: 5px !important;
+  padding-top: 5px;
 }
 
 .paymentoptionicons {
@@ -47,4 +47,8 @@ a {
 a:hover {
   text-decoration: none !important;
   color: grey !important;
+}
+
+#whitebottom {
+  width: 60%;
 }
