@@ -87,14 +87,14 @@
       <div class="mx-5">
         <div class="d-flex justify-content-center pb-3"><%= image_tag "search.png", height: 50 %></div>
         <p class="d-flex justify-content-center"><strong>Search meals</strong></p>
-        <p class="text-center">You can search by cuisine and dietary requirements in your area</p>
+        <p class="text-center">Enter your address in the searchbar above and click the search button </p>
       </div>
     </div>
     <div class="col d-flex justify-content-center">
       <div class="mx-5">
         <div class="d-flex justify-content-center pb-3"><%= image_tag "checkout.png", height: 55 %></div>
         <p class="d-flex justify-content-center"><strong>Choose your meal</strong></p>
-        <p class="text-center">Go to checkout where you can place your order</p>
+        <p class="text-center">Add your meal to cart and go to checkout where you can place your order</p>
       </div>
     </div>
     <div class="col d-flex justify-content-center">
@@ -151,7 +151,7 @@
                   <div ><%= link_to "See meal", meal_path(meal), class: "btn see-listing" %></div>
                 </div>
                 <div class="card-text price-right" style="font-size: 14px">
-                  <img src="<%= url_for(meal.user.photos[0]) %>" class="card-trip-user avatar-bordered" />
+                  <img src="<%= url_for(meal.user.photos[0]) %>" class="card-trip-user avatar-homelisting" />
                   <p><%= humanized_money_with_symbol(meal.price) %>/serving</p>
                 </div>
               </div>
