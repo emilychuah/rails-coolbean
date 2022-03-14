@@ -83,3 +83,6 @@ gem "geocoder"
 
 # Money-rails
 gem 'money-rails'
+
+# Stripe
+gem 'stripe'

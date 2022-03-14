@@ -249,6 +249,7 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
+    stripe (5.45.0)
     thor (1.2.1)
     tilt (2.0.10)
     timeliness (0.4.4)
@@ -318,6 +319,7 @@ DEPENDENCIES
   selenium-webdriver
   simple_form
   spring
+  stripe
   turbolinks (~> 5)
   tzinfo-data
   validates_timeliness (~> 6.0.0.beta2)
