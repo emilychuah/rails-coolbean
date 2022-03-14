@@ -17,6 +17,7 @@ class Meal < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 
+  monetize :price_cents
   # validates_date :collect_from, on_or_after: lambda { Date.current }
   # validates_date :collect_to, on_or_after: lambda { :collect_from }
   # validate :collect_from_cannot_be_in_the_past

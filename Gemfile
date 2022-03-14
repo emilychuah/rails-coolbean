@@ -80,3 +80,6 @@ gem 'pg_search', '~> 2.3.0'
 
 # Geocoder
 gem "geocoder"
+
+# Money-rails
+gem 'money-rails'

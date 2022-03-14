@@ -24,15 +24,13 @@ class MealOrdersController < ApplicationController
     end
   end
 
-  def update
+  # def update
 
-  end
+  # end
 
-  def destroy
+  # def destroy
 
-  end
-
-
+  # end
 
   private
 
