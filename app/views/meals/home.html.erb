@@ -156,7 +156,7 @@
                 </div>
                 <div class="card-text price-right" style="font-size: 14px">
                   <img src="<%= url_for(meal.user.photos[0]) %>" class="card-trip-user avatar-bordered" />
-                  <p>$ <%= meal.price %> per meal</p>
+                  <p><%= humanized_money_with_symbol(meal.price) %>/serving</p>
                 </div>
               </div>
           </div>

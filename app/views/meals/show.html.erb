@@ -10,7 +10,7 @@
       <p><strong>Address:</strong> <%= @meal.address %></p>
       <p><strong>Description:</strong> <%= @meal.description.capitalize %></p>
       <p><strong>Serving Availability:</strong> <%= @meal.available_quantity %></p>
-      <p><strong>Price per Serving:</strong> AUD $<%= @meal.price %></p>
+      <p><strong>Price per Serving: </strong><%= humanized_money_with_symbol(@meal.price) %></p>
       <p><strong>Home Chef:</strong> <%= @meal.user.name %></p>
     </div>
     <div class="p-2">
