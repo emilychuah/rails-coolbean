@@ -43,7 +43,7 @@
               <%= link_to "Cart", cart_path, class: "nav-link" %>
             <%# </li> %>
             <li class="nav-item dropdown">
-              <%= image_tag "https://avatars.githubusercontent.com/u/90439290?v=4", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="<%= url_for(current_user.photos[0]) %>" />
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <%= link_to "My orders", "#", class: "dropdown-item" %>
                 <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
@@ -52,7 +52,7 @@
           <% else %>
             <li class="nav-item ">
               <div>
-                <%= link_to "Signup", new_user_session_path, class: "btn signup" %>
+                <%= link_to "Signup", new_user_registration_path, class: "btn signup" %>
               </div>
             </li>
             <li class="nav-item">
@@ -116,47 +116,47 @@
     <h3 class="pt-5 d-flex justify-content-center"><strong>Discover homecooked meals in Melbourne</strong></h3>
   </div>
 <div class="row my-5">
-    <% @meals.first(3).each do |listing| %>
+    <% @meals.first(3).each do |meal| %>
       <div class="col-12 col-sm-6 col-md-4 mb-3">
         <div class="card-deck h-100">
           <div class="card h-100">
-            <div id="<%= listing.id %>carouselExampleIndicators1" class="carousel slide" data-ride="carousel" data-interval="false">
+            <div id="<%= meal.id %>carouselExampleIndicators1" class="carousel slide" data-ride="carousel" data-interval="false">
               <ol class="carousel-indicators">
-                <% listing.photos.each_with_index do |photo, index| %>
-                  <li data-target="#<%= listing.id %>carouselExampleIndicators1" data-slide-to="<%= index %>" class="<%= index == 0 ? 'active' : '' %>"></li>
+                <% meal.photos.each_with_index do |photo, index| %>
+                  <li data-target="#<%= meal.id %>carouselExampleIndicators1" data-slide-to="<%= index %>" class="<%= index == 0 ? 'active' : '' %>"></li>
                 <% end %>
               </ol>
               <div class="carousel-inner">
-                <% if listing.photos.attached? %>
-                  <% listing.photos.each_with_index do |photo, index| %>
+                <% if meal.photos.attached? %>
+                  <% meal.photos.each_with_index do |photo, index| %>
                     <div class="carousel-item <%= index == 0 ? 'active' : '' %>">
                       <%= cl_image_tag photo.key, class:"carousel-img w-100", height: 200 %>
                     </div>
                   <% end %>
                 <% else %>
-                  <% if listing.picture_url.present? %>
-                    <%= image_tag listing.picture_url, class:"carousel-img w-100", height: 200 %>
+                  <% if meal.picture_url.present? %>
+                    <%= image_tag meal.picture_url, class:"carousel-img w-100", height: 200 %>
                   <% end %>
                 <% end %>
               </div>
-              <a class="carousel-control-prev" href="#<%= listing.id %>carouselExampleIndicators1" role="button" data-slide="prev">
+              <a class="carousel-control-prev" href="#<%= meal.id %>carouselExampleIndicators1" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
               </a>
-              <a class="carousel-control-next" href="#<%= listing.id %>carouselExampleIndicators1" role="button" data-slide="next">
+              <a class="carousel-control-next" href="#<%= meal.id %>carouselExampleIndicators1" role="button" data-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
               </a>
             </div>
             <div class="card-body d-flex justify-content-between">
                 <div style="width: 70%">
-                  <h6 class="card-title"><strong><%= listing.name %></strong></h6>
-                  <p class="card-text pb-3"><small class="text-muted"><%= listing.description %></small></p>
-                  <div ><%= link_to "See Listing", meal_path(listing), class: "btn see-listing" %></div>
+                  <h6 class="card-title"><strong><%= meal.name %></strong></h6>
+                  <p class="card-text pb-3"><small class="text-muted"><%= meal.description %></small></p>
+                  <div ><%= link_to "See Meal", meal_path(meal), class: "btn see-listing" %></div>
                 </div>
                 <div class="card-text price-right" style="font-size: 14px">
-                  <p>$ <%= listing.price %> per meal</p>
-                  <%# <img src="<%= url_for(current_user.photos[0]) " class="card-trip-user avatar-bordered" /> %>
+                  <img src="<%= url_for(meal.user.photos[0]) %>" class="card-trip-user avatar-bordered" />
+                  <p>$ <%= meal.price %> per meal</p>
                 </div>
               </div>
           </div>

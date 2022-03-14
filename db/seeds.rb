@@ -24,6 +24,7 @@ emily = User.create!(
   overall_rating: 5.0,
   food_safety_certified: true
 )
+emily.photos.attach(io: File.open('app/assets/images/emily.png'), filename: 'emily.png', content_type: 'image/png')
 
 chris = User.create!(
   name: "Chris",
@@ -33,6 +34,7 @@ chris = User.create!(
   overall_rating: 5.0,
   food_safety_certified: true
 )
+chris.photos.attach(io: File.open('app/assets/images/chris.png'), filename: 'chris.png', content_type: 'image/png')
 
 sam = User.create!(
   name: "Sam",
@@ -42,6 +44,7 @@ sam = User.create!(
   overall_rating: 5.0,
   food_safety_certified: true
 )
+sam.photos.attach(io: File.open('app/assets/images/sam.png'), filename: 'sam.png', content_type: 'image/png')
 
 theresa = User.create!(
   name: "Theresa",
@@ -51,13 +54,7 @@ theresa = User.create!(
   overall_rating: 5.0,
   food_safety_certified: true
 )
-
-marc = User.create!(
-  name: "Marc",
-  email: "marc@live.com",
-  password: "password",
-  phone_number: "0456120437"
-)
+theresa.photos.attach(io: File.open('app/assets/images/theresa.png'), filename: 'theresa.png', content_type: 'image/png')
 
 puts "Creating meals..."
 
