@@ -7,10 +7,13 @@
         <div id="mySidebar" class="sidepanel" data-navbar-target="sidebar">
           <a class="closebtn" data-action="click->navbar#closeNav">&times;</a>
           <% if user_signed_in? %>
+          <p>Your Account</p>
           <a href="#">Current orders</a>
           <a href="#">Past orders</a>
           <a href="#">My Meal listings</a>
           <%= link_to "Add a new meal", new_meal_path %>
+          <br>
+          <%= link_to "Logout", destroy_user_session_path %>
           <% else %>
           <%= link_to "Signup", new_user_registration_path %>
           <%= link_to "Login", new_user_session_path %>
@@ -41,7 +44,7 @@
             <li class="nav-item dropdown">
               <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="<%= url_for(current_user.photos[0]) %>" />
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <%= link_to "My orders", "#", class: "dropdown-item" %>
+                <%= link_to "Update profile", "#", class: "dropdown-item" %>
                 <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
               </div>
             </li>
@@ -89,7 +92,7 @@
         <div class="mx-5">
           <div class="d-flex justify-content-center pb-3"><%= image_tag "search.png", height: 50 %></div>
           <p class="d-flex justify-content-center"><strong>Search meals</strong></p>
-          <p class="text-center">Enter your address in the searchbar above and click the search button </p>
+          <p class="text-center">Enter your address in the search bar above and click the search button </p>
         </div>
       </div>
     </div>
@@ -238,10 +241,10 @@
 <div class="bottomsection row">
   <div class="col-lg-4 col-sm-12">
     <div >
-      <h1>Coolbean</h1>
+      <h1>CoolBean</h1>
     </div>
     <div>
-      <h2>Share your love for food</h2>
+      <h2>Share your love for homemade food</h2>
     </div>
   </div>
 
@@ -298,7 +301,7 @@
   </div>
 </div>
 
-<div class="d-flex justify-content-between">
+<div class="whitesection d-flex justify-content-between">
   <div class="row d-flex align-content-center" id="whitebottom">
     <div class="col-sm-12 col-lg-3 px-5 pt-2"><p>© 2022 Coolbean, Inc</p></div>
     <div class="col-sm-12 col-lg-3 px-5 pt-2"><a href="#">Terms of service</a></div>

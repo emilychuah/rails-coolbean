@@ -1,6 +1,9 @@
 class OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
+    if params[:set_paid] == "true"
+      @order.update(is_paid: true)
+    end
   end
 
   # def index
