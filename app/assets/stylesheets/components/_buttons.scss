@@ -77,12 +77,15 @@
 }
 
 .search {
-  width: 130px;
-  height: 35px;
+  width: 130px !important;
+  height: 35px !important;
   background: #FFD803;
   border-radius: 4px !important;
+  align-items: center !important;
   font-family: archivo;
   font-size: 15px;
+  vertical-align: middle !important;
+  padding: 0px !important;
 }
 
 .search:hover {
@@ -149,4 +152,51 @@
 .nav-link:hover {
   font-weight: bold;
   color: grey;
+}
+
+.review {
+  color:grey !important;
+}
+
+.review:hover {
+  color:rgb(172, 172, 172) !important;
+}
+
+.viewmeals {
+  width: 130px !important;
+  height: 35px !important;
+  background: #FFD803;
+  border-radius: 4px !important;
+  align-items: center !important;
+  font-family: archivo;
+  font-size: 15px;
+  vertical-align: middle !important;
+}
+
+.signupnow {
+  width: 130px !important;
+  height: 35px !important;
+  background: #FFD803;
+  border-radius: 4px !important;
+  align-items: center !important;
+  font-family: archivo;
+  font-size: 15px;
+  vertical-align: middle !important;
+}
+
+.completeorder{
+  width: 95% !important;
+  height: 35px !important;
+  background: #FFD803;
+  border-radius: 4px !important;
+  align-items: center !important;
+  font-family: archivo;
+  font-size: 15px;
+  vertical-align: middle !important;
+}
+
+.completeorder:hover {
+  background: #ddbc02;
+  font-weight: bold;
+  color: black !important;
 }
