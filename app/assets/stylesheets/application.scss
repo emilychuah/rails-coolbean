@@ -22,18 +22,23 @@
 //   font-family: Archivo;
 // }
 
-html, body {
-  height: 100%;
+html {
+  height: 100% !important;
 }
-
-.content {
-  flex: 1 0 auto;
-}
-
 
 body {
   background-color: white;
   font-family: "Archivo";
+  min-height: 100vh !important;
+}
+
+.wrapper {
+  min-height: 100%;
+}
+
+
+.content {
+  flex: 1 0 auto;
 }
 
 
