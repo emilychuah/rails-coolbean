@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 2022_03_14_081330) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "total_price_cents", default: 0, null: false
+    t.integer "total_price"
     t.index ["meal_id"], name: "index_meal_orders_on_meal_id"
     t.index ["order_id"], name: "index_meal_orders_on_order_id"
   end
