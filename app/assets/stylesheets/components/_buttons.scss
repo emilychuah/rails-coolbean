@@ -130,3 +130,22 @@
   background: #ddbc02;
   font-weight: bold;
 }
+
+.nav-pills .nav-link.active {
+  border: 0.5px solid grey !important;
+  background-color: grey;
+  color: white;
+  border-radius: 3px !important;
+  cursor: pointer;
+}
+
+.nav-link {
+  color: grey;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.nav-link:hover {
+  font-weight: bold;
+  color: grey;
+}

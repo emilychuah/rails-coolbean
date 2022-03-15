@@ -13,7 +13,3 @@ export default class extends Controller {
   }
 
 }
-/* Set the width of the sidebar to 250px (show it) */
-
-
-// /* Set the width of the sidebar to 0 (hide it) */
