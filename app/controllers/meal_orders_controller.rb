@@ -4,6 +4,7 @@ class MealOrdersController < ApplicationController
   def index
     # @cart = current_user.orders.find_by(is_paid: false)
     @cart_items = @cart.meal_orders
+    @total = 0
   end
 
   def new
