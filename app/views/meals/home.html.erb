@@ -239,7 +239,7 @@
       <p id="cookdescription">Middle east</p>
       <p id="cookdescription">I was born and raised in Tehran, Iran, where I began learning traditional recipes from my grandmother. I'm honored to share our family recipes at your kitchen table, and I hope they'll fill you with a feeling of home.</p>
       <div class="d-flex justify-content-center">
-        <%= link_to "View meals", "#", class: "btn search mt-3" %>
+        <%= link_to "View meals", meals_path, class: "btn search mt-3" %>
         </div>
     </div>
     <div class="col-6">
@@ -253,7 +253,7 @@
     <div class="col-lg-3 col-sm-12">
       <h3 id="whyyoushouldusecoolbean"><strong>Why you should use CoolBean</strong></h3>
       <div id="explorebtn">
-        <%= link_to "Explore meals", "#", class: "btn exploremeals" %>
+        <%= link_to "Explore meals", meals_path, class: "btn exploremeals" %>
        </div>
     </div>
     <div class="col-lg-3 col-sm-12" id="whychoose">
@@ -288,7 +288,7 @@
   </div>
   <div class="container d-flex justify-content-center">
     <div class="d-flex justify-content-center mt-2">
-    <%= link_to "Signup now", "#", class: "btn search" %>
+    <%= link_to "Signup now", new_user_registration_path, class: "btn search" %>
     </div>
   </div>
 </div>
