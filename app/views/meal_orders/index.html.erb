@@ -1,24 +1,26 @@
 <div class="border mb-4 pt-4" style="margin: auto; width: 500px;">
   <h1 class= "d-flex justify-content-center">Your Order</h1>
-    <div class=" d-flex justify-content-center container  p-3"  >
-      <div class="column">
-        <% @cart_items.each do |meal_order| %>
-          <%= render 'cart_item', meal_order: meal_order %>
-        <% end %>
-      </div>
+  <div class=" d-flex justify-content-center container  p-3"  >
+    <div class="column">
+      <% @cart_items.each do |meal_order| %>
+        <%= render 'cart_item', meal_order: meal_order %>
+      <% end %>
     </div>
   </div>
-  <div class="border pt-4" style="margin: auto; width: 500px;">
+</div>
+<div class="border pt-4" style="margin: auto; width: 500px;">
   <div class="d-flex justify-content-center ">
-  <%  @cart_items.each do | item | %>
-    <% @total += item.total_price_cents %>
+    <%  @cart_items.each do | item | %>
+      <% @total += item.total_price_cents %>
     <%end  %>
-    <div class="d-flex justify-content-between " style="width:450px;">
-    <h5>Total : </h5>
-    <h5>$<%= @total/100 %></h5>
-  </div>
+    <div class="text-center" style="width:450px">
+      <h5>Total price: $<%= @cart.total %></h5>
+    </div>
   </div>
   <div class="d-flex justify-content-center p-4 cart_box">
-    <%= link_to "Complete Order",   order_path(@cart), class: 'btn completeorder' %>
-    </div>
+    <%= link_to "Checkout", new_order_payment_path(@cart), class: 'btn btn-primary', style: "background-color:#FFD803; border:none" %>
+  </div>
+</div>
+
+<div class="row" style="margin-bottom:20%;">
 </div>

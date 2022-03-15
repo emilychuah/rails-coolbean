@@ -8,19 +8,19 @@
                 <h5 class="d-flex justify-content-center">Here are the details:</h5>
               </div>
               <div class= "m-2 d-flex justify-content-center">
-                  <h6 class="details"><strong>Order number:</strong></h6>
-                  <%= @order.id %>
+                  <h6 class="details"><strong>Order number:&nbsp;</strong><%= @order.id %></h6>
               </div>
 
               <div class="m-2 d-flex flex-column" >
                 <% @order.meal_orders.each do |item| %>
                 <div>
-                  <h6 class="d-flex justify-content-center"><strong>Homecook's name:</strong> <%= item.meal.user.name %></h6>
+                  <h6 class="d-flex justify-content-center"><strong>Homecook's name:&nbsp;</strong> <%= item.meal.user.name %></h6>
                 </div>
                 <div>
-                  <h6 class="d-flex justify-content-center"><strong>Homecook's Number:</strong>  <%= item.meal.user.phone_number %></h6>
-                  <h6 class="d-flex justify-content-center"><strong>Pick up time:</strong>  <%= item.pick_up.strftime("%I:%M %p") %></h6>
-                  <h6 class="d-flex justify-content-center"><strong>Pick up address:</strong></h6>
+                  <h6 class="d-flex justify-content-center"><strong>Homecook's Number:&nbsp;</strong>  <%= item.meal.user.phone_number %></h6>
+                  <h6 class="d-flex justify-content-center"><strong>Pick up date:&nbsp;</strong>  <%= item.pick_up.strftime("%d/%m/%y") %></h6>
+                  <h6 class="d-flex justify-content-center"><strong>Pick up time:&nbsp;</strong>  <%= item.pick_up.strftime("%I:%M %p") %></h6>
+                  <h6 class="d-flex justify-content-center"><strong>Pick up address:&nbsp;</strong></h6>
                   <%= item.meal.address %>
                 </div>
                 <%end%>
