@@ -16,9 +16,10 @@
     <div class="p-2">
         <%# button_to 'Add to Cart', meal_meal_orders_path(@meal) %>
         <%= simple_form_for([@meal, @meal_order]) do |f| %>
-          <div class="qty-input"><%= f.input :quantity_ordered %></div>
-          <div class="pickup-input"><%= f.input :pick_up %></div>
-          <%= f.submit "Add to cart" %>
+          <%= f.input :quantity_ordered %>
+          <%= f.input :pick_up, as: :string, input_html: {type: :date}, label: "Pick up date" %>
+          <%= f.input :pick_up, as: :string, input_html: {type: :time}, label: "Pick up time" %>
+          <%= f.submit "Add to cart", class: "search", style: "border: none" %>
         <% end %>
     </div>
 

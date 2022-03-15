@@ -83,7 +83,6 @@ gem "geocoder"
 #taggable gem
 gem 'acts-as-taggable-on', '~> 9.0'
 
-
 # Money-rails
 gem 'money-rails'
 
