@@ -51,7 +51,7 @@ class MealsController < ApplicationController
   private
 
   def meal_params
-    params.require(:meal).permit(:tag_list, :name, :description, :cuisine, :price, :available_quantity, :available_quantity, :collect_from, :collect_to, photos: [])
+    params.require(:meal).permit(:address, :tag_list, :name, :description, :cuisine, :price, :available_quantity, :available_quantity, :collect_from, :collect_to, photos: [])
 
   end
 end
