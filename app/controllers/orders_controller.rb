@@ -4,6 +4,7 @@ class OrdersController < ApplicationController
     if params[:set_paid] == "true"
       @order.update(is_paid: true)
     end
+
   end
 
   # def index

@@ -1,41 +1,39 @@
 <div class="container pt-4">
-  <div class="row">
-  <div>
-  <div>
-    <div class="col-lg-6">
-      <div >
-        <div class="card-product" style="height: auto; width: 400px;">
-          <div class="card-product-infos">
-            <div class="p-5" id="newform">
-              <div class="m-2  d-flex flex-column">
-                <h3 class="d-flex justify-content-center">Thank You, Enjoy!</h3>
-                <h5>Here are the details:</h5>
+  <div class="row ">
+    <div class="col-6 d-flex align-items-center">
+        <div style="height: auto; width: 400px;">
+          <div class="card-product-infos p-5" id="newform">
+              <div class="m-2 d-flex flex-column justify-content-center">
+                <h3 class="mb-3 d-flex justify-content-center">Thank You, Enjoy!</h3>
+                <h5 class="d-flex justify-content-center">Here are the details:</h5>
               </div>
-              <div class= "m-2 d-flex flex column"><strong><h6>Order ID:</strong><%= @order.id %></h6></div>
-                <div class="m-2 d-flex flex-column" >
-                  <% @order.meal_orders.each do |item| %>
-                  <div><strong>
-                    <h6>Chef:</strong> <%= item.meal.user.name %></h6>
-                  </div>
-                  <div><strong>
-                    <h6>Chef Number:</strong> <%= item.meal.user.phone_number %></p>
-                    <h6><strong>Pick up time:</strong> <%= item.pick_up.strftime("%I:%M %p") %></h6>
-                  </div>
-                  <%end%>
-                    <div class="d-flex justify-content-center m-4">
-                      <%= link_to "Home Page", meals_path(@order), class: "btn btn-outline-secondary mx-2" %>
-                      <%# <%= link_to "orders Page", orders_path(@order), class: "btn btn-outline-secondary mx-2 btn" %>
-                    </div>
-                  </div>
+              <div class= "m-2 d-flex justify-content-center">
+                  <h6 class="details"><strong>Order number:</strong></h6>
+                  <%= @order.id %>
+              </div>
+
+              <div class="m-2 d-flex flex-column" >
+                <% @order.meal_orders.each do |item| %>
+                <div>
+                  <h6 class="d-flex justify-content-center"><strong>Homecook's name:</strong> <%= item.meal.user.name %></h6>
                 </div>
+                <div>
+                  <h6 class="d-flex justify-content-center"><strong>Homecook's Number:</strong>  <%= item.meal.user.phone_number %></h6>
+                  <h6 class="d-flex justify-content-center"><strong>Pick up time:</strong>  <%= item.pick_up.strftime("%I:%M %p") %></h6>
+                  <h6 class="d-flex justify-content-center"><strong>Pick up address:</strong></h6>
+                  <%= item.meal.address %>
+                </div>
+                <%end%>
+                  <div class="d-flex justify-content-center m-4">
+                    <%= link_to "Click here to review your meal", "#", class: "btn review" %>
+                    <%# <%= link_to "orders Page", orders_path(@order), class: "btn btn-outline-secondary mx-2 btn" %>
+                  </div>
               </div>
-            </div>
+              </div>
           </div>
-        </div>
-      </div>
     </div>
-    <div class="col-lg-6">
-      <div id="map" style="width: 100%; height: 100vh; position: sticky; top: 0;"
+    <div class="col-6">
+      <div id="map" style="width: 100%; height: 600px; position: sticky; top: 0;"
         data-mapbox-markers-value="<%= @markers.to_json %>"
         data-controller="mapbox"
         data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
