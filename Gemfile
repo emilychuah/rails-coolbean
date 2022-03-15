@@ -90,3 +90,5 @@ gem 'money-rails'
 # Stripe
 gem 'stripe'
 
+# Pagination
+gem 'kaminari'

@@ -56,3 +56,12 @@ a:hover {
 .whitesection {
   font-size: 12px;
 }
+
+#footer {
+  bottom:0;
+  width:100%;
+  height:60px;
+}
+.footer {
+  flex-shrink: 0;
+}
