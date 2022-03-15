@@ -1,8 +1,8 @@
 <link rel=“stylesheet” href=“https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css” integrity=“sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm” crossorigin=“anonymous”>
   <div>
     <div>
-      <div id=“carouselExampleIndicators” class=“carousel slide text-center” data-ride=“carousel” data-interval=“false”>
-        <ol class=“carousel-indicators”>
+      <div id="carouselExampleIndicators" class="carousel slide text-center" data-ride="carousel" data-interval="false">
+        <ol class="carousel-indicators">
           <% @meal.photos.each_with_index do |photo, index| %>
             <li data-target=“#carouselExampleIndicators1" data-slide-to=“<%= index %>” class=“<%= index == 0 ? ‘active’ : ‘’ %>“></li>
           <% end %>
@@ -28,27 +28,37 @@
         </a>
       </div>
     </div>
-  </div class= “p-5 mx-auto”>
-  <div class=“container”>
-    <div class=“row”>
-      <div class= “col-lg-6 p-5 ml-5”>
-        <h1><%= @meal.name %></h1>
-        <p><strong>Address:</strong> <%= @meal.address %></p>
-        <p><strong>Description:</strong> <%= @meal.description.capitalize %></p>
-        <p><strong>Serving Availability:</strong> <%= @meal.available_quantity %></p>
-        <p><strong>Price per Serving: </strong><%= humanized_money_with_symbol(@meal.price) %></p>
-        <p><strong>Home Chef:</strong> <%= @meal.user.name %></p>
-          <%# button_to ‘Add to Cart’, meal_meal_orders_path(@meal) %>
+
+  </div class= "p-5 mx-auto">
+  <div class="container">
+    <div class="row">
+      <%= simple_form_for([@meal, @meal_order]) do |f| %>
+        <div class= "col-lg-6 p-5 ml-5">
+          <h1><%= @meal.name %></h1>
+          <p><strong>Address:</strong> <%= @meal.address %></p>
+          <p><strong>Description:</strong> <%= @meal.description.capitalize %></p>
+          <p><strong>Serving Availability:</strong> <%= @meal.available_quantity %></p>
+          <p><strong>Price per Serving: </strong><%= humanized_money_with_symbol(@meal.price) %></p>
+          <p><strong>Home Chef:</strong> <%= @meal.user.name %></p>
+
+          <%# button_to 'Add to Cart', meal_meal_orders_path(@meal) %>
+            <div class="qty-input font-weight-bold"><%= f.input :quantity_ordered %></div>
+            <div class="pickup-input font-weight-bold"><%= f.input :pick_up %></div>
+        </div>
 
 
-          <%= simple_form_for([@meal, @meal_order]) do |f| %>
-            <div class="qty-input"><%= f.input :quantity_ordered %></div>
-            <div class="pickup-input"><%= f.input :pick_up %></div>
-            <%= f.submit "Add to cart" %>
-          <% end %>
-      </div>
-        <%#= link_to ‘All User meals’, user_path(@meal.user_id), class: ‘btn btn-primary’ %>
-        <%#= link_to “Go Back”, meals_path %>
+        <div class= "col-lg-4 p-5 mx-auto">
+          <p><%= f.submit "Add To Cart", class: 'px-5 btn btn-warning font-weight-bold' %></p>
+          <p><%= link_to "Return to Listings", meals_path, class: ' btn btn-link text-dark>.text-dark' %></p>
+
+          <img src="<%= url_for(@meal.user.photos[0])%>" class="avatar_specificmeal" />
+        </div>
+      <% end %>
+
+
+        <%#= link_to 'All User meals', user_path(@meal.user_id), class: 'btn btn-primary' %>
+        <%#= link_to "Go Back", meals_path %>
+
     </div>
   </div>
   <%# <div>
