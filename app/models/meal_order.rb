@@ -11,7 +11,7 @@ class MealOrder < ApplicationRecord
   def stripe_line_item
     {
       name: meal.name,
-      images: [meal.picture_url],
+      images: meal.photos.attached? ? [meal.photos.first.url] : [meal.picture_url],
       amount: meal.price_cents,
       currency: 'aud',
       quantity: quantity_ordered

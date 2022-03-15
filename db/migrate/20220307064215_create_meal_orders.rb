@@ -4,7 +4,6 @@ class CreateMealOrders < ActiveRecord::Migration[6.1]
       t.references :meal, null: false, foreign_key: true
       t.references :order, null: false, foreign_key: true
       t.integer :quantity_ordered
-      t.float :total_price
       t.datetime :pick_up
 
       t.timestamps

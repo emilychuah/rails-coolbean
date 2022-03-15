@@ -1,5 +1,9 @@
 <div class="card-product mb-4" style="width: 450px; height: 100px">
-  <img src=<%= meal_order.meal.picture_url%>/>
+  <% if meal_order.meal.photos.attached? %>
+    <%= cl_image_tag meal_order.meal.photos.first.key %>
+  <% else %>
+    <%= image_tag meal_order.meal.picture_url %>
+  <% end %>
   <div class="card-product-infos d-flex justify-content-between w-100">
     <div>
       <h2 class="mb-2"><%= meal_order.meal.name %></h2>
