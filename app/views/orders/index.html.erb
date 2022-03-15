@@ -1,0 +1,16 @@
+<div class="container">
+  <h1 class="d-flex justify-content-center"> My Orders </h1>
+  <div class="m-2 d-flex flex-column" >
+    <% @orders.each do |item| %>
+
+    <div>
+      <p> Order number: <%= item.id %></p>
+      <p> Total price: <%= item.amount_cents%></p>
+      <p> Order date: <%= item.created_at%></p>
+    </div>
+
+    <%end%>
+
+
+  </div>
+</div>
