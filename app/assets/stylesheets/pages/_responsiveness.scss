@@ -328,10 +328,14 @@
 
 }
 
+
 @media only screen and (max-width: 1400px) {
   .col-md-6 img{
     width:100%;
     height: auto;
   }
 
+  .justify-content-center {
+    text-align: center;
+  }
 }
