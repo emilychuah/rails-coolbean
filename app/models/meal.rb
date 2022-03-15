@@ -2,6 +2,7 @@ class Meal < ApplicationRecord
   belongs_to :user
   has_many :meal_orders, dependent: :destroy
   has_many :orders, through: :meal_orders, dependent: :destroy
+  has_many :reviews, dependent: :destroy
   has_many_attached :photos
   acts_as_taggable_on :tags
 
