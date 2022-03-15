@@ -38,7 +38,7 @@
 }
 
 a {
-  color:black !important;
+  color:#fefefe !important;
   text-decoration: none !important;
   transition: 0.3s !important;
   font-family: archivo !important;
@@ -55,4 +55,8 @@ a:hover {
 
 .whitesection {
   font-size: 12px;
+}
+
+.col {
+  color: white;
 }
