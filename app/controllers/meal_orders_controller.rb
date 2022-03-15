@@ -35,7 +35,7 @@ class MealOrdersController < ApplicationController
   private
 
   def meal_orders_params
-    params.require(:meal_order).permit(:meal_id, :order_id, :quantity_ordered, :total_price, :pick_up)
+    params.require(:meal_order).permit(:meal_id, :order_id, :quantity_ordered, :total_price_cents, :pick_up)
   end
 
   def set_cart

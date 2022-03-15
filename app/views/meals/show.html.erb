@@ -33,30 +33,28 @@
   </div class= "p-5 mx-auto">
   <div class="container">
     <div class="row">
-      <div class= "col-lg-6 p-5 ml-5">
-        <h1><%= @meal.name %></h1>
-        <p><strong>Address:</strong> <%= @meal.address %></p>
-        <p><strong>Description:</strong> <%= @meal.description.capitalize %></p>
-        <p><strong>Serving Availability:</strong> <%= @meal.available_quantity %></p>
-        <p><strong>Price per Serving: </strong><%= humanized_money_with_symbol(@meal.price) %></p>
-        <p><strong>Home Chef:</strong> <%= @meal.user.name %></p>
+      <%= simple_form_for([@meal, @meal_order]) do |f| %>
+        <div class= "col-lg-6 p-5 ml-5">
+          <h1><%= @meal.name %></h1>
+          <p><strong>Address:</strong> <%= @meal.address %></p>
+          <p><strong>Description:</strong> <%= @meal.description.capitalize %></p>
+          <p><strong>Serving Availability:</strong> <%= @meal.available_quantity %></p>
+          <p><strong>Price per Serving: </strong><%= humanized_money_with_symbol(@meal.price) %></p>
+          <p><strong>Home Chef:</strong> <%= @meal.user.name %></p>
 
           <%# button_to 'Add to Cart', meal_meal_orders_path(@meal) %>
-          <%= simple_form_for([@meal, @meal_order]) do |f| %>
             <div class="qty-input font-weight-bold"><%= f.input :quantity_ordered %></div>
             <div class="pickup-input font-weight-bold"><%= f.input :pick_up %></div>
-      </div>
+        </div>
 
 
-      <div class= "col-lg-4 p-5 mx-auto">
-              <p><%= f.submit "Add To Cart", class: 'px-5 btn btn-warning font-weight-bold' %></p>
-              <p><strong><%= f.submit "Checkout", class: ' px-5 btn btn-warning font-weight-bold' %></strong></p>
-              <p><%= link_to "Return to Listings", meals_path, class: ' btn btn-link text-dark>.text-dark' %></p>
+        <div class= "col-lg-4 p-5 mx-auto">
+          <p><%= f.submit "Add To Cart", class: 'px-5 btn btn-warning font-weight-bold' %></p>
+          <p><%= link_to "Return to Listings", meals_path, class: ' btn btn-link text-dark>.text-dark' %></p>
 
-              <img src="<%= url_for(@meal.user.photos[0])%>" class="avatar_specificmeal" />
-
-      </div>
-          <% end %>
+          <img src="<%= url_for(@meal.user.photos[0])%>" class="avatar_specificmeal" />
+        </div>
+      <% end %>
 
 
         <%#= link_to 'All User meals', user_path(@meal.user_id), class: 'btn btn-primary' %>

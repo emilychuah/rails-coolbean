@@ -3,12 +3,12 @@ class MealOrder < ApplicationRecord
   belongs_to :order
   has_many :reviews, dependent: :destroy
 
-  validates :quantity_ordered, :total_price, :pick_up, presence: true
+  validates :quantity_ordered, :total_price_cents, :pick_up, presence: true
   before_validation :calculate_total
 
   private
 
   def calculate_total
-    self.total_price = meal.price * quantity_ordered
+    self.total_price_cents = meal.price * quantity_ordered
   end
 end
