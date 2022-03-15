@@ -35,12 +35,6 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto">
           <% if user_signed_in? %>
-            <%# <li class="nav-item active">
-              <%= link_to "Sign Up", "#", class: "nav-link" %>
-            <%# </li>
-            <li class="nav-item">
-              <%= link_to "Cart", cart_path, class: "nav-link" %>
-            <%# </li> %>
             <li class="nav-item dropdown">
               <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="<%= url_for(current_user.photos[0]) %>" />
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -81,44 +75,104 @@
     </div>
   </div>
 </div>
-<%# How it works section %>
-<div class="container">
-  <div>
+
+<div>
     <h3 class="pt-5 d-flex justify-content-center"><strong>How it works</strong></h3>
-  </div>
-  <div class="row d-flex justify-content-center p-5">
-    <div class="col-12 col-lg-4">
-      <div class="d-flex justify-content-center">
-        <div class="mx-5">
-          <div class="d-flex justify-content-center pb-3"><%= image_tag "search.png", height: 50 %></div>
-          <p class="d-flex justify-content-center"><strong>Search meals</strong></p>
-          <p class="text-center">Enter your address in the search bar above and click the search button </p>
+</div>
+<%# HOW IT WORKS BOOTSRAP %>
+<div class="d-flex justify-content-center">
+  <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="pills-Consumer-tab" data-bs-toggle="pill" data-bs-target="#pills-Consumer" type="button" role="tab" aria-controls="pills-Consumer" aria-selected="true">Consumer</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Home Cook</button>
+    </li>
+  </ul>
+</div>
+<div class="tab-content" id="pills-tabContent">
+  <div class="tab-pane fade show active" id="pills-Consumer" role="tabpanel" aria-labelledby="pills-Consumer-tab"><div class="container">
+    <%# CONSUMER SECTION %>
+    <div class="row d-flex justify-content-center p-5">
+      <div class="col-12 col-lg-4">
+        <div class="d-flex justify-content-center">
+          <div class="mx-5">
+            <div class="d-flex justify-content-center pb-3"><%= image_tag "search.png", height: 50 %></div>
+            <p class="d-flex justify-content-center"><strong>Search meals</strong></p>
+            <p class="text-center">Enter your address in the search bar above and click the search button </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-lg-4">
+        <div class="d-flex justify-content-center">
+          <div class="mx-5">
+            <div class="d-flex justify-content-center pb-3"><%= image_tag "checkout.png", height: 55 %></div>
+            <p class="d-flex justify-content-center"><strong>Choose your meal</strong></p>
+            <p class="text-center">Add your meal to cart and go to checkout where you can place your order</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-lg-4">
+        <div class="d-flex justify-content-center">
+          <div class="mx-5">
+            <div class="d-flex justify-content-center pb-3"><%= image_tag "time.png", height: 52 %></div>
+            <p class="d-flex justify-content-center"><strong>Search meals</strong></p>
+            <p class="text-center">When it’s time, meet the homecook chef and pickup your meal</p>
+          </div>
         </div>
       </div>
     </div>
-
-    <div class="col-12 col-lg-4">
-      <div class="d-flex justify-content-center">
-        <div class="mx-5">
-          <div class="d-flex justify-content-center pb-3"><%= image_tag "checkout.png", height: 55 %></div>
-          <p class="d-flex justify-content-center"><strong>Choose your meal</strong></p>
-          <p class="text-center">Add your meal to cart and go to checkout where you can place your order</p>
+</div>
+</div>
+  <div class="tab-pane fade px-5" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+    <%# HOMECOOK SECTION %>
+    <div class="row d-flex justify-content-center p-5 mx-5">
+      <div class="col-12 col-lg-3">
+        <div class="d-flex justify-content-center">
+          <div class="mx-5">
+            <div class="d-flex justify-content-center pb-3"><%= image_tag "createacc.png", height: 50 %></div>
+            <p class="d-flex justify-content-center"><strong>Signup</strong></p>
+            <p class="text-center">Click the signup button and upload your food certification certificate</p>
+          </div>
         </div>
       </div>
-     </div>
 
-    <div class="col-12 col-lg-4">
-      <div class="d-flex justify-content-center">
-        <div class="mx-5">
-          <div class="d-flex justify-content-center pb-3"><%= image_tag "time.png", height: 52 %></div>
-          <p class="d-flex justify-content-center"><strong>Search meals</strong></p>
-          <p class="text-center">When it’s time, meet the homecook chef and pickup your meal</p>
+      <div class="col-12 col-lg-3">
+        <div class="d-flex justify-content-center">
+          <div class="mx-5">
+            <div class="d-flex justify-content-center pb-3"><%= image_tag "createmeal.png", height: 55 %></div>
+            <p class="d-flex justify-content-center"><strong>Create a meal listing</strong></p>
+            <p class="text-center">Publish a photo and a description of what your food entails</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-lg-3">
+        <div class="d-flex justify-content-center">
+          <div class="mx-5">
+            <div class="d-flex justify-content-center pb-3"><%= image_tag "purchase.png", height: 52 %></div>
+            <p class="d-flex justify-content-center"><strong>Buyer makes a purchase</strong></p>
+            <p class="text-center">You will receive a notification when a person purchases your meal</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-lg-3">
+        <div class="d-flex justify-content-center">
+          <div class="mx-5">
+            <div class="d-flex justify-content-center pb-3"><%= image_tag "meettime.png", height: 52 %></div>
+            <p class="d-flex justify-content-center"><strong>Handover your meal</strong></p>
+            <p class="text-center">When it’s time, meet with the buyer and hand your meal. It’s that simple!</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
 
+<%# DISCOVER SECTION %>
 <div class="container p-3">
   <div>
     <h3 class="pt-5 d-flex justify-content-center"><strong>Discover homecooked meals in Melbourne</strong></h3>
@@ -174,6 +228,8 @@
   </div>
 </div>
 
+
+<%# MEET ONE OF OUR HOMECOOKS %>
 <div class="container p-4">
   <div class="row justify-content-around">
     <div class="col-6">
