@@ -1,4 +1,4 @@
-<div class="border my-4 pt-4" style="margin: auto; width: 500px;">
+<div class="border mb-4 pt-4" style="margin: auto; width: 500px;">
   <h1 class= "d-flex justify-content-center">Your Order</h1>
   <div class=" d-flex justify-content-center container  p-3"  >
     <div class="column">
@@ -7,13 +7,14 @@
       <% end %>
     </div>
   </div>
-  <div id="totalprice">
+</div>
+<div class="border pt-4" style="margin: auto; width: 500px;">
   <div class="d-flex justify-content-center ">
     <%  @cart_items.each do | item | %>
       <% @total += item.total_price_cents %>
     <%end  %>
     <div class="text-center" style="width:450px">
-      <h5>Total price: $<%= @cart.total %></h5>
+      <h5>Total price:  $<%= @cart.total %></h5>
     </div>
   </div>
   <div class="d-flex justify-content-center p-4 cart_box">
@@ -22,4 +23,3 @@
 </div>
 
 <div class="row" style="margin-bottom:20%;">
-</div>
