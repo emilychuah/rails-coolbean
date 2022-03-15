@@ -39,13 +39,17 @@
 
   </head>
   <body>
+
     <% if !(params[:controller] == "meals" && params[:action] == "home")%>
       <%= render 'shared/navbar' %>
     <% end %>
+    <div class="wrapper">
     <%= render 'shared/flashes' %>
     <%= yield %>
+    </div>
     <% if !(params[:controller] == "meals" && params[:action] == "home")%>
       <%= render 'shared/footer' %>
     <% end %>
+
   </body>
 </html>
