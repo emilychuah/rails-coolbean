@@ -13,6 +13,7 @@ class MealsController < ApplicationController
     else
       @meals = Meal.all
     end
+    @meals = @meals.page params[:page]
 
     @markers = @meals.geocoded.map do |meal|
       {

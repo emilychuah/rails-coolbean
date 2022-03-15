@@ -4,6 +4,7 @@
 <div class="container pt-4">
   <div class="row">
     <div class="col-6">
+
       <h3>Search for homemade meals near you: </h3>
       <%= form_tag(meals_path, method: "get", class: "form-inline d-flex align-items-between") do %>
         <div class="input-group">
@@ -11,6 +12,8 @@
           <%= submit_tag "Search", class: "btn search" %>
         </div>
       <% end %>
+
+      <div class="mt-2"><%= paginate @meals %></div>
       <div class="row py-5">
         <% @meals.each do |meal| %>
           <div class="col-12 col-sm-6 mb-3">
