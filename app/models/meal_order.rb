@@ -3,11 +3,9 @@ class MealOrder < ApplicationRecord
   belongs_to :order
   has_many :reviews, dependent: :destroy
 
-
-  validates :quantity_ordered, :total_price_cents, :pick_up, presence: true
   monetize :total_price_cents
 
-
+  validates :quantity_ordered, presence: true
   before_validation :calculate_total
 
   def stripe_line_item
@@ -23,7 +21,7 @@ class MealOrder < ApplicationRecord
   private
 
   def calculate_total
-    self.total_price_cents = meal.price * quantity_ordered
+    self.total_price = meal.price * quantity_ordered
   end
 
   def update_quantity
