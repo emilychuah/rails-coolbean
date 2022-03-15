@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   resources :orders, only: [:show, :create] do
     resources :payments, only: :new
   end
+  resources :users do
+    resources :orders, :meals
+  end
   get 'cart', to: 'meal_orders#index', as: :cart
 
   # get 'dashboard', to: 'dashboard#dashboard', as: :dashboard

@@ -1,6 +1,11 @@
 .navbar-lewagon {
   justify-content: space-between;
-  border-bottom: grey;
+  border-bottom: 1px solid rgb(238, 238, 238) !important;
+  transition: 0.3s;
+}
+
+.navbar-lewagon-home {
+  justify-content: space-between !important;
   transition: 0.3s;
 }
 
@@ -13,6 +18,10 @@
 }
 
 .navbar-lewagon .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-lewagon-home .navbar-collapse {
   flex-grow: 0;
 }
 
