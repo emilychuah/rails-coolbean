@@ -8,6 +8,8 @@ class Meal < ApplicationRecord
   validates :name, :price, :description, :collect_from, :collect_to, :available_quantity, :cuisine, presence: true
   validates :available_quantity, numericality: { only_integer: true }
 
+  paginates_per 6
+
   include PgSearch::Model
   pg_search_scope :search_by_address,
     against: [:address],
