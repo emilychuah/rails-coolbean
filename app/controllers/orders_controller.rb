@@ -7,10 +7,10 @@ class OrdersController < ApplicationController
 
   end
 
-  # def index
-  #   @orders = Order.all
-  # end
-  # private
+  def index
+    @orders = Order.all
+  end
+
 
   # def find_order
   #   @order = Order.find(params[:id])

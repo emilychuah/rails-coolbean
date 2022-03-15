@@ -1,16 +1,14 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.1)), url(<%= image_path "banner.png" %>)" >
   <%# NAVBAR %>
   <div id="homenav">
-    <div class="navbar navbar-expand-sm navbar-light navbar-lewagon" data-controller="navbar">
+    <div class="navbar navbar-expand-sm navbar-light navbar-lewagon-home" data-controller="navbar">
     <div class="container-fluid">
       <div class="left-icons">
         <div id="mySidebar" class="sidepanel" data-navbar-target="sidebar">
           <a class="closebtn" data-action="click->navbar#closeNav">&times;</a>
           <% if user_signed_in? %>
           <p>Your Account</p>
-          <a href="#">Current orders</a>
-          <a href="#">Past orders</a>
-          <a href="#">My Meal listings</a>
+          <%= link_to "My Orders", user_orders_path(current_user.id)%>
           <%= link_to "Add a new meal", new_meal_path %>
           <br>
           <%= link_to "Logout", destroy_user_session_path %>
@@ -38,7 +36,7 @@
             <li class="nav-item dropdown">
               <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="<%= url_for(current_user.photos[0]) %>" />
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <%= link_to "Update profile", "#", class: "dropdown-item" %>
+                <%= link_to "Update profile", edit_user_registration_path, class: "dropdown-item" %>
                 <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
               </div>
             </li>

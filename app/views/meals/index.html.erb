@@ -13,8 +13,11 @@
         </div>
       <% end %>
 
-      <div class="mt-2"><%= paginate @meals %></div>
       <div class="row py-5">
+      <div class="d-flex justify-content-between">
+        <div><%= paginate @meals %></div>
+        <div id="mealscount">showing <%= @meals.count %> out of <%= Meal.all.count %> homecooked meals</div>
+      </div>
         <% @meals.each do |meal| %>
           <div class="col-12 col-sm-6 mb-3">
             <div class="card-deck h-100">

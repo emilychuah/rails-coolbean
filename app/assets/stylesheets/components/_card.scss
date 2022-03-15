@@ -2,7 +2,8 @@
   overflow: hidden;
   height: 120px;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border: 1px solid rgb(207, 207, 207);
+  border-radius: 3px !important;
   display: flex;
   align-items: center;
 }
@@ -29,16 +30,6 @@
 
 .card-product .card-product-infos {
   padding: 16px;
-}
-
-
-.card-product {
-  overflow: hidden;
-  height: 120px;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
-  align-items: center;
 }
 
 .card-product img {
@@ -64,3 +55,12 @@
 .card-product .card-product-infos {
   padding: 16px;
   }
+
+#totalprice {
+  margin: auto;
+  width: 500px;
+  padding-left: 70px;
+  border: 1px solid #cfcfcf;
+  padding-right: 70px;
+  padding-top: 15px;
+}
