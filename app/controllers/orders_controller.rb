@@ -5,10 +5,19 @@ class OrdersController < ApplicationController
       @order.update(is_paid: true)
     end
 
+    @markers = @order.meals.geocoded.map do |meal|
+      {
+        lat: meal.latitude,
+        lng: meal.longitude,
+        info_window: render_to_string(partial: "meals/info_window", locals: { meal: meal }),
+        image_url: helpers.asset_url("logo.png")
+      }
+    end
   end
 
   def index
     @orders = Order.all
+
   end
 
 
