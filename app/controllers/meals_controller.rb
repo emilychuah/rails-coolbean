@@ -29,6 +29,7 @@ class MealsController < ApplicationController
   def show
     @meal = Meal.find(params[:id])
     @meal_order = MealOrder.new
+    @review = Review.new(meal: @meal)
   end
 
   def new
@@ -42,16 +43,14 @@ class MealsController < ApplicationController
     if @meal.save!
       redirect_to meals_path
     else
+      flash[:alert] = "Oops! Something went wrong."
       render :new
     end
   end
-
-
 
   private
 
   def meal_params
     params.require(:meal).permit(:address, :tag_list, :name, :description, :cuisine, :price, :available_quantity, :available_quantity, :collect_from, :collect_to, photos: [])
-
   end
 end
