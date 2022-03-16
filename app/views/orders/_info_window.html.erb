@@ -1,0 +1,11 @@
+<%= render 'carousel', meal: meal %>
+<%= link_to meal_path(meal), class:"text-decoration-none" do %>
+  <div class="mapbox-text">
+    <h6 class="mb-0"><%= meal.name %></h6>
+    <p class="mb-0">Made with ❤️ by <%= meal.user.name %></p>
+    <p class="mb-0"><%= humanized_money_with_symbol(meal.price) %>/serving</p>
+    <p class="mb-0">Available from: <br>
+      <%= meal.collect_from.strftime("%m/%d, %H:%M") %> - <%= meal.collect_to.strftime("%m/%d, %H:%M") %></p>
+  </div>
+  <img src="<%= url_for(meal.user.photos[0]) %>" class="avatar-meallisting" />
+<% end %>
