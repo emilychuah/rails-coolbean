@@ -41,14 +41,16 @@
                       <% end %>
                     <% end %>
                   </div>
-                  <a class="carousel-control-prev" href="#<%= meal.id %>carouselExampleIndicators1" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                  </a>
-                  <a class="carousel-control-next" href="#<%= meal.id %>carouselExampleIndicators1" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                  </a>
+                  <% if meal.photos.count > 1 %>
+                    <a class="carousel-control-prev" href="#<%= meal.id %>carouselExampleIndicators1" role="button" data-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#<%= meal.id %>carouselExampleIndicators1" role="button" data-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  <% end %>
                 </div>
                 <%= link_to meal_path(meal), class:"text-decoration-none" do %>
                   <div class="card-body d-flex justify-content-between">
