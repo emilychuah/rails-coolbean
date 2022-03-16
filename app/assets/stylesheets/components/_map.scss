@@ -15,3 +15,16 @@
   box-shadow: none;
   width: 345px;
 }
+
+.mapboxgl-popup-content {
+  padding: 0px !important;
+  border-radius: 3px !important;
+}
+
+.mapbox-text h6, p{
+  text-align: left !important;
+}
+
+.mapbox-text {
+  padding: 10px;
+}
