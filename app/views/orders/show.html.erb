@@ -1,3 +1,4 @@
+
 <div class="container">
   <div class="row">
     <div class="col-6 mt-3">
@@ -7,7 +8,7 @@
       </div>
       <div>
         <h6 class="mt-5 text-center"><strong>Order number:&nbsp;</strong><%= @order.id %></h6>
-        <div class="row mt-3">
+        <div class="d-flex flex-column align-items-center">
           <% @order.meal_orders.each do |meal_order| %>
             <div class="col-12 col-sm-6">
               <div class="card mb-3" style="max-width: 18rem;">
@@ -19,6 +20,7 @@
                   <p class="card-text">Date: <%= meal_order.pick_up.strftime("%d/%m/%y") %></p>
                   <p class="card-text">Time: <%= meal_order.pick_up.strftime("%I:%M %p") %></p>
                   <p class="card-text">Address: <%= meal_order.meal.address %></p>
+
                 </div>
               </div>
             </div>
