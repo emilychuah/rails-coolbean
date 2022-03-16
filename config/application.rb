@@ -25,5 +25,7 @@ module RailsCoolbean
     # config.eager_load_paths << Rails.root.join("extras")
 
     config.exceptions_app = self.routes
+
+    config.action_view.embed_authenticity_token_in_remote_forms = true
   end
 end
