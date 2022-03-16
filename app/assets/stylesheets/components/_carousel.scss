@@ -13,7 +13,13 @@
 .big-carousel-img {
   object-fit: cover;
   object-position: center;
-  height: 550px
+  height: 560px !important;
+  width: 560px !important;
+}
+
+.carousel {
+  height: 560px !important;
+  width: 560px !important;
 }
 
 
