@@ -15,10 +15,10 @@
               input_html: { data: { geocoder_target: "address" }, class: "d-none" },
               wrapper_html: { data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'] },
               class: "d-flex justify-content-between" } %>
-    <%= f.input :collect_from %>
+              <%= f.input :collect_from %>
     <%= f.input :collect_to %>
     <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-    <%= f.collection_check_boxes :tag_list,    [["gluten","gluten"],["asian","asian"],["mexican","mexican"],["italian","italian"],["dessert","dessert"],["indian","indian"],["turkish","turkish"]], :first,:last, include_blank: false, include_hidden: false %>
+    <%= f.collection_check_boxes :tag_list, [["gluten-free","gluten-free"],["vegetarian","vegetarian"],["vegan","vegan"],["halal","halal"],["dairy-free","dairy-free"],["nut-free","nut-free"],["lactose-free","lactose-free"],["shellfish-free,shellfish-free"]], :first,:last, include_blank: false, include_hidden: false %>
     <div class="d-flex justify-content-center pt-3">
       <%= f.button :submit, class: "btn createmeal" %>
     </div>
