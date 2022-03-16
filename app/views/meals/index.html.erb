@@ -17,6 +17,8 @@
       </div>
         <% @meals.each do |meal| %>
           <div class="col-12 col-sm-6 mb-3">
+          <%= link_to meal_path(meal), class:"text-decoration-none" do %>
+          <div class="column" id="zoomIn">
             <div class="card-deck h-100">
               <div class="card">
                 <%= render 'carousel', meal: meal %>
@@ -35,6 +37,7 @@
                 <% end %>
               </div>
             </div>
+          </div>
           </div>
         <% end %>
       </div>

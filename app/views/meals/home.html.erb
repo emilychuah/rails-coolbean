@@ -177,7 +177,7 @@
   </div>
 <div class="row my-5">
     <% @meals.last(3).each do |meal| %>
-      <div class="col-12 col-sm-6 col-md-4 mb-3">
+      <div class="col-12 col-sm-6 col-md-4 mb-3" id="zoomIn">
         <div class="card-deck h-100">
           <div class="card h-100">
             <%= render 'carousel', meal: meal %>
