@@ -29,9 +29,11 @@ class MealOrdersController < ApplicationController
 
   # end
 
-  # def destroy
-
-  # end
+  def destroy
+    @meal_order = MealOrder.find(params[:id])
+    @meal_order.destroy
+    redirect_to cart_path
+  end
 
   private
 

@@ -1,7 +1,7 @@
 class MealOrder < ApplicationRecord
   belongs_to :meal
   belongs_to :order
-  has_many :reviews, dependent: :destroy
+
 
   monetize :total_price_cents
 
