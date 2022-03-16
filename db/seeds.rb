@@ -23,7 +23,7 @@ emily = User.create!(
   phone_number: "0411222232",
   overall_rating: 5.0,
   food_safety_certified: true,
-  profile: "Hi I’m Emily! I believe the biggest reward in cooking is being able to eat it and enjoy it! I love following Gordan Ramsey’s recipes when cooking as it is easy to follow and the flavours are always top notch.",
+  profile: "Hi I'm Emily! I believe the biggest reward in cooking is being able to eat it and enjoy it! I love following Gordan Ramsey's recipes when cooking as it is easy to follow and the flavours are always top notch.",
 )
 emily.photos.attach(io: File.open('app/assets/images/emily.png'), filename: 'emily.png', content_type: 'image/png')
 
@@ -34,7 +34,7 @@ chris = User.create!(
   phone_number: "0411922199",
   overall_rating: 5.0,
   food_safety_certified: true,
-  profile: "Hi I’m Chris and I have been a home cook since moving out of home. I love hosting parties and making food with lots of flavours. I am interested in combining flavours and food that go well with each other.",
+  profile: "Hi I'm Chris and I have been a home cook since moving out of home. I love hosting parties and making food with lots of flavours. I am interested in combining flavours and food that go well with each other.",
 )
 chris.photos.attach(io: File.open('app/assets/images/chris.png'), filename: 'chris.png', content_type: 'image/png')
 
@@ -45,7 +45,7 @@ sam = User.create!(
   phone_number: "0411622231",
   overall_rating: 5.0,
   food_safety_certified: true,
-  profile: "Hi, I’m Sam! I love reading into different recipes and attempting food of all cuisines. I often make cakes for my family and friends’ birthdays and for all occasions! I love bringing people together with food!",
+  profile: "Hi, I'm Sam! I love reading into different recipes and attempting food of all cuisines. I often make cakes for my family and friends' birthdays and for all occasions! I love bringing people together with food!",
 )
 sam.photos.attach(io: File.open('app/assets/images/sam.png'), filename: 'sam.png', content_type: 'image/png')
 
@@ -56,7 +56,7 @@ theresa = User.create!(
   phone_number: "0411839021",
   overall_rating: 5.0,
   food_safety_certified: true,
-  profile: "Hi, I’m Theresa! I specialise in making asian cuisine. I love making healthy and fresh food to share! I also love having my food with lots of herbs as I believe it gives it a bit more flavour and an extra punch!",
+  profile: "Hi, I'm Theresa! I specialise in making asian cuisine. I love making healthy and fresh food to share! I also love having my food with lots of herbs as I believe it gives it a bit more flavour and an extra punch!",
 )
 theresa.photos.attach(io: File.open('app/assets/images/theresa.png'), filename: 'theresa.png', content_type: 'image/png')
 
