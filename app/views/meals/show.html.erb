@@ -9,9 +9,6 @@
       <p><strong>Serving Availability:</strong> <%= @meal.available_quantity %></p>
       <p><strong>Price per Serving: </strong><%= humanized_money_with_symbol(@meal.price) %></p>
       <p><strong>Home Chef:</strong> <%= @meal.user.name %></p>
-      <p><strong>Tags:</strong> <% @meal.tags.each do |tag| %>
-         <%= tag.name %>
-         <% end %></p>
     </div>
     <div class="p-2">
         <%# button_to 'Add to Cart', meal_meal_orders_path(@meal) %>
