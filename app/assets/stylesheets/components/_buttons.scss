@@ -200,3 +200,29 @@
   font-weight: bold;
   color: black !important;
 }
+
+.addtocart {
+  width: 95% !important;
+  height: 35px !important;
+  background: #FFD803;
+  border-radius: 4px !important;
+  align-items: center !important;
+  font-family: archivo;
+  font-size: 15px;
+  vertical-align: middle !important;
+  padding: 0px !important;
+  border: none;
+  transition: 0.2s;
+}
+
+.addtocart:hover {
+  background: #ddbc02;
+}
+
+.addtocart i{
+  transition: 0.2s;
+}
+
+.addtocart:hover i{
+  transform: scale(1.1);
+}
