@@ -3,6 +3,13 @@
   object-position: center;
 }
 
+.carousel-img-map {
+  object-fit: cover;
+  object-position: center;
+  height: 132px;
+  width: 177px;
+}
+
 .big-carousel-img {
   object-fit: cover;
   object-position: center;
@@ -63,11 +70,21 @@
 .carousel {
   position: relative;
 }
+
+
 .carousel-inner {
   position: relative;
   width: 100%;
   overflow: hidden;
 }
+
+.carousel-inner-map {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  height: 140px;
+}
+
 .carousel-inner > .item {
   position: relative;
   display: none;
