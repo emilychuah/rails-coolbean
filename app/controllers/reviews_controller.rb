@@ -4,7 +4,7 @@ class ReviewsController < ApplicationController
     @meal = Meal.find(params[:meal_id])
     @review.meal = @meal
     if @review.save
-      redirect_to meal_path(@meal)
+      redirect_to meal_path(@meal, anchor: "review-#{@review.id}")
     else
       render 'meals/show'
     end

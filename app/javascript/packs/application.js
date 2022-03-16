@@ -17,7 +17,9 @@ import "bootstrap"
 
 import { initStarRating } from '../plugins/init_star_rating';
 
-initStarRating();
+document.addEventListener('turbolinks:load', (e) => {
+  initStarRating();
+})
 
 /*!
  * Generated using the Bootstrap Customizer (https://getbootstrap.com/docs/3.4/customize/)

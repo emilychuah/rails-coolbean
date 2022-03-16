@@ -30,6 +30,7 @@ class MealsController < ApplicationController
     @meal = Meal.find(params[:id])
     @meal_order = MealOrder.new
     @review = Review.new(meal: @meal)
+
   end
 
   def new

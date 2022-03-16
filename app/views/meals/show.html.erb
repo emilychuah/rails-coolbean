@@ -1,93 +1,89 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-<div class="description d-flex justify-content-around">
-  <div class="mx-5">
-    <div>
-      <h1 class="pb-4"><%= @meal.name.capitalize %></h1>
-      <p><strong>Address:</strong> <%= @meal.address %></p>
-      <p><strong>Description:</strong> <%= @meal.description.capitalize %></p>
-      <p><strong>Serving Availability:</strong> <%= @meal.available_quantity %></p>
-      <p><strong>Price per Serving: </strong><%= humanized_money_with_symbol(@meal.price) %></p>
-      <p><strong>Home Chef:</strong> <%= @meal.user.name %></p>
+<%# LEFT SECTION CAROUSEL & REVIEWS %>
+<div class="container">
+  <div class="row pt-5">
+    <div class="col-6">
+      <div class="d-flex justify-content-center align-items-center">
+        <div class="columnbig" id="zoomIn">
+          <%= render 'bigcarousel', meal: @meal %>
+          <%# DESCRIPTION %>
+          <div class="px-3 ">
+            <p class="pt-3"><strong>Description:</strong> <br>
+ <%= @meal.description.capitalize %></p>
+            <p class="pt-2 pb-2"><strong>Cuisine:</strong> <br>
+ <%= @meal.cuisine.capitalize %></p>
+            <p><% @meal.tags.each do |tag| %>
+                <%= tag.name %>
+              <% end %></p>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="p-2">
-        <%# button_to 'Add to Cart', meal_meal_orders_path(@meal) %>
-        <%= simple_form_for([@meal, @meal_order]) do |f| %>
-          <%= f.input :quantity_ordered %>
-          <%= f.input :pick_up, as: :string, input_html: {type: :date}, label: "Pick up date" %>
-          <%= f.input :pick_up, as: :string, input_html: {type: :time}, label: "Pick up time" %>
-          <%= f.submit "Add to cart", class: "search", style: "border: none" %>
-        <% end %>
-    </div>
-
-      <%#= link_to 'All User meals', user_path(@meal.user_id), class: 'btn btn-primary' %>
-      <%#= link_to "Go Back", meals_path %>
-  </div>
-  <%# <div>
-    <img src="https://a0.muscache.com/im/pictures/8da31ffa-daa8-4e7d-aa9b-1d81ef99369d.jpg?im_w=720" class="img" alt="barn">
-  </div> %>
-  <div>
-    <div>
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <% @meal.photos.each_with_index do |photo, index| %>
-            <li data-target="#carouselExampleIndicators1" data-slide-to="<%= index %>" class="<%= index == 0 ? 'active' : '' %>"></li>
+    <%# RIGHT SECTION %>
+    <div class="col-6 ml-3 ">
+      <div class="col showbottom">
+        <div class="description descriptiontext" style="width:80%;">
+          <h4><%= @meal.name.capitalize %></h1>
+          <p class="pb-1"><%= humanized_money_with_symbol(@meal.price) %> per serving</p>
+          <p class="pt-2"><strong>No. of servings:</strong> <%= @meal.available_quantity %></p>
+          <p class="pt-2"><strong>Available from: </strong><%= @meal.collect_from.strftime("%d/%m, %I:%M %p") %> - <%= @meal.collect_to.strftime("%d/%m, %I:%M %p") %></p>
+          <p class="pt-2"><strong>Pickup Address:</strong> <%= @meal.address %></p>
+          <%# <%= link_to 'All User meals', user_path(@meal.user_id), class: 'btn' %>
+          <%#= link_to "Go Back", meals_path %>
+        </div>
+        <%# RIGHT %>
+        <div class="mt-3 mb-2 showform">
+          <%# button_to 'Add to Cart', meal_meal_orders_path(@meal) %>
+          <%= simple_form_for([@meal, @meal_order]) do |f| %>
+            <%= f.input :quantity_ordered, label: "Quantity" %>
+            <%= f.input :pick_up, as: :string, input_html: {type: :date}, label: "Pick up date" %>
+            <%= f.input :pick_up, as: :string, input_html: {type: :time}, label: "Pick up time" %>
+            <div class="d-flex justify-content-center"><%= button_tag( :class => "addtocart mt-3 mb-3n") do %>
+                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+              <% end %>
+            </div>
           <% end %>
-        </ol>
-        <div class="carousel-inner">
-          <% if @meal.photos.attached? %>
-            <% @meal.photos.each_with_index do |photo, index| %>
-              <div class="carousel-item <%= index == 0 ? 'active' : '' %>">
-                <%= cl_image_tag photo.key, class:"big-carousel-img"%>
-              </div>
+        </div>
+        <%# PROFILE SECTION %>
+        <div class="py-2 mt-4 mb-3 row profile-container">
+          <div class="col-3"><img src="<%= url_for(@meal.user.photos[0]) %>" class="avatar-show"/></div>
+          <div class="col-9">
+            <p class="d-flex justify-content-center">Made with ❤️ &nbsp; by <%= @meal.user.name %> <br>
+ <%= @meal.user.profile %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container mb-3">
+    <div class="row">
+      <hr class="my-2">
+      <div class="col-12 col-sm-6">
+        <h3>Reviews</h3>
+        <% if @meal.reviews.empty? %>
+          <small><em class="text-muted">Be the first one to review this meal</em></small>
+        <% end %>
+        <% @meal.reviews.each do |review| %>
+          <div>
+            <% review.rating.times do %>
+              <i class="fas fa-star star-yellow"></i>
             <% end %>
-          <% else %>
-            <%= image_tag @meal.picture_url, class:"big-carousel-img"%>
-          <% end %>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="container mb-3">
-  <div class="row">
-    <hr class="my-5">
-    <div class="col-12 col-sm-6">
-      <h3>Reviews</h3>
-      <% if @meal.reviews.empty? %>
-        <small><em class="text-muted">Be the first one to review this meal</em></small>
-      <% end %>
-      <% @meal.reviews.each do |review| %>
-        <div>
-          <% review.rating.times do %>
-            <i class="fas fa-star star-yellow"></i>
-          <% end %>
-          <small><em class="text-muted"><%= distance_of_time_in_words_to_now(review.created_at) %> ago</em></small>
-          <p class="mb-0"><%= review.comment %></p>
-          <small class="delete-link text-right flex-shrink-0"><%= link_to "delete", review_path(review), method: :delete, data: { confirm: "Are you sure you want to remove this review?"}, class: 'text-danger' %></small>
-        </div>
-        <hr>
-      <% end %>
-    </div>
-   <div class="col-12 col-sm-6">
-      <div class="bg-white rounded p-3 mb-5">
-        <h5>Add your review</h5>
-        <%= simple_form_for [@meal, @review] do |f| %>
-          <%= f.input :comment, placeholder: "Add your review here" %>
-          <%= f.input :rating, as: :select, collection: (1..5), required: true, prompt: "What's your rating", input_html: { data: { controller: "jquery-bar-rating" } } %>
-          <%= f.submit "Submit", class:"btn search" %>
+            <small><em class="text-muted"><%= distance_of_time_in_words_to_now(review.created_at) %> ago</em></small>
+            <p class="mb-0" id="review-<%= review.id %>"><%= review.comment %></p>
+            <small class="delete-link text-right flex-shrink-0"><%= link_to "delete", review_path(review), method: :delete, data: { confirm: "Are you sure you want to remove this review?"}, class: 'text-danger', remote: true %></small>
+          </div>
+          <hr>
         <% end %>
       </div>
+      <div class="col-12 col-sm-6">
+        <div class="bg-white rounded p-3 mb-5">
+          <h5>Add your review</h5>
+          <%= simple_form_for([@meal, @review], remote: true) do |f| %>
+            <%= f.input :comment, placeholder: "Add your review here" %>
+            <%= f.input :rating, as: :select, collection: (1..5), required: true, prompt: "What's your rating?", input_html: { data: { controller: "jquery-bar-rating" }, style: "display:none" } %>
+            <%= f.submit "Submit", class:"btn search" %>
+          <% end %>
+        </div>
+      </div>
     </div>
-  </div>
   </div>
 </div>

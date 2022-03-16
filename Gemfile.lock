@@ -270,6 +270,11 @@ GEM
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
+    turbolinks_render (0.9.21)
+      actionpack (>= 5.2.0)
+      activesupport (>= 5.2.0)
+      railties (>= 5.2.0)
+      turbolinks-source (~> 5.1)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     unf (0.1.4)
@@ -337,6 +342,7 @@ DEPENDENCIES
   spring
   stripe
   turbolinks (~> 5)
+  turbolinks_render
   tzinfo-data
   validates_timeliness (~> 6.0.0.beta2)
   web-console (>= 4.1.0)

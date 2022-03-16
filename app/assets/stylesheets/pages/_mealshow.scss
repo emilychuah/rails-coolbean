@@ -10,3 +10,41 @@
 .pickup-input {
   width: 600px;
 }
+
+.description {
+  position: relative;
+  padding-top: 20px;
+
+}
+
+.descriptiontext p{
+  margin-bottom: 0;
+}
+
+.showbottom {
+  width: 100%;
+  margin:auto;
+  margin-left: 40px;
+}
+
+.showform {
+  width: 75%;
+  height:auto;
+  min-height:max-content;
+  border: 1px solid rgb(207, 207, 207);
+  border-radius: 3px;
+  padding: 20px;
+}
+
+.profile-container {
+  color: black;
+  border-radius: 3px;
+  margin-left: -1px;
+  margin-right: 10px;
+  width: 75%;
+  margin-top: 10px;
+}
+
+.profile-container p {
+  font-size: 14px;
+}
