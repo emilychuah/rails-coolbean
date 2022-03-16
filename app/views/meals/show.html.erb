@@ -1,68 +1,39 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-<div class="description d-flex justify-content-around">
-  <div class="mx-5">
-    <div>
-      <h1 class="pb-4"><%= @meal.name.capitalize %></h1>
-      <p><strong>Address:</strong> <%= @meal.address %></p>
-      <p><strong>Description:</strong> <%= @meal.description.capitalize %></p>
-      <p><strong>Serving Availability:</strong> <%= @meal.available_quantity %></p>
-      <p><strong>Price per Serving: </strong><%= humanized_money_with_symbol(@meal.price) %></p>
-      <p><strong>Home Chef:</strong> <%= @meal.user.name %></p>
-    </div>
-    <div class="p-2">
-        <%# button_to 'Add to Cart', meal_meal_orders_path(@meal) %>
-        <%= simple_form_for([@meal, @meal_order]) do |f| %>
-          <%= f.input :quantity_ordered %>
-          <%= f.input :pick_up, as: :string, input_html: {type: :date}, label: "Pick up date" %>
-          <%= f.input :pick_up, as: :string, input_html: {type: :time}, label: "Pick up time" %>
-          <%= f.submit "Add to cart", class: "search", style: "border: none" %>
-        <% end %>
-    </div>
-
-      <%#= link_to 'All User meals', user_path(@meal.user_id), class: 'btn btn-primary' %>
-      <%#= link_to "Go Back", meals_path %>
-  </div>
-  <%# <div>
-    <img src="https://a0.muscache.com/im/pictures/8da31ffa-daa8-4e7d-aa9b-1d81ef99369d.jpg?im_w=720" class="img" alt="barn">
-  </div> %>
-  <div>
-    <div>
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <% @meal.photos.each_with_index do |photo, index| %>
-            <li data-target="#carouselExampleIndicators1" data-slide-to="<%= index %>" class="<%= index == 0 ? 'active' : '' %>"></li>
-          <% end %>
-        </ol>
-        <div class="carousel-inner">
-          <% if @meal.photos.attached? %>
-            <% @meal.photos.each_with_index do |photo, index| %>
-              <div class="carousel-item <%= index == 0 ? 'active' : '' %>">
-                <%= cl_image_tag photo.key, class:"big-carousel-img"%>
+<%# LEFT SECTION CAROUSEL & REVIEWS %>
+<div class="container" style="height: 1000px;">
+  <div class="row pt-5">
+    <div class="col-6 ">
+        <div class="d-flex justify-content-center align-items-center">
+          <div>
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+              <ol class="carousel-indicators">
+                <% @meal.photos.each_with_index do |photo, index| %>
+                  <li data-target="#carouselExampleIndicators1" data-slide-to="<%= index %>" class="<%= index == 0 ? 'active' : '' %>"></li>
+                <% end %>
+              </ol>
+              <div class="carousel-inner">
+                <% if @meal.photos.attached? %>
+                  <% @meal.photos.each_with_index do |photo, index| %>
+                    <div class="carousel-item <%= index == 0 ? 'active' : '' %>">
+                      <%= cl_image_tag photo.key, class:"big-carousel-img w-100"%>
+                    </div>
+                  <% end %>
+                <% else %>
+                  <%= image_tag @meal.picture_url, class:"big-carousel-img w-100"%>
+                <% end %>
               </div>
-            <% end %>
-          <% else %>
-            <%= image_tag @meal.picture_url, class:"big-carousel-img"%>
-          <% end %>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
+              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
 
-<div class="container mb-3">
-  <div class="row">
-    <hr class="my-5">
-    <div class="col-12 col-sm-6">
-      <h3>Reviews</h3>
+            <%# HI EMILY REVIEW SECTION GOES BELOW HERE%>
+            <div class="p-4 mb-3" style="width:100%">
+              <h3>Reviews</h3>
       <% if @meal.reviews.empty? %>
         <small><em class="text-muted">Be the first one to review this meal</em></small>
       <% end %>
@@ -86,8 +57,52 @@
           <%= f.input :rating, as: :select, collection: (1..5), required: true, prompt: "What's your rating?", input_html: { data: { controller: "jquery-bar-rating" }, style: "display:none" } %>
           <%= f.submit "Submit", class:"btn search" %>
         <% end %>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <%# RIGHT SECTION %>
+    <div class="col-6">
+      <div class="col justify-content-around showbottom">
+          <div class="description descriptiontext">
+            <h4><%= @meal.name.capitalize %></h1>
+            <p class="pb-1"><%= humanized_money_with_symbol(@meal.price) %> per meal</p>
+            <p ><strong>Address:</strong> <%= @meal.address %></p>
+            <p><strong>Description:</strong> <%= @meal.description.capitalize %></p>
+            <p><strong>Servings available:</strong> <%= @meal.available_quantity %></p>
+            <p><% @meal.tags.each do |tag| %>
+              <%= tag.name %>
+              <% end %></p>
+
+            <%# <%= link_to 'All User meals', user_path(@meal.user_id), class: 'btn' %>
+            <%#= link_to "Go Back", meals_path %>
+          </div>
+
+
+        <%# RIGHT %>
+          <div class="mt-3 showform">
+              <%# button_to 'Add to Cart', meal_meal_orders_path(@meal) %>
+              <%= simple_form_for([@meal, @meal_order]) do |f| %>
+                <%= f.input :quantity_ordered %>
+                <%= f.input :pick_up, as: :string, input_html: {type: :date}, label: "Pick up date" %>
+                <%= f.input :pick_up, as: :string, input_html: {type: :time}, label: "Pick up time" %>
+                <%= f.submit "Add to cart", class: "search", style: "border: none" %>
+              <% end %>
+          </div>
+
+        <%# PROFILE SECTION %>
+        <div class="pt-2" style="width:75%;">
+          <div class="d-flex justify-content-center">
+            <img src="<%= url_for(@meal.user.photos[0]) %>" class="avatar-show" />
+          </div>
+          <div class="mt-2">
+            <p class="d-flex justify-content-center" style="text-align: center;">Made with ❤️  by <%= @meal.user.name %></p>
+          </div>
+          <div class="mt-2">
+            <p class="d-flex justify-content-center" style="text-align: center;">User description goes here</p>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  </div>
 </div>
