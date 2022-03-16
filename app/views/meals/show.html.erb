@@ -1,5 +1,5 @@
 <%# LEFT SECTION CAROUSEL & REVIEWS %>
-<div class="container" style="height: 1000px;">
+<div class="container" style="height: 1250px;">
   <div class="row pt-5">
     <div class="col-6 ">
         <div class="d-flex justify-content-center align-items-center">
@@ -49,7 +49,7 @@
         <hr>
       <% end %>
     </div>
-   <div class="col-12 col-sm-6">
+   <div class="col-12 ">
       <div class="bg-white rounded p-3 mb-5">
         <h5>Add your review</h5>
         <%= simple_form_for([@meal, @review], remote: true) do |f| %>
@@ -65,12 +65,14 @@
     <%# RIGHT SECTION %>
     <div class="col-6">
       <div class="col justify-content-around showbottom">
-          <div class="description descriptiontext">
+          <div class="description descriptiontext" style="width:75%;">
             <h4><%= @meal.name.capitalize %></h1>
             <p class="pb-1"><%= humanized_money_with_symbol(@meal.price) %> per meal</p>
-            <p ><strong>Address:</strong> <%= @meal.address %></p>
-            <p><strong>Description:</strong> <%= @meal.description.capitalize %></p>
-            <p><strong>Servings available:</strong> <%= @meal.available_quantity %></p>
+            <p class="pt-2"><strong>Collection date and time:</strong> <br> <%= @meal.collect_from.strftime("%m/%d, %H:%M") %> - <%= @meal.collect_to.strftime("%m/%d, %H:%M") %></p>
+
+            <p class="pt-2"><strong>Address:</strong> <%= @meal.address %></p>
+            <p class="pt-2"><strong>Description:</strong> <%= @meal.description.capitalize %></p>
+            <p class="pt-2"><strong>Servings available:</strong> <%= @meal.available_quantity %></p>
             <p><% @meal.tags.each do |tag| %>
               <%= tag.name %>
               <% end %></p>
@@ -92,7 +94,7 @@
           </div>
 
         <%# PROFILE SECTION %>
-        <div class="pt-2" style="width:75%;">
+        <div class="pt-3" style="width: 70%;">
           <div class="d-flex justify-content-center">
             <img src="<%= url_for(@meal.user.photos[0]) %>" class="avatar-show" />
           </div>
@@ -100,7 +102,7 @@
             <p class="d-flex justify-content-center" style="text-align: center;">Made with ❤️  by <%= @meal.user.name %></p>
           </div>
           <div class="mt-2">
-            <p class="d-flex justify-content-center" style="text-align: center;">User description goes here</p>
+            <p class="d-flex justify-content-center" style="text-align: center;"><%= @meal.user.profile %></p>
           </div>
         </div>
       </div>
