@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-<div class="description d-flex justify-content-around"">
+<div class="description d-flex justify-content-around">
   <div class="mx-5">
     <div>
       <h1 class="pb-4"><%= @meal.name.capitalize %></h1>
@@ -58,5 +58,39 @@
         </a>
       </div>
     </div>
+  </div>
+</div>
+
+<div class="container mb-3">
+  <div class="row">
+    <hr class="my-5">
+    <div class="col-12 col-sm-6">
+      <h3>Reviews</h3>
+      <% if @meal.reviews.empty? %>
+        <small><em class="text-muted">Be the first one to review this meal</em></small>
+      <% end %>
+      <% @meal.reviews.each do |review| %>
+        <div>
+          <% review.rating.times do %>
+            <i class="fas fa-star star-yellow"></i>
+          <% end %>
+          <small><em class="text-muted"><%= distance_of_time_in_words_to_now(review.created_at) %> ago</em></small>
+          <p class="mb-0"><%= review.comment %></p>
+          <small class="delete-link text-right flex-shrink-0"><%= link_to "delete", review_path(review), method: :delete, data: { confirm: "Are you sure you want to remove this review?"}, class: 'text-danger' %></small>
+        </div>
+        <hr>
+      <% end %>
+    </div>
+   <div class="col-12 col-sm-6">
+      <div class="bg-white rounded p-3 mb-5">
+        <h5>Add your review</h5>
+        <%= simple_form_for [@meal, @review] do |f| %>
+          <%= f.input :comment, placeholder: "Add your review here" %>
+          <%= f.input :rating, as: :select, collection: (1..5), required: true, prompt: "What's your rating", input_html: { data: { controller: "jquery-bar-rating" } } %>
+          <%= f.submit "Submit", class:"btn search" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
   </div>
 </div>
