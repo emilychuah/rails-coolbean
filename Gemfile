@@ -91,3 +91,6 @@ gem 'stripe'
 
 # Pagination
 gem 'kaminari'
+
+# Turbolinks
+gem "turbolinks_render"
