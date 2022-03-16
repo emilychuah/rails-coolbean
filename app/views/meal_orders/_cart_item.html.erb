@@ -7,11 +7,10 @@
   <div class="card-product-infos d-flex justify-content-between w-100">
     <div>
       <h2 class="mb-2"><%= meal_order.meal.name %></h2>
-      <p>Qty: <%= meal_order.quantity_ordered %></p>
+      <h6>Qty: <%= meal_order.quantity_ordered %></h6>
     </div>
     <div style="margin-right: 15px">
-      <p class="mb-2"><%= humanized_money_with_symbol(meal_order.total_price) %></p>
-      <p>/serving</p>
+      <h2 class="mb-2"><%= humanized_money_with_symbol(meal_order.total_price) %></h2>
     </div>
   </div>
 </div>
