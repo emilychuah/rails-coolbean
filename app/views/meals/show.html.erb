@@ -1,69 +1,66 @@
 <%# LEFT SECTION CAROUSEL & REVIEWS %>
-<div class="container" style="height: 900px;">
+<div class="container" style="height: 1000px;">
   <div class="row pt-5">
     <div class="col-6 ">
         <div class="d-flex justify-content-center align-items-center">
-          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-              <% @meal.photos.each_with_index do |photo, index| %>
-                <li data-target="#carouselExampleIndicators1" data-slide-to="<%= index %>" class="<%= index == 0 ? 'active' : '' %>"></li>
-              <% end %>
-            </ol>
-            <div class="carousel-inner">
-              <% if @meal.photos.attached? %>
+          <div>
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+              <ol class="carousel-indicators">
                 <% @meal.photos.each_with_index do |photo, index| %>
-                  <div class="carousel-item <%= index == 0 ? 'active' : '' %>">
-                    <%= cl_image_tag photo.key, class:"big-carousel-img w-100"%>
-                  </div>
+                  <li data-target="#carouselExampleIndicators1" data-slide-to="<%= index %>" class="<%= index == 0 ? 'active' : '' %>"></li>
                 <% end %>
-              <% else %>
-                <%= image_tag @meal.picture_url, class:"big-carousel-img w-100"%>
+              </ol>
+              <div class="carousel-inner">
+                <% if @meal.photos.attached? %>
+                  <% @meal.photos.each_with_index do |photo, index| %>
+                    <div class="carousel-item <%= index == 0 ? 'active' : '' %>">
+                      <%= cl_image_tag photo.key, class:"big-carousel-img w-100"%>
+                    </div>
+                  <% end %>
+                <% else %>
+                  <%= image_tag @meal.picture_url, class:"big-carousel-img w-100"%>
+                <% end %>
+              </div>
+              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+
+            <%# HI EMILY REVIEW SECTION GOES BELOW HERE%>
+            <div class="p-4 mb-3" style="width:100%">
+              <h4>Reviews</h3>
+              <% if @meal.reviews.empty? %>
+                <small><em class="text-muted">Be the first one to review this meal</em></small>
+              <% end %>
+              <% @meal.reviews.each do |review| %>
+                <div>
+                  <% review.rating.times do %>
+                    <i class="fas fa-star star-yellow"></i>
+                  <% end %>
+                  <small><em class="text-muted"><%= distance_of_time_in_words_to_now(review.created_at) %> ago</em></small>
+                  <p class="mb-0"><%= review.comment %></p>
+                  <small class="delete-link text-right flex-shrink-0"><%= link_to "delete", review_path(review), method: :delete, data: { confirm: "Are you sure you want to remove this review?"}, class: 'text-danger' %></small>
+                </div>
+                <hr>
               <% end %>
             </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
-          </div>
 
-          <%# HI EMILY REVIEW SECTION GOES BELOW HERE%>
-          <div class="container mb-3">
-              <div class="row">
-                <hr class="my-5">
-                <div class="col-12 col-sm-6">
-                  <h3>Reviews</h3>
-                  <% if @meal.reviews.empty? %>
-                    <small><em class="text-muted">Be the first one to review this meal</em></small>
-                  <% end %>
-                  <% @meal.reviews.each do |review| %>
-                    <div>
-                      <% review.rating.times do %>
-                        <i class="fas fa-star star-yellow"></i>
-                      <% end %>
-                      <small><em class="text-muted"><%= distance_of_time_in_words_to_now(review.created_at) %> ago</em></small>
-                      <p class="mb-0"><%= review.comment %></p>
-                      <small class="delete-link text-right flex-shrink-0"><%= link_to "delete", review_path(review), method: :delete, data: { confirm: "Are you sure you want to remove this review?"}, class: 'text-danger' %></small>
-                    </div>
-                    <hr>
+            <div class="col-12 col-sm-6">
+                <div class="bg-white rounded p-3 mb-5">
+                  <p><strong>Add your review</strong></p>
+                  <%= simple_form_for [@meal, @review] do |f| %>
+                    <%= f.input :comment, placeholder: "Add your review here" %>
+                    <%= f.input :rating, as: :select, collection: (1..5), required: true, prompt: "What's your rating", input_html: { data: { controller: "jquery-bar-rating" } } %>
+                    <%= f.submit "Submit", class:"btn search" %>
                   <% end %>
                 </div>
-               <div class="col-12 col-sm-6">
-                  <div class="bg-white rounded p-3 mb-5">
-                    <h5>Add your review</h5>
-                    <%= simple_form_for [@meal, @review] do |f| %>
-                      <%= f.input :comment, placeholder: "Add your review here" %>
-                      <%= f.input :rating, as: :select, collection: (1..5), required: true, prompt: "What's your rating", input_html: { data: { controller: "jquery-bar-rating" } } %>
-                      <%= f.submit "Submit", class:"btn search" %>
-                    <% end %>
-                  </div>
-                </div>
-              </div>
-              </div>
             </div>
+          </div>
         </div>
       </div>
 
@@ -113,5 +110,3 @@
       </div>
     </div>
 </div>
-
-
