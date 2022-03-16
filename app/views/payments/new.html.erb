@@ -1,8 +1,10 @@
-<div class="container text-center">
-  <div class="row py-4">
-    <div class="col">
+<div class="container">
+  <div class="row py-4 d-flex align-items-center justify-content-center">
+    <div class="col-6 text-center">
       <h3>Redirecting to payment page...</h3>
-      <p><img src="https://media0.giphy.com/media/jAYUbVXgESSti/giphy.gif?cid=ecf05e472icdu5tnritvxrqvroqd7cfgphc643mazbo972fb&rid=giphy.gif&ct=g" style="height: 374.498px; left: 0px; top: 0px;"></p>
+      <div class="d-flex justify-content-center">
+        <lottie-player src="https://assets6.lottiefiles.com/private_files/lf30_4a9z4r5x.json" background="transparent"  speed="1"  style="width: 500px; height: 500px;" loop autoplay></lottie-player>
+      </div>
       <script>
         const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
         stripe.redirectToCheckout({
