@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_14_081330) do
+ActiveRecord::Schema.define(version: 2022_03_15_234743) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -86,12 +86,12 @@ ActiveRecord::Schema.define(version: 2022_03_14_081330) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.text "content"
-    t.integer "rating"
-    t.bigint "meal_order_id", null: false
+    t.text "comment"
+    t.integer "rating", default: 0
+    t.bigint "meal_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["meal_order_id"], name: "index_reviews_on_meal_order_id"
+    t.index ["meal_id"], name: "index_reviews_on_meal_id"
   end
 
   create_table "taggings", force: :cascade do |t|
@@ -148,6 +148,6 @@ ActiveRecord::Schema.define(version: 2022_03_14_081330) do
   add_foreign_key "meal_orders", "orders"
   add_foreign_key "meals", "users"
   add_foreign_key "orders", "users"
-  add_foreign_key "reviews", "meal_orders"
+  add_foreign_key "reviews", "meals"
   add_foreign_key "taggings", "tags"
 end
