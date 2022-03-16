@@ -10,3 +10,27 @@
 .pickup-input {
   width: 600px;
 }
+
+.description {
+  position: relative;
+  padding-top: 20px;
+
+}
+
+.descriptiontext p{
+  margin-bottom: 0;
+}
+
+.showbottom {
+  width: 80%;
+  margin:auto;
+}
+
+.showform {
+  width: 75%;
+  height: relative;
+  min-height:max-content;
+  border: 1px solid rgb(207, 207, 207);
+  border-radius: 3px;
+  padding: 20px;
+}
