@@ -20,7 +20,7 @@
     </div>
     <%# RIGHT SECTION %>
     <div class="col-6 ml-3 ">
-      <div class="col showbottom">
+      <div class="col showbottom ">
         <div class="description descriptiontext" style="width:80%;">
           <h4><%= @meal.name.capitalize %></h1>
           <p class="pb-1"><%= humanized_money_with_symbol(@meal.price) %> per serving</p>
@@ -31,7 +31,7 @@
           <%#= link_to "Go Back", meals_path %>
         </div>
         <%# RIGHT %>
-        <div class="mt-3 mb-2 showform">
+        <div class="mt-3 mb-2 showform bold-text">
           <%# button_to 'Add to Cart', meal_meal_orders_path(@meal) %>
           <%= simple_form_for([@meal, @meal_order]) do |f| %>
             <%= f.input :quantity_ordered, label: "Quantity" %>
@@ -74,8 +74,8 @@
           <hr>
         <% end %>
       </div>
-      <div class="col-12 col-sm-6">
-        <div class="bg-white rounded p-3 mb-5">
+      <div class="col-12 col-sm-6 ">
+        <div class="bg-white rounded p-3 mb-5 bold-text">
           <h5>Add your review</h5>
           <%= simple_form_for([@meal, @review], remote: true) do |f| %>
             <%= f.input :comment, placeholder: "Add your review here" %>
