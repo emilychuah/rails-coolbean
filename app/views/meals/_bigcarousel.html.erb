@@ -1,4 +1,4 @@
-<div id="carouselExampleIndicators<%= meal.id %>" class="carousel slide" data-bs-interval="false">
+<div id="carouselExampleIndicators<%= meal.id %>" class="carousel big-carousel slide" data-bs-interval="false">
   <div class="carousel-indicators">
     <% meal.photos.each_with_index do |photo, index| %>
       <button type="button" data-bs-target="#carouselExampleIndicators<%= meal.id %>" data-bs-slide-to="<%= index %>" class="<%= index == 0 ? 'active' : '' %>" <%= index == 0 ? 'aria-current="true"' : '' %> ></button>
@@ -8,12 +8,12 @@
     <% if meal.photos.present? %>
       <% meal.photos.each_with_index do |photo, index| %>
         <div class="carousel-item <%= index == 0 ? 'active' : '' %>">
-          <%= cl_image_tag photo.key, class:"big-carousel-img w-100", height: 200 %>
+          <%= cl_image_tag photo.key, class:"carousel-img big-carousel-img w-100", height: 200 %>
         </div>
       <% end %>
     <% else %>
       <% if meal.picture_url.present? %>
-        <%= image_tag meal.picture_url, class:"big-carousel-img w-100", height: 200 %>
+        <%= image_tag meal.picture_url, class:"carousel-img big-carousel-img w-100", height: 200 %>
       <% end %>
     <% end %>
   </div>
