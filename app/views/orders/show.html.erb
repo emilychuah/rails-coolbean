@@ -2,11 +2,12 @@
 <div class="container">
   <div class="row">
     <div class="col-6 mt-3">
-      <div>
-        <h3 class="text-center">Thank You, Enjoy!</h3>
-        <h5 class="mt-3 text-center">Your order details:</h5>
+      <div class="row align-items-center">
+        <img src="https://storytale-public2.b-cdn.net/2021/08/16/507e4f9c-353c-428e-87c4-e2d58d33b661-Congratulations.png?height=410" alt="excited" class="col-6">
+        <h3 class="text-center col-6">Thank You, Enjoy!</h3>
       </div>
       <div>
+        <h5 class="mt-3 text-center">Your order details:</h5>
         <h6 class="mt-5 text-center"><strong>Order number:&nbsp;</strong><%= @order.id %></h6>
         <div class="d-flex flex-column align-items-center">
           <% @order.meal_orders.each do |meal_order| %>
