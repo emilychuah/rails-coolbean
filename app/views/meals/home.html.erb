@@ -96,8 +96,8 @@
         <div class="d-flex justify-content-center">
           <div class="mx-5 icon-effect">
             <div class="d-flex justify-content-center pb-3"><%= image_tag "search.png", height: 50 %></div>
-            <p class="d-flex justify-content-center"><strong>Search meals</strong></p>
-            <p class="text-center">Enter your address in the search bar above and click the search button </p>
+            <p class="d-flex justify-content-center"><strong>Search for meals</strong></p>
+            <p class="text-center">Enter your address in the search bar above and click the Search button </p>
           </div>
         </div>
       </div>
@@ -116,8 +116,8 @@
         <div class="d-flex justify-content-center">
           <div class="mx-5 icon-effect">
             <div class="d-flex justify-content-center pb-3"><%= image_tag "time.png", height: 52 %></div>
-            <p class="d-flex justify-content-center"><strong>Search meals</strong></p>
-            <p class="text-center">When it’s time, meet the homecook chef and pickup your meal</p>
+            <p class="d-flex justify-content-center"><strong>Pick up</strong></p>
+            <p class="text-center">When it's time, meet the home cook and pick up your food</p>
           </div>
         </div>
       </div>
@@ -131,8 +131,8 @@
         <div class="d-flex justify-content-center">
           <div class="mx-5 icon-effect">
             <div class="d-flex justify-content-center pb-3"><%= image_tag "createacc.png", height: 50 %></div>
-            <p class="d-flex justify-content-center" id="hiw-text"><strong>Signup</strong></p>
-            <p class="text-center">Click the signup button and upload your food certification certificate</p>
+            <p class="d-flex justify-content-center" id="hiw-text"><strong>Sign Up</strong></p>
+            <p class="text-center">Click the Sign Up button and upload your food handling and hygiene certificate</p>
           </div>
         </div>
       </div>
@@ -142,7 +142,7 @@
           <div class="mx-5 icon-effect">
             <div class="d-flex justify-content-center pb-3"><%= image_tag "createmeal.png", height: 55 %></div>
             <p class="d-flex justify-content-center" id="hiw-text"><strong>Create a meal listing</strong></p>
-            <p class="text-center">Publish a photo and a description of what your food entails</p>
+            <p class="text-center">Publish a photo and provide details of your food</p>
           </div>
         </div>
       </div>
@@ -152,7 +152,7 @@
           <div class="mx-5 icon-effect">
             <div class="d-flex justify-content-center pb-3"><%= image_tag "purchase.png", height: 52 %></div>
             <p class="d-flex justify-content-center" id="hiw-text"><strong>Buyer makes a purchase</strong></p>
-            <p class="text-center">You will receive a notification when a person purchases your meal</p>
+            <p class="text-center">You will receive a notification when a person purchases your food</p>
           </div>
         </div>
       </div>
@@ -162,7 +162,7 @@
           <div class="mx-5 icon-effect">
             <div class="d-flex justify-content-center pb-3 hiw-text"><%= image_tag "meettime.png", height: 52 %></div>
             <p class="d-flex justify-content-center" id="hiw-text"><strong>Handover your meal</strong></p>
-            <p class="text-center">When it’s time, meet with the buyer and hand your meal. It’s that simple!</p>
+            <p class="text-center">When it's time, meet the buyer and hand over your food. It's that simple!</p>
           </div>
         </div>
       </div>
@@ -176,7 +176,7 @@
     <h3 class="pt-5 d-flex justify-content-center"><strong>Discover homecooked meals in Melbourne</strong></h3>
   </div>
 <div class="row my-5">
-    <% @meals.last(3).each do |meal| %>
+    <% @meals.first(3).each do |meal| %>
       <div class="col-12 col-sm-6 col-md-4 mb-3">
         <div class="column" id="zoomIn">
           <div class="card-deck h-100">
