@@ -8,7 +8,7 @@
           <%# DESCRIPTION %>
           <div class="px-3 ">
             <p class="pt-3"><strong>Description:</strong> <br>
-              <%= @meal.description.capitalize %></p>
+              <%= @meal.description %></p>
             <p class="pt-2 pb-2"><strong>Cuisine:</strong> <br>
               <%= @meal.cuisine.capitalize %></p>
             <p><% @meal.tags.each do |tag| %>
@@ -22,7 +22,7 @@
     <div class="col-6 ml-3 ">
       <div class="col showbottom ">
         <div class="description descriptiontext" style="width:80%;">
-          <h4><%= @meal.name.capitalize %></h1>
+          <h4><%= @meal.name %></h1>
           <p class="pb-1"><%= humanized_money_with_symbol(@meal.price) %> per serving</p>
           <p class="pt-2"><strong>No. of servings:</strong> <%= @meal.available_quantity %></p>
           <p class="pt-2"><strong>Available from: </strong><%= @meal.collect_from.strftime("%d/%m, %I:%M %p") %> - <%= @meal.collect_to.strftime("%d/%m, %I:%M %p") %></p>
@@ -54,7 +54,7 @@
       </div>
     </div>
   </div>
-  <div class="container mb-3 p-5">
+  <div class="container mb-3 p-3">
     <div class="row">
       <hr class="my-2">
       <div class="col-12 col-sm-6 p-3" id="reviews">
