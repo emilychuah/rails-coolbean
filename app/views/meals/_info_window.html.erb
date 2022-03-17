@@ -1,7 +1,7 @@
-<div id="carouselExampleIndicators<%= meal.id + 1  %>" class="carousel slide" data-bs-interval="false">
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-interval="false">
   <div class="carousel-indicators">
     <% meal.photos.each_with_index do |photo, index| %>
-      <button type="button" data-bs-target="#carouselExampleIndicators<%= meal.id + 1 %>" data-bs-slide-to="<%= index %>" class="<%= index == 0 ? 'active' : '' %>" <%= index == 0 ? 'aria-current="true"' : '' %> ></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%= index %>" class="<%= index == 0 ? 'active' : '' %>" <%= index == 0 ? 'aria-current="true"' : '' %> ></button>
     <% end %>
   </div>
   <div class="carousel-inner">
@@ -18,11 +18,11 @@
     <% end %>
   </div>
   <% if meal.photos.present? %>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators<%= meal.id + 1 %>" data-bs-slide="prev">
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Previous</span>
     </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators<%= meal.id + 1 %>" data-bs-slide="next">
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button>
