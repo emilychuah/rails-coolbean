@@ -57,18 +57,18 @@
   <div class="container mb-3">
     <div class="row">
       <hr class="my-2">
-      <div class="col-12 col-sm-6 p-3">
+      <div class="col-12 col-sm-6 p-3" id="reviews">
         <h3>Reviews</h3>
         <% if @meal.reviews.empty? %>
           <small><em class="text-muted">Be the first one to review this meal</em></small>
         <% end %>
         <% @meal.reviews.each do |review| %>
-          <div>
+          <div id="review-<%= review.id %>">
             <% review.rating.times do %>
               <i class="fas fa-star star-yellow"></i>
             <% end %>
             <small><em class="text-muted"><%= distance_of_time_in_words_to_now(review.created_at) %> ago</em></small>
-            <p class="mb-0" id="review-<%= review.id %>"><%= review.comment %></p>
+            <p class="mb-0"><%= review.comment %></p>
             <small class="delete-link text-right flex-shrink-0"><%= link_to "delete", review_path(review), method: :delete, data: { confirm: "Are you sure you want to remove this review?"}, class: 'text-danger', remote: true %></small>
           </div>
           <hr>
@@ -78,7 +78,7 @@
         <div class="bg-white rounded p-3 mb-5">
           <h5>Add your review</h5>
           <% if current_user %>
-            <%= simple_form_for([@meal, @review]) do |f| %>
+            <%= simple_form_for([@meal, @review], remote: true) do |f| %>
               <%= f.input :comment, placeholder: "Add your review here" %>
               <%= f.input :rating, as: :select, collection: (1..5), required: true, prompt: "What's your rating?", input_html: { data: { controller: "jquery-bar-rating" }, style: "display:none" } %>
               <%= f.submit "Submit", class:"btn search" %>

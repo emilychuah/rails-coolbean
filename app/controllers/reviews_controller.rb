@@ -13,7 +13,7 @@ class ReviewsController < ApplicationController
   def destroy
     @review = Review.find(params[:id])
     @review.destroy
-    redirect_to meal_path(@review.meal)
+    redirect_to meal_path(@review.meal, anchor: "reviews")
   end
 
   private
