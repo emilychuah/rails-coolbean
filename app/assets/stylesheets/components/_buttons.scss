@@ -226,3 +226,14 @@
 .addtocart:hover i{
   transform: scale(1.1);
 }
+
+
+.back {
+  font-family: archivo;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.back:hover {
+  color: grey;
+}

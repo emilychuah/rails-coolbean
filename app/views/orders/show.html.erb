@@ -1,37 +1,46 @@
-<div class="container">
+<div class="container" id="confirmation-page">
   <div class="row">
-    <div class="col-6 mt-3">
+    <div class="col-6 mt-2">
       <div class="text-center">
-        <img src="https://storytale-public2.b-cdn.net/2021/08/16/507e4f9c-353c-428e-87c4-e2d58d33b661-Congratulations.png?height=410" alt="excited" style="height: 260px;width: auto;">
-        <h3>Hurray! Your order is complete ✅</h3>
+        <img src="https://storytale-public2.b-cdn.net/2021/08/16/507e4f9c-353c-428e-87c4-e2d58d33b661-Congratulations.png?height=410" alt="excited" style="height: 250px;width: auto;">
+        <h3 style="margin:-12px;">Hurray! </h3>
+        <h4 style="margin: 5px;">Your order is complete ✅</h3>
+        <p class="text-center">Below are the details of your order:</p>
       </div>
       <div>
-        <h6 class="mt-5 text-center"><strong>Order number:&nbsp;</strong><%= @order.id %></h6>
+        <h6 class="mt-4 text-center" style="font-size: 18px;"><strong>Order number:&nbsp;</strong><%= @order.id %></h6>
         <div class="d-flex flex-column align-items-center">
           <% @order.meal_orders.each do |meal_order| %>
             <div class="col-12 col-sm-6">
-              <div class="card mb-5">
-                <div class="card-header"><%= meal_order.meal.name.capitalize %> x<%= meal_order.quantity_ordered %></div>
+              <div class="card mb-2">
+                <div class="card-header d-flex justify-content-center" ">
+                  <%= meal_order.meal.name.capitalize %> x<%= meal_order.quantity_ordered %>
+                </div>
+
                 <div class="card-body">
-                  <p class="card-title">Home cook: <%= meal_order.meal.user.name %></p>
-                  <p class="card-text">Contact number: <%= meal_order.meal.user.phone_number %></p>
-                  <p class="card-text"><strong>Pick up details:</strong></p>
-                  <p class="card-text">Date: <%= meal_order.pick_up.strftime("%d/%m/%y") %></p>
-                  <p class="card-text">Time: <%= meal_order.pick_up.strftime("%I:%M %p") %></p>
-                  <p class="card-text">Address: <%= meal_order.meal.address %></p>
+                  <p class="card-text d-flex justify-content-center">Home cook: <%= meal_order.meal.user.name %></p>
+                  <p class="card-text d-flex justify-content-center">Contact number: <%= meal_order.meal.user.phone_number %></p>
+                  <p class="card-text d-flex justify-content-center pt-2" style="font-size: 18px;"><strong>Pick up details:</strong></p>
+                  <p class="card-text d-flex justify-content-center">Date: <%= meal_order.pick_up.strftime("%d/%m/%y") %></p>
+                  <p class="card-text d-flex justify-content-center">Time: <%= meal_order.pick_up.strftime("%I:%M %p") %></p>
+                  <p class="card-text d-flex justify-content-center">Pickup Address: </p>
+                  <p class="card-text d-flex justify-content-center"><%= meal_order.meal.address %></p>
                 </div>
               </div>
             </div>
           <% end %>
         </div>
       </div>
+      <div class="d-flex justify-content-center">
+        <%= link_to "Return to home", root_path, class: "btn back mb-3" %>
+      </div>
     </div>
     <div class="col-6">
       <div id="map" style="width: 100%; height: 100%; position: sticky; top: 0;"
         data-mapbox-markers-value="<%= @markers.to_json %>"
-      data-controller="mapbox"
-      data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+        data-controller="mapbox"
+        data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
     </div>
   </div>
-</div>
 </div>
