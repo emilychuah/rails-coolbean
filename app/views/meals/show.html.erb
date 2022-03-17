@@ -24,7 +24,7 @@
         <div class="description descriptiontext" style="width:80%;">
           <h4><%= @meal.name.capitalize %></h1>
           <p class="pb-1"><%= humanized_money_with_symbol(@meal.price) %> per serving</p>
-          <p class="pt-2 bold-text"><strong>No. of servings:</strong> <%= @meal.available_quantity %></p>
+          <p class="pt-2"><strong>No. of servings:</strong> <%= @meal.available_quantity %></p>
           <p class="pt-2"><strong>Available from: </strong><%= @meal.collect_from.strftime("%d/%m, %I:%M %p") %> - <%= @meal.collect_to.strftime("%d/%m, %I:%M %p") %></p>
           <p class="pt-2"><strong>Pickup Address:</strong> <%= @meal.address %></p>
           <%# <%= link_to 'All User meals', user_path(@meal.user_id), class: 'btn' %>
