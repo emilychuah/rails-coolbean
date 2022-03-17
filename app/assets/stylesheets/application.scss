@@ -43,12 +43,12 @@ body {
 }
 
 
-  #meal_tag_list_gluten {
+  #meal_tag_list_gluten-free {
     position: absolute;
     transform: scale(0);
   }
 
-  #meal_tag_list_gluten + label {
+  #meal_tag_list_gluten-free + label {
     cursor: pointer;
     display: inline-block;
     font-size: 0.9rem;
@@ -61,17 +61,17 @@ body {
     margin-bottom: 0.4rem;
   }
 
-  #meal_tag_list_gluten:checked + label {
+  #meal_tag_list_gluten-free:checked + label {
     background-color: #FFD803;
     color: #272343;
   }
 
-  #meal_tag_list_asian {
+  #meal_tag_list_vegetarian {
     position: absolute;
     transform: scale(0);
   }
 
-  #meal_tag_list_asian + label {
+  #meal_tag_list_vegetarian + label {
     cursor: pointer;
     display: inline-block;
     font-size: 0.9rem;
@@ -84,17 +84,17 @@ body {
     margin-bottom: 0.4rem;
   }
 
-  #meal_tag_list_asian:checked + label {
+  #meal_tag_list_vegetarian:checked + label {
     background-color: #FFD803;
     color: #272343;
   }
 
-  #meal_tag_list_mexican {
+  #meal_tag_list_vegan {
     position: absolute;
     transform: scale(0);
   }
 
-  #meal_tag_list_mexican + label {
+  #meal_tag_list_vegan + label {
     cursor: pointer;
     display: inline-block;
     font-size: 0.9rem;
@@ -107,17 +107,17 @@ body {
     margin-bottom: 0.4rem;
   }
 
-  #meal_tag_list_mexican:checked + label {
+  #meal_tag_list_vegan:checked + label {
     background-color: #FFD803;
     color: #272343;
   }
 
-  #meal_tag_list_italian {
+  #meal_tag_list_halal {
     position: absolute;
     transform: scale(0);
   }
 
-  #meal_tag_list_italian + label {
+  #meal_tag_list_halal + label {
     cursor: pointer;
     display: inline-block;
     font-size: 0.9rem;
@@ -130,17 +130,17 @@ body {
     margin-bottom: 0.4rem;
   }
 
-  #meal_tag_list_italian:checked + label {
+  #meal_tag_list_halal:checked + label {
     background-color: #FFD803;
     color: #272343;
   }
 
-  #meal_tag_list_dessert {
+  #meal_tag_list_dairy-free {
     position: absolute;
     transform: scale(0);
   }
 
-  #meal_tag_list_dessert + label {
+  #meal_tag_list_dairy-free + label {
     cursor: pointer;
     display: inline-block;
     font-size: 0.9rem;
@@ -153,17 +153,17 @@ body {
     margin-bottom: 0.4rem;
   }
 
-  #meal_tag_list_dessert:checked + label {
+  #meal_tag_list_dairy-free:checked + label {
     background-color: #FFD803;
     color: #272343;
   }
 
-  #meal_tag_list_indian {
+  #meal_tag_list_nut-free {
     position: absolute;
     transform: scale(0);
   }
 
-  #meal_tag_list_indian + label {
+  #meal_tag_list_nut-free + label {
     cursor: pointer;
     display: inline-block;
     font-size: 0.9rem;
@@ -176,17 +176,17 @@ body {
     margin-bottom: 0.4rem;
   }
 
-  #meal_tag_list_indian:checked + label {
+  #meal_tag_list_nut-free:checked + label {
     background-color: #FFD803;
     color: #272343;
   }
 
-  #meal_tag_list_turkish {
+  #meal_tag_list_lactose-free {
     position: absolute;
     transform: scale(0);
   }
 
-  #meal_tag_list_turkish + label {
+  #meal_tag_list_lactose-free + label {
     cursor: pointer;
     display: inline-block;
     font-size: 0.9rem;
@@ -199,11 +199,33 @@ body {
     margin-bottom: 0.4rem;
   }
 
-  #meal_tag_list_turkish:checked + label {
+  #meal_tag_list_lactose-free:checked + label {
     background-color: #FFD803;
     color: #272343;
   }
 
+  #meal_tag_list_shellfish-free {
+    position: absolute;
+    transform: scale(0);
+  }
+
+  #meal_tag_list_shellfish-free + label {
+    cursor: pointer;
+    display: inline-block;
+    font-size: 0.9rem;
+    border-radius: 50rem;
+    padding: 0.5rem 0.9rem;
+    background-color: #ffd90300;
+    color: #272343;
+    border: 1px solid #272343;
+    margin-right: 0.6rem;
+    margin-bottom: 0.4rem;
+  }
+
+  #meal_tag_list_shellfish-free:checked + label {
+    background-color: #FFD803;
+    color: #272343;
+  }
 
   .search {
     width: 450px;

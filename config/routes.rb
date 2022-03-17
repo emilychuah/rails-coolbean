@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :meal_orders, only: [:create, :new]
     resources :reviews, only: :create
   end
+  resources :meal_orders, only: [:destroy]
   resources :orders, only: [:show, :create] do
     resources :payments, only: :new
   end
