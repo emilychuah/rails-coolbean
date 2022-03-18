@@ -122,3 +122,11 @@
 .dropdown-menu {
   opacity: 90% !important;
 }
+
+#cart {
+  transition: 0.2s;
+}
+
+#cart:hover {
+  transform: scale(1.1);
+}
