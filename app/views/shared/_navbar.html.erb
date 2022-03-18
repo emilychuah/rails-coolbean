@@ -16,8 +16,8 @@
 
     <div class="d-flex align-items-center" id="main">
       <div><button class="openbtn center-cropped d-flex align-items-center" data-action="click->navbar#openNav">&#9776</button></div>
-      <div><%= link_to root_path, class: "navbar-brand" do %>
-        <%= image_tag "logo.png", class:"logo"%>
+      <div style="padding-left:4px;"><%= link_to root_path, class: "navbar-brand" do %>
+        <%= image_tag "logo.png", class:"logo pl-2"%>
       <% end %>
       </div>
     </div>
@@ -36,10 +36,14 @@
           <li class="nav-item">
             <%= link_to "Cart", cart_path, class: "nav-link" %>
           <%# </li> %>
-          <div class="d-flex align-content-center mr-2">
+
+          <div class="d-flex align-content-center mr-2" id="cart">
           <%= link_to cart_path, class: "navbar-brand" do %>
               <%= image_tag "basket.png", width: 25, height: 25 %>
           <% end %>
+          </div>
+          <div class="pt-2" style="padding-right: 3px;font-style:italic;">
+            <li> Hello, <%= current_user.name %> </li>
           </div>
           <li class="nav-item dropdown">
             <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="<%= url_for(current_user.photos[0]) %> "  />

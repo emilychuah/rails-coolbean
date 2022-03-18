@@ -9,11 +9,13 @@
           <div class="px-3 ">
             <p class="pt-3"><strong>Description:</strong> <br>
               <%= @meal.description %></p>
-            <p class="pt-2 pb-2"><strong>Cuisine:</strong> <br>
+            <div class="row">
+            <p class="pt-2 pb-2 col"><strong>Cuisine:</strong> <br>
               <%= @meal.cuisine.capitalize %></p>
-            <p><% @meal.tags.each do |tag| %>
-                <%= tag.name %>
+            <p class="col m-3 px-2"><% @meal.tags.each do |tag| %>
+                <div id="meal_tag"><%= tag.name %></div>
               <% end %></p>
+            </div>
           </div>
         </div>
       </div>

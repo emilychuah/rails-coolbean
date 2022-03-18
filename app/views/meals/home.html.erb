@@ -19,6 +19,7 @@
         </div>
 
       <div class="d-flex align-items-center" id="main">
+
         <button class="openbtnhome center-cropped d-flex align-items-center" data-action="click->navbar#openNav">&#9776</button>
         <%= link_to root_path, class: "navbar-brand" do %>
           <%= image_tag "logo.png", width: 29, height: 35%>
@@ -33,6 +34,9 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto">
           <% if user_signed_in? %>
+          <div class="pt-2" style="padding-right: 3px; color:white; font-style:italic;">
+            <li> Hello, <%= current_user.name %> </li>
+          </div>
             <li class="nav-item dropdown">
               <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="<%= url_for(current_user.photos[0]) %>" />
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
