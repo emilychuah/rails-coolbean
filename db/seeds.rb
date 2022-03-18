@@ -60,6 +60,94 @@ theresa = User.create!(
 )
 theresa.photos.attach(io: File.open('app/assets/images/theresa.png'), filename: 'theresa.png', content_type: 'image/png')
 
+isabel = User.create!(
+  name: "Isabel",
+  email: "isabel@live.com",
+  password: "password",
+  phone_number: "0411839121",
+  overall_rating: 5.0,
+  food_safety_certified: true,
+  profile: "Hi, I'm Isabel! I specialise in Asian cuisine. I love making healthy and fresh food to share! I also love having my food with lots of herbs as I believe it gives it a bit more flavour and an extra punch!",
+)
+isabel.photos.attach(io: URI.open('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1641776693/cbhbfh34dyvm4otoktit.jpg'), filename: 'isabel.png', content_type: 'image/png')
+
+todd = User.create!(
+  name: "Todd",
+  email: "todd@live.com",
+  password: "password",
+  phone_number: "0411839000",
+  overall_rating: 5.0,
+  food_safety_certified: true,
+  profile: "Hi, I'm Todd! I specialise in Asian cuisine. I love making healthy and fresh food to share! I also love having my food with lots of herbs as I believe it gives it a bit more flavour and an extra punch!",
+)
+todd.photos.attach(io: URI.open('https://avatars.githubusercontent.com/u/79092285?v=4'), filename: 'todd.png', content_type: 'image/png')
+
+padmini = User.create!(
+  name: "Padmini",
+  email: "padmini@live.com",
+  password: "password",
+  phone_number: "0411839000",
+  overall_rating: 5.0,
+  food_safety_certified: true,
+  profile: "Hi, I'm Padmini! I specialise in Asian cuisine. I love making healthy and fresh food to share! I also love having my food with lots of herbs as I believe it gives it a bit more flavour and an extra punch!",
+)
+padmini.photos.attach(io: URI.open('https://avatars.githubusercontent.com/u/19542655?v=4'), filename: 'padmini.png', content_type: 'image/png')
+
+njoroge = User.create!(
+  name: "Njoroge",
+  email: "njoroge@live.com",
+  password: "password",
+  phone_number: "0411838000",
+  overall_rating: 5.0,
+  food_safety_certified: true,
+  profile: "Hi, I'm Njoroge! I specialise in Asian cuisine. I love making healthy and fresh food to share! I also love having my food with lots of herbs as I believe it gives it a bit more flavour and an extra punch!",
+)
+njoroge.photos.attach(io: URI.open('https://avatars.githubusercontent.com/u/58973645?v=4'), filename: 'njoroge.png', content_type: 'image/png')
+
+hendrick = User.create!(
+  name: "Hendrick",
+  email: "hendrick@live.com",
+  password: "password",
+  phone_number: "0411837000",
+  overall_rating: 5.0,
+  food_safety_certified: true,
+  profile: "Hi, I'm Hendrick! I specialise in Asian cuisine. I love making healthy and fresh food to share! I also love having my food with lots of herbs as I believe it gives it a bit more flavour and an extra punch!",
+)
+hendrick.photos.attach(io: URI.open('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1645657767/stestwqud1bteydqorph.jpg'), filename: 'hendrick.png', content_type: 'image/png')
+
+siddharth = User.create!(
+  name: "Siddharth",
+  email: "siddharth@live.com",
+  password: "password",
+  phone_number: "0411835000",
+  overall_rating: 5.0,
+  food_safety_certified: true,
+  profile: "Hi, I'm Siddharth! I specialise in Asian cuisine. I love making healthy and fresh food to share! I also love having my food with lots of herbs as I believe it gives it a bit more flavour and an extra punch!",
+)
+siddharth.photos.attach(io: URI.open('https://avatars.githubusercontent.com/u/24914266?v=4'), filename: 'siddharth.png', content_type: 'image/png')
+
+sony = User.create!(
+  name: "Sony",
+  email: "sony@live.com",
+  password: "password",
+  phone_number: "0411832000",
+  overall_rating: 5.0,
+  food_safety_certified: true,
+  profile: "Hi, I'm Sony! I specialise in Asian cuisine. I love making healthy and fresh food to share! I also love having my food with lots of herbs as I believe it gives it a bit more flavour and an extra punch!",
+)
+sony.photos.attach(io: URI.open('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1644876027/jeewasipa9xydrclfou0.jpg'), filename: 'sony.png', content_type: 'image/png')
+
+ervina = User.create!(
+  name: "Ervina",
+  email: "ervina@live.com",
+  password: "password",
+  phone_number: "0411831000",
+  overall_rating: 5.0,
+  food_safety_certified: true,
+  profile: "Hi, I'm Ervina! I specialise in Asian cuisine. I love making healthy and fresh food to share! I also love having my food with lots of herbs as I believe it gives it a bit more flavour and an extra punch!",
+)
+ervina.photos.attach(io: URI.open('https://avatars.githubusercontent.com/u/89203587?v=4'), filename: 'ervina.png', content_type: 'image/png')
+
 puts "Creating meals..."
 
 lasagne = Meal.create!(
@@ -105,7 +193,7 @@ laksa.photos.attach(io: URI.open('https://media.istockphoto.com/photos/singapore
 laksa.photos.attach(io: URI.open('https://media.istockphoto.com/photos/laksa-in-gray-bowl-on-concrete-table-top-coconut-noodle-soup-with-picture-id1306666187?k=20&m=1306666187&s=612x612&w=0&h=V77uILEsT8pIZn3DBsylA58wlZ4jb7Z-ZEa4S75KI-A='), filename: 'laksa.png', content_type: 'image/png')
 
 nasi_lemak = Meal.create!(
-  user: emily,
+  user: isabel,
   name: "Nasi Lemak",
   price: 11,
   description: "Aromatic fluffy rice cooked with coconut milk, a Malaysian signature meal served with spicy sauce, fried chicken, eggs, cucumber, peanuts and fried anchovies.",
@@ -119,7 +207,7 @@ nasi_lemak.photos.attach(io: URI.open('https://media.istockphoto.com/photos/mala
 nasi_lemak.photos.attach(io: URI.open('https://media.istockphoto.com/photos/steamed-fat-rice-picture-id178570384?k=20&m=178570384&s=612x612&w=0&h=k09O_-_8keHnwWts2HAAd2gAC4GDXDssCG8GTpAJQFc='), filename: 'nasilemak.png', content_type: 'image/png')
 
 ravioli = Meal.create!(
-  user: chris,
+  user: todd,
   name: "Ravioli",
   price: 13,
   description: "Delicious Italian dumplings stuffed with ricotta, meat, cheese, and vegetables.",
@@ -133,7 +221,7 @@ ravioli.photos.attach(io: URI.open('https://media.istockphoto.com/photos/spinach
 ravioli.photos.attach(io: URI.open('https://media.istockphoto.com/photos/fresh-made-cheese-ravioli-picture-id1269950303?k=20&m=1269950303&s=612x612&w=0&h=IGwqOjUS7KxsgixKXM2PR7Tl3p1vo_XHquCLwDuqSY4='), filename: 'ravioli.png', content_type: 'image/png')
 
 bun_bo_hue = Meal.create!(
-  user: sam,
+  user: padmini,
   name: "Bun Bo Hue",
   price: 10,
   description: "Mouth-watering Vietnamese spicy beef noodle soup.",
@@ -147,7 +235,7 @@ bun_bo_hue.photos.attach(io: URI.open('https://media.istockphoto.com/photos/bun-
 bun_bo_hue.photos.attach(io: URI.open('https://media.istockphoto.com/photos/vegetarian-central-vietnamese-hot-and-spicy-soup-picture-id529114359?k=20&m=529114359&s=612x612&w=0&h=zhC4gDBVUWBqkBA7B8aGrkAluGisW01BwuJQHrmdoXc='), filename: 'bunbohue.png', content_type: 'image/png')
 
 sushi = Meal.create!(
-  user: theresa,
+  user: njoroge,
   name: "Sushi platter",
   price: 30,
   description: "An assortment of fresh and high-quality sushi made from scratch.",
@@ -175,7 +263,7 @@ tiramisu.photos.attach(io: URI.open('https://media.istockphoto.com/photos/tirami
 tiramisu.photos.attach(io: URI.open('https://media.istockphoto.com/photos/traditional-italian-tiramisu-dessert-cake-in-a-glass-form-decorated-picture-id1067016402?k=20&m=1067016402&s=612x612&w=0&h=qJXILf7oxY-icLgOuHhlbvjG9eEae74ZaF12tfNOsu8='), filename: 'tiramisu.png', content_type: 'image/png')
 
 paella = Meal.create!(
-  user: emily,
+  user: hendrick,
   name: "Paella",
   price: 15,
   description: "Spain's most popular rice dish cooked with meats, seafood and vegetables.",
@@ -189,7 +277,7 @@ paella.photos.attach(io: URI.open('https://media.istockphoto.com/photos/traditio
 paella.photos.attach(io: URI.open('https://media.istockphoto.com/photos/seafood-paella-picture-id155432436?k=20&m=155432436&s=612x612&w=0&h=PbIH1aRZAMcA362qj7Xs6ED4pwP8gyAO6DAkIfwNLbU='), filename: 'paella.png', content_type: 'image/png')
 
 fish_and_chips = Meal.create!(
-  user: chris,
+  user: siddharth,
   name: "Fish and Chips",
   price: 11,
   description: "Fried fish in crispy batter, served with thick-cut chips.",
@@ -203,7 +291,7 @@ fish_and_chips.photos.attach(io: URI.open('https://media.istockphoto.com/photos/
 fish_and_chips.photos.attach(io: URI.open('https://media.istockphoto.com/photos/fish-and-chips-picture-id184929648?k=20&m=184929648&s=612x612&w=0&h=eHm3cV8plsmaoLcHGU0qJnMkzCxCWQH9jSxuI_e7adE='), filename: 'fishnchips.png', content_type: 'image/png')
 
 bibimbap = Meal.create!(
-  user: sam,
+  user: sony,
   name: "Bibimbap",
   price: 14,
   description: "A traditional Korean food which has rice, meat and assorted vegetables. Comes with side dishes as well.",
@@ -217,7 +305,7 @@ bibimbap.photos.attach(io: URI.open('https://media.istockphoto.com/photos/korean
 bibimbap.photos.attach(io: URI.open('https://media.istockphoto.com/photos/korean-food-side-dishes-picture-id160117152?k=20&m=160117152&s=612x612&w=0&h=xEk7wsjRZKPvorIKil1-PXg27Bzdz1CvR9t84DxC_dw='), filename: 'bibimbap.png', content_type: 'image/png')
 
 dumplings = Meal.create!(
-  user: theresa,
+  user: ervina,
   name: "Dumplings",
   price: 8,
   description: "A variety of juicy and delicate bite-sized dumplings.",
