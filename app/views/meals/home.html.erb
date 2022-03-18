@@ -8,8 +8,10 @@
           <a class="closebtn" data-action="click->navbar#closeNav">&times;</a>
           <% if user_signed_in? %>
           <p>Your Account</p>
+          <%= link_to "My Cart", cart_path %>
           <%= link_to "My Orders", user_orders_path(current_user.id)%>
           <%= link_to "Add a new meal", new_meal_path %>
+
           <br>
           <%= link_to "Logout", destroy_user_session_path %>
           <% else %>
@@ -40,6 +42,7 @@
             <li class="nav-item dropdown">
               <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="<%= url_for(current_user.photos[0]) %>" />
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <%= link_to "My cart", cart_path, class: "dropdown-item" %>
                 <%= link_to "Update profile", edit_user_registration_path, class: "dropdown-item" %>
                 <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
               </div>
