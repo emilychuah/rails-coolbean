@@ -1,5 +1,5 @@
 class MealsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home, :index, :show]
+  skip_before_action :authenticate_user!, only: %i[home index show]
 
   # Home page
   def home
@@ -7,7 +7,7 @@ class MealsController < ApplicationController
   end
 
   # Search results with map page
-  def index
+  def index # rubocop:disable Metrics/MethodLength
     if params[:query].present?
       @meals = Meal.search_by_address(params[:query])
     else
@@ -51,6 +51,7 @@ class MealsController < ApplicationController
   private
 
   def meal_params
-    params.require(:meal).permit(:address, :tag_list, :name, :description, :cuisine, :price, :available_quantity, :available_quantity, :collect_from, :collect_to, photos: [])
+    params.require(:meal).permit(:address, :tag_list, :name, :description, :cuisine, :price, :available_quantity,
+                                 :available_quantity, :collect_from, :collect_to, photos: [])
   end
 end

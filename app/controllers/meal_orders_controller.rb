@@ -1,5 +1,5 @@
 class MealOrdersController < ApplicationController
-  before_action :set_cart, only: [:index, :create]
+  before_action :set_cart, only: %i[index create]
   # /cart path
   def index
     # @cart = current_user.orders.find_by(is_paid: false)
@@ -19,7 +19,7 @@ class MealOrdersController < ApplicationController
     @meal_order.meal = @meal
 
     if @meal_order.save
-    redirect_to cart_path, notice: "added to cart"
+      redirect_to cart_path, notice: "added to cart"
     else
       render "meals/show"
     end
@@ -43,7 +43,7 @@ class MealOrdersController < ApplicationController
 
   def set_cart
     @cart = current_user.orders.find_or_create_by(is_paid: false)
-     # Such a cool method! It will look for an order with 'is_paid' field of false
+    # Such a cool method! It will look for an order with 'is_paid' field of false
     # If it does not find one, it will create it for us... otherwise it returns the one it finds
   end
 end

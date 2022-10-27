@@ -1,9 +1,7 @@
 class OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
-    if params[:set_paid] == "true"
-      @order.update(is_paid: true)
-    end
+    @order.update(is_paid: true) if params[:set_paid] == "true"
 
     @markers = @order.meals.geocoded.map do |meal|
       {
@@ -17,9 +15,7 @@ class OrdersController < ApplicationController
 
   def index
     @orders = Order.all
-
   end
-
 
   # def find_order
   #   @order = Order.find(params[:id])

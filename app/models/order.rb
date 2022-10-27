@@ -6,6 +6,6 @@ class Order < ApplicationRecord
   monetize :amount_cents
 
   def total
-    meal_orders.sum{ |meal_order| meal_order.total_price }
+    meal_orders.sum(&:total_price)
   end
 end
