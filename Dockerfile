@@ -27,4 +27,6 @@ COPY package.json .
 COPY yarn.lock .
 RUN yarn install
 
+RUN bin/rails assets:precompile
+
 CMD rails server -b 0.0.0.0
