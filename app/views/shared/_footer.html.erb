@@ -1,6 +1,7 @@
-<footer class="footer">
+<%# show footer other than mobile %>
+<footer class="footer d-none d-sm-block">
   <div class="bottomsection row">
-    <div class="col-lg-4 col-sm-12">
+    <div class="col">
       <div>
         <h1>CoolBean</h1>
       </div>
@@ -8,11 +9,12 @@
         <h2>Share your love for homemade food</h2>
       </div>
     </div>
-    <div class="col-lg-4 col-sm-12">
+
+    <div class="col">
       <div class="row">
         <div class="col">
           <div>
-            <p><strong>Learn</strong></p>
+            <strong>Learn</strong>
           </div>
           <div><a href="#">Gift cards</a></div>
           <div><a href="#">Help centers</a></div>
@@ -20,7 +22,7 @@
         </div>
         <div class="col">
           <div>
-            <p><strong>Follow</strong></p>
+            <strong>Follow</strong>
           </div>
           <div><a href="#">Facebook</a></div>
           <div><a href="#">Instagram</a></div>
@@ -28,14 +30,14 @@
         </div>
         <div class="col">
           <div>
-            <p><strong>Join</strong></p>
+            <strong>Join</strong>
           </div>
           <div><a href="#">Become a homecook</a></div>
           <div><a href="#">Careers</a></div>
         </div>
       </div>
     </div>
-    <div class="col-lg-4 col-sm-12 d-flex justify-content-center">
+    <div class="col d-flex justify-content-center">
       <div>
         <div>
           <p><strong>Secure payments</strong></p>
@@ -57,19 +59,121 @@
       </div>
     </div>
   </div>
-  <div class="whitesection d-flex justify-content-between">
-    <div class="row d-flex align-content-center" id="whitebottom">
-      <div class="col-sm-12 col-lg-3 px-5 pt-2">
-        <p>© 2022 Coolbean, Inc</p>
+  <div class="whitesection pt-2 pb-1 px-4">
+    <div class="row">
+      <div class="col">
+        © <%= Time.new.year %> Coolbean, Inc
       </div>
-      <div class="col-sm-12 col-lg-3 px-5 pt-2"><a href="#">Terms of service</a></div>
-      <div class="col-sm-12 col-lg-3 px-5 pt-2"><a href="#">Privacy</a></div>
-      <div class="col-sm-12 col-lg-3 px-5 pt-2"><a href="#">Delivery Locations</a></div>
+      <div class="col">
+        <a href="#">Terms of service</a>
+      </div>
+      <div class="col">
+        <a href="#">Privacy</a>
+      </div>
+      <div class="col">
+        <a href="#">Delivery Locations</a>
+      </div>
+      <div class="col text-end">
+        <a href="#"><%= image_tag "facebook.png", height: 20  %></a>
+        &nbsp;
+        &nbsp;
+        <a href="#"><%= image_tag "twitter.png", height: 20  %></a>
+        &nbsp;
+        &nbsp;
+        <a href="#"><%= image_tag "instagram.png", height: 20  %></a>
+      </div>
     </div>
-    <div class="row socialicons">
-      <div class="col"><a href="#"><%= image_tag "facebook.png", height: 20  %></a></div>
-      <div class="col"><a href="#"><%= image_tag "twitter.png", height: 20  %></a></div>
-      <div class="col"><a href="#"><%= image_tag "instagram.png", height: 20  %></a></div>
+  </div>
+</footer>
+
+<%# show mobile footer %>
+<footer class="bottomsection footer d-block d-sm-none">
+  <div class="row">
+    <div class="col">
+      <div>
+        <h1>CoolBean</h1>
+      </div>
+      <div>
+        <h2>Share your love for homemade food</h2>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="row">
+        <div class="col">
+          <div>
+            <strong>Learn</strong>
+          </div>
+          <div><a href="#">Gift cards</a></div>
+          <div><a href="#">Help centers</a></div>
+          <div><a href="#">Covid-19 safety</a></div>
+        </div>
+        <div class="col">
+          <div>
+            <strong>Follow</strong>
+          </div>
+          <div><a href="#">Facebook</a></div>
+          <div><a href="#">Instagram</a></div>
+          <div><a href="#">Twitter</a></div>
+        </div>
+        <div class="col">
+          <div>
+            <strong>Join</strong>
+          </div>
+          <div><a href="#">Become a homecook</a></div>
+          <div><a href="#">Careers</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div>
+      <div>
+        <p class="text-center"><strong>Secure payments</strong></p>
+      </div>
+      <div class="paymentoptionicons">
+        <div class="col">
+          <div>
+            <%= image_tag "discover.png", height: 34, width: 40 %>
+            <%= image_tag "mastercard.png", height: 34, width: 40   %>
+            <%= image_tag "americanexpress.png", height: 34, width: 40   %>
+          </div>
+          <div>
+            <%= image_tag "visa.png", height: 34, width: 40  %>
+            <%= image_tag "stripe.png", height: 34, width: 40   %>
+            <%= image_tag "jcb.png", height: 34, width: 40   %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="whitesection pt-3 pb-1 px-10">
+    <div class="row">
+      <div class="col">
+        © <%= Time.new.year %> Coolbean, Inc
+      </div>
+      <div class="col">
+        <a href="#">Terms of service</a>
+      </div>
+      <div class="col">
+        <a href="#">Privacy</a>
+      </div>
+      <div class="col">
+        <a href="#">Delivery Locations</a>
+      </div>
+    </div>
+    <div class="row pt-3 pb-2">
+      <div class="col">
+        <a href="#"><%= image_tag "facebook.png", height: 20  %></a>
+        &nbsp;
+        &nbsp;
+        <a href="#"><%= image_tag "twitter.png", height: 20  %></a>
+        &nbsp;
+        &nbsp;
+        <a href="#"><%= image_tag "instagram.png", height: 20  %></a>
+      </div>
     </div>
   </div>
 </footer>

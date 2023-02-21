@@ -2,68 +2,68 @@
   <%# NAVBAR %>
   <div id="homenav">
     <div class="navbar navbar-expand-sm navbar-light navbar-lewagon-home" data-controller="navbar">
-    <div class="container-fluid">
-      <div class="left-icons">
-        <div id="mySidebar" class="sidepanel" data-navbar-target="sidebar">
-          <a class="closebtn" data-action="click->navbar#closeNav">&times;</a>
-          <% if user_signed_in? %>
-          <p>Your Account</p>
-          <%= link_to "My Cart", cart_path %>
-          <%= link_to "My Orders", user_orders_path(current_user.id)%>
-          <%= link_to "Add a new meal", new_meal_path %>
+      <div class="container-fluid">
+        <div class="left-icons">
+          <div id="mySidebar" class="sidepanel" data-navbar-target="sidebar">
+            <a class="closebtn" data-action="click->navbar#closeNav">&times;</a>
+            <% if user_signed_in? %>
+              <p>Your Account</p>
+              <%= link_to "My Cart", cart_path %>
+              <%= link_to "My Orders", user_orders_path(current_user.id)%>
+              <%= link_to "Add a new meal", new_meal_path %>
 
-          <br>
-          <%= link_to "Logout", destroy_user_session_path %>
-          <% else %>
-          <%= link_to "Signup", new_user_registration_path %>
-          <%= link_to "Login", new_user_session_path %>
-          <% end %>
-        </div>
-
-      <div class="d-flex align-items-center" id="main">
-
-        <button class="openbtnhome center-cropped d-flex align-items-center" data-action="click->navbar#openNav">&#9776</button>
-        <%= link_to root_path, class: "navbar-brand" do %>
-          <%= image_tag "logo.png", width: 29, height: 35%>
-        <% end %>
-        </div>
-      </div>
-
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto">
-          <% if user_signed_in? %>
-          <div class="pt-2" style="padding-right: 3px; color:white; font-style:italic;">
-            <li> Hello, <%= current_user.name %> </li>
+              <br>
+              <%= link_to "Logout", destroy_user_session_path %>
+            <% else %>
+              <%= link_to "Signup", new_user_registration_path %>
+              <%= link_to "Login", new_user_session_path %>
+            <% end %>
           </div>
-            <li class="nav-item dropdown">
-              <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="<%= url_for(current_user.photos[0]) %>" />
-              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <%= link_to "My cart", cart_path, class: "dropdown-item" %>
-                <%= link_to "Update profile", edit_user_registration_path, class: "dropdown-item" %>
-                <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+
+          <div class="d-flex align-items-center" id="main">
+
+            <button class="openbtnhome center-cropped d-flex align-items-center" data-action="click->navbar#openNav">&#9776</button>
+            <%= link_to root_path, class: "navbar-brand" do %>
+              <%= image_tag "logo.png", width: 29, height: 35%>
+            <% end %>
+          </div>
+        </div>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto">
+            <% if user_signed_in? %>
+              <div class="pt-2" style="padding-right: 3px; color:white; font-style:italic;">
+                <li> Hello, <%= current_user.name %> </li>
               </div>
-            </li>
-          <% else %>
-            <li class="nav-item ">
-              <div>
-                <%= link_to "Signup", new_user_registration_path, class: "btn signuphome" %>
-              </div>
-            </li>
-            <li class="nav-item">
-              <div>
-                <%= link_to "Login", new_user_session_path, class: "btn loginhome" %>
-              </div>
-            </li>
-          <% end %>
-        </ul>
+              <li class="nav-item dropdown">
+                <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="<%= url_for(current_user.photos[0]) %>" />
+                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                  <%= link_to "My cart", cart_path, class: "dropdown-item" %>
+                  <%= link_to "Update profile", edit_user_registration_path, class: "dropdown-item" %>
+                  <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+                </div>
+              </li>
+            <% else %>
+              <li class="nav-item ">
+                <div>
+                  <%= link_to "Signup", new_user_registration_path, class: "btn signuphome" %>
+                </div>
+              </li>
+              <li class="nav-item">
+                <div>
+                  <%= link_to "Login", new_user_session_path, class: "btn loginhome" %>
+                </div>
+              </li>
+            <% end %>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
-</div>
   <div class="container d-flex justify-content-center">
     <h1 style="text-align: center">Welcome to CoolBean</h1>
   </div>
@@ -72,17 +72,17 @@
   </div>
   <div class="container d-flex justify-content-center">
     <%= form_tag(meals_path, method: "get", class: "form-inline d-flex align-items-between") do %>
-        <div class="input-group">
-          <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Enter your address", style: "padding-left: 12px;width: 324px;" %>
-          <%= submit_tag "Search", class: "btn search" %>
-        </div>
-      <% end %>
-    </div>
+      <div class="input-group">
+        <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Enter your address", style: "padding-left: 12px;width: 324px;" %>
+        <%= submit_tag "Search", class: "btn search" %>
+      </div>
+    <% end %>
   </div>
+</div>
 </div>
 
 <div>
-    <h3 class="pt-5 d-flex justify-content-center"><strong>How it works</strong></h3>
+  <h3 class="pt-5 d-flex justify-content-center"><strong>How it works</strong></h3>
 </div>
 <%# HOW IT WORKS BOOTSRAP %>
 <div class="d-flex justify-content-center">
@@ -96,41 +96,42 @@
   </ul>
 </div>
 <div class="tab-content" id="pills-tabContent">
-  <div class="tab-pane fade show active" id="pills-Consumer" role="tabpanel" aria-labelledby="pills-Consumer-tab"><div class="container">
-    <%# CONSUMER SECTION %>
-    <div class="row d-flex justify-content-center p-5">
-      <div class="col-12 col-lg-4">
-        <div class="d-flex justify-content-center">
-          <div class="mx-5 icon-effect">
-            <div class="d-flex justify-content-center pb-3"><%= image_tag "search.png", height: 50 %></div>
-            <p class="d-flex justify-content-center"><strong>Search for meals</strong></p>
-            <p class="text-center">Enter your address in the search bar above and click the Search button </p>
+  <div class="tab-pane fade show active" id="pills-Consumer" role="tabpanel" aria-labelledby="pills-Consumer-tab">
+    <div class="container">
+      <%# CONSUMER SECTION %>
+      <div class="row d-flex justify-content-center p-5">
+        <div class="col-12 col-lg-4">
+          <div class="d-flex justify-content-center">
+            <div class="mx-5 icon-effect">
+              <div class="d-flex justify-content-center pb-3"><%= image_tag "search.png", height: 50 %></div>
+              <p class="d-flex justify-content-center"><strong>Search for meals</strong></p>
+              <p class="text-center">Enter your address in the search bar above and click the Search button </p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="col-12 col-lg-4">
-        <div class="d-flex justify-content-center">
-          <div class="mx-5 icon-effect">
-            <div class="d-flex justify-content-center pb-3"><%= image_tag "checkout.png", height: 55 %></div>
-            <p class="d-flex justify-content-center"><strong>Choose your meal</strong></p>
-            <p class="text-center">Add your meal to cart and go to checkout where you can place your order</p>
+        <div class="col-12 col-lg-4">
+          <div class="d-flex justify-content-center">
+            <div class="mx-5 icon-effect">
+              <div class="d-flex justify-content-center pb-3"><%= image_tag "checkout.png", height: 55 %></div>
+              <p class="d-flex justify-content-center"><strong>Choose your meal</strong></p>
+              <p class="text-center">Add your meal to cart and go to checkout where you can place your order</p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="col-12 col-lg-4">
-        <div class="d-flex justify-content-center">
-          <div class="mx-5 icon-effect">
-            <div class="d-flex justify-content-center pb-3"><%= image_tag "time.png", height: 52 %></div>
-            <p class="d-flex justify-content-center"><strong>Pick up</strong></p>
-            <p class="text-center">When it's time, meet the home cook and pick up your food</p>
+        <div class="col-12 col-lg-4">
+          <div class="d-flex justify-content-center">
+            <div class="mx-5 icon-effect">
+              <div class="d-flex justify-content-center pb-3"><%= image_tag "time.png", height: 52 %></div>
+              <p class="d-flex justify-content-center"><strong>Pick up</strong></p>
+              <p class="text-center">When it's time, meet the home cook and pick up your food</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-</div>
-</div>
+  </div>
   <div class="tab-pane fade px-5" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
     <%# HOMECOOK SECTION %>
     <div class="row d-flex justify-content-center p-5 mx-5">
@@ -182,7 +183,7 @@
   <div>
     <h3 class="pt-5 d-flex justify-content-center"><strong>Discover homecooked meals in Melbourne</strong></h3>
   </div>
-<div class="row my-5">
+  <div class="row my-5">
     <% @meals.first(3).each do |meal| %>
       <div class="col-12 col-sm-6 col-md-4 mb-3">
         <div class="column" id="zoomIn">
@@ -190,16 +191,16 @@
             <div class="card h-100">
               <%= render 'carousel', meal: meal %>
               <div class="card-body d-flex justify-content-between" style="height: 150px;">
-                  <div style="width: 70%">
-                    <h6 class="card-title"><strong><%= meal.name %></strong></h6>
-                    <p class="card-text pb-3"><small class="text-muted"><%= meal.description %></small></p>
-                    <div ><%= link_to "See meal", meal_path(meal), class: "btn see-listing" %></div>
-                  </div>
-                  <div class="card-text price-right" style="font-size: 14px">
-                    <img src="<%= url_for(meal.user.photos[0]) %>" class="card-trip-user avatar-homelisting" />
-                    <p><%= humanized_money_with_symbol(meal.price) %>/serving</p>
-                  </div>
+                <div style="width: 70%">
+                  <h6 class="card-title"><strong><%= meal.name %></strong></h6>
+                  <p class="card-text pb-3"><small class="text-muted"><%= meal.description %></small></p>
+                  <div ><%= link_to "See meal", meal_path(meal), class: "btn see-listing" %></div>
                 </div>
+                <div class="card-text price-right" style="font-size: 14px">
+                  <img src="<%= url_for(meal.user.photos[0]) %>" class="card-trip-user avatar-homelisting" />
+                  <p><%= humanized_money_with_symbol(meal.price) %>/serving</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -207,7 +208,6 @@
     <% end %>
   </div>
 </div>
-
 
 <%# MEET ONE OF OUR HOMECOOKS %>
 <div class="container p-4">
@@ -219,10 +219,10 @@
       <p id="cookdescription">I was born and raised in Tehran, Iran, where I began learning traditional recipes from my grandmother. I'm honored to share our family recipes at your kitchen table, and I hope they'll fill you with a feeling of home.</p>
       <div class="d-flex justify-content-center">
         <%= link_to "View meals", meals_path, class: "btn viewmeals mt-3" %>
-        </div>
+      </div>
     </div>
     <div class="col-6">
-     <%= image_tag "homecook.png", height: 400 %>
+      <%= image_tag "homecook.png", height: 400 %>
     </div>
   </div>
 </div>
@@ -233,7 +233,7 @@
       <h3 id="whyyoushouldusecoolbean"><strong>Why you should use CoolBean</strong></h3>
       <div id="explorebtn">
         <%= link_to "Explore meals", meals_path, class: "btn exploremeals" %>
-       </div>
+      </div>
     </div>
     <div class="col-lg-3 col-sm-12" id="whychoose">
       <p id="cookdescription"><strong>Support local cooks</strong></p>
@@ -243,7 +243,7 @@
       <p id="cookdescription"><strong>Explore new cultures</strong></p>
       <p id="cookdescription">Reconnect with your heritage or discover new cultures through traditional homemade dishes</p>
     </div>
-     <div class="col-lg-3 col-sm-12" id="whychoose">
+    <div class="col-lg-3 col-sm-12" id="whychoose">
       <p id="cookdescription"><strong>Reasonable price</strong></p>
       <p id="cookdescription">Enjoy real homemade food at a reasonable price, without sacrificing time</p>
     </div>
@@ -267,86 +267,7 @@
   </div>
   <div class="container d-flex justify-content-center">
     <div class="d-flex justify-content-center mt-2">
-    <%= link_to "Signup now", new_user_registration_path, class: "btn signupnow" %>
+      <%= link_to "Signup now", new_user_registration_path, class: "btn signupnow" %>
     </div>
   </div>
 </div>
-
-<footer class="footer">
-<div class="bottomsection row">
-  <div class="col-lg-4 col-sm-12">
-    <div >
-      <h1>CoolBean</h1>
-    </div>
-    <div>
-      <h2>Share your love for homemade food</h2>
-    </div>
-  </div>
-
-  <div class="col-lg-4 col-sm-12">
-    <div class="row">
-      <div class="col">
-        <div>
-          <p><strong>Learn</strong></p>
-        </div>
-        <div><a href="#">Gift cards</a></div>
-        <div><a href="#">Help centers</a></div>
-        <div><a href="#">Covid-19 safety</a></div>
-      </div>
-
-      <div class="col">
-        <div>
-          <p><strong>Follow</strong></p>
-        </div>
-        <div><a href="#">Facebook</a></div>
-        <div><a href="#">Instagram</a></div>
-        <div><a href="#">Twitter</a></div>
-      </div>
-
-      <div class="col">
-        <div>
-          <p><strong>Join</strong></p>
-        </div>
-        <div><a href="#">Become a homecook</a></div>
-        <div><a href="#">Careers</a></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-lg-4 col-sm-12 d-flex justify-content-center">
-    <div>
-      <div>
-        <p><strong>Secure payments</strong></p>
-      </div>
-      <div class="paymentoptionicons">
-        <div class="col">
-          <div class="px-2 pt-2">
-            <%= image_tag "discover.png", height: 34, width: 40 %>
-            <%= image_tag "mastercard.png", height: 34, width: 40   %>
-            <%= image_tag "americanexpress.png", height: 34, width: 40   %>
-          </div>
-          <div class="p-2">
-            <%= image_tag "visa.png", height: 34, width: 40  %>
-            <%= image_tag "stripe.png", height: 34, width: 40   %>
-            <%= image_tag "jcb.png", height: 34, width: 40   %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="whitesection d-flex justify-content-between">
-  <div class="row d-flex align-content-center" id="whitebottom">
-    <div class="col-sm-12 col-lg-3 px-5 pt-2"><p>© 2022 Coolbean, Inc</p></div>
-    <div class="col-sm-12 col-lg-3 px-5 pt-2"><a href="#">Terms of service</a></div>
-    <div class="col-sm-12 col-lg-3 px-5 pt-2"><a href="#">Privacy</a></div>
-    <div class="col-sm-12 col-lg-3 px-5 pt-2"><a href="#">Delivery Locations</a></div>
-  </div>
-  <div class="row socialicons">
-    <div class="col"><a href="#"><%= image_tag "facebook.png", height: 20  %></a></div>
-    <div class="col"><a href="#"><%= image_tag "twitter.png", height: 20  %></a></div>
-    <div class="col"><a href="#"><%= image_tag "instagram.png", height: 20  %></a></div>
-  </div>
-</div>
-</footer>
